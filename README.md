@@ -2,22 +2,22 @@
     <img src="https://badges.aleen42.com/src/javascript.svg">
     <img src="https://badges.aleen42.com/src/html5.svg">
     <img src="https://badges.aleen42.com/src/css3.svg">
-    <img src="https://img.shields.io/github/license/Sobhan-SRZA/Portfolio-ImpressJs?label=License">
-    <img src="https://img.shields.io/github/last-commit/Sobhan-SRZA/Portfolio-ImpressJs?label=Last Commit">
-    <img src="https://img.shields.io/github/languages/code-size/Sobhan-SRZA/Portfolio-ImpressJs?label=Code Size">
-    <img src="https://img.shields.io/github/directory-file-count/Sobhan-SRZA/Portfolio-ImpressJs?label=Files">
+    <img src="https://img.shields.io/github/license/Sobhan-SRZA/Portfolio?label=License">
+    <img src="https://img.shields.io/github/last-commit/Sobhan-SRZA/Portfolio?label=Last Commit">
+    <img src="https://img.shields.io/github/languages/code-size/Sobhan-SRZA/Portfolio?label=Code Size">
+    <img src="https://img.shields.io/github/directory-file-count/Sobhan-SRZA/Portfolio?label=Files">
     <div>
-        <img src="https://img.shields.io/github/forks/Sobhan-SRZA/Portfolio-ImpressJs?label=Forks">
-        <img src="https://img.shields.io/github/stars/Sobhan-SRZA/Portfolio-ImpressJs?label=Stars">
-        <img src="https://img.shields.io/github/watchers/Sobhan-SRZA/Portfolio-ImpressJs?label=Watchers">
+        <img src="https://img.shields.io/github/forks/Sobhan-SRZA/Portfolio?label=Forks">
+        <img src="https://img.shields.io/github/stars/Sobhan-SRZA/Portfolio?label=Stars">
+        <img src="https://img.shields.io/github/watchers/Sobhan-SRZA/Portfolio?label=Watchers">
     </div>
     <div>
-        <img style="display:block;margin-left:auto;margin-right:auto;width:30%;" src="https://github-readme-stats.vercel.app/api/pin/?username=Sobhan-SRZA&repo=Portfolio-ImpressJs&theme=react">
+        <img style="display:block;margin-left:auto;margin-right:auto;width:30%;" src="https://github-readme-stats.vercel.app/api/pin/?username=Sobhan-SRZA&repo=Portfolio&theme=react">
     </div>
 </div>
 
-# Portfolio-ImpressJs
-A portfolio webpage powered by impress.js. (This web page is not good)
+# Portfolio
+A portfolio webpage powered by my self. (This web page is not my best)
 
 ---
 
