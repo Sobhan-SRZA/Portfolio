@@ -1,315 +1,209 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=1024" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Basic Meta Tags -->
+    <meta name="title" content="Mr. Sinre | Sobhan-SRZA" />
+    <meta name="description"
+        content="Portfolio of Mr. Sinre (Sobhan-SRZA) - Developer, content creator, and Discord bot enthusiast. Discover my biography, projects, and social profiles." />
+    <meta name="keywords"
+        content="Mr. Sinre, Sobhan-SRZA, Portfolio, Developer, Programmer, Discord Bot, Farsi, English" />
+
+    <!-- OpenGraph / Social Media Tags -->
+    <meta property="og:title" content="Mr. Sinre | Sobhan-SRZA" />
+    <meta property="og:description"
+        content="Portfolio of Mr. Sinre (Sobhan-SRZA) featuring projects, biography, and social profiles." />
+    <meta property="og:image" content="https://srza.ir/images/og-image.jpg" />
+    <meta property="og:url" content="https://srza.ir/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <title>Mr. Sinre | Sobhan-SRZA</title>
-    <meta name="description" content="" />
-    <meta name="author" content="Mr.Sinre" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
 
-    <link
-        href="//fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
-        rel="stylesheet" />
-
-    <link href="css/impress-demo.css" rel="stylesheet" />
-    <link href="css/impress-common.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Mr. Sinre / Sobhan-SRZA",
+        "url": "https://srza.ir/",
+        "sameAs": [
+          "https://www.upwork.com/freelancers/~0167afbcbca01071d4",
+          "https://github.com/Sobhan-SRZA/",
+          "https://github.com/Persian-Caesar",
+          "https://github.com/aparatjs",
+          "https://orcid.org/0009-0001-7969-6447",
+          "https://srza.ir/",
+          "https://sobhan.epizy.com/",
+          "https://www.youtube.com/@mr_sinre",
+          "https://www.twitch.tv/sobhan_srza",
+          "https://www.instagram.com/mr.sinre",
+          "https://t.me/Sobhan_SRZA",
+          "https://t.me/d_opa_mine",
+          "https://discord.com/invite/xh2S2h67UW",
+          "https://discord.com/invite/54zDNTAymF",
+          "https://discord.com/users/865630940361785345",
+          "https://discord.com/users/986314682547716117"
+        ],
+        "jobTitle": "Developer & Content Creator",
+        "birthDate": "2005-11-22"
+      }
+    </script>
 </head>
 
 <body>
-    <div id="impress" data-transition-duration="1000" data-width="1024" data-height="768" data-max-scale="3"
-        data-min-scale="0" data-perspective="1000">
+    <header>
+        <h1 id="title">Sobhan-SRZA / Mr. Sinre</h1>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#about" data-key="about">About Me</a></li>
+                <li><a href="#projects" data-key="projects">Projects</a></li>
+                <li><a href="#contact" data-key="contact">Contact</a></li>
+                <li><a href="#biography" data-key="biography">Biography</a></li>
+                <li><a href="#social" data-key="social">Social Profiles</a></li>
+                <li>
+                    <select id="language-switcher">
+                        <option value="en">English</option>
+                        <option value="fa">فارسی</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-        <div id="home" class="step slide" data-x="0" data-y="0" data-z="1000" data-scale="2">
-            <h2>به وب سایت من خوش امدید</h2><br>
-            <p>هدف از ایجاد این وبسایت معرفی خود بوده و برای ساخت صفحه از تکنولوژی Impress.js استفاده است.</p><br>
-            <p>برای مطالعه <a title="life story" href="#biography">داستان زندگی ام</a> کلیک کنید.</p>
-        </div>
+    <main>
+        <section id="about">
+            <div class="content" lang="en">
+                <h2 data-key="about">About Me</h2>
+                <p data-key="about_content">
+                    From a young age, I was captivated by the magic of technology—where lines of code
+                    transform ideas into reality. Born in 2005, my journey into the world of programming
+                    began in 2018. Initially driven by pure curiosity, I soon discovered that coding was a
+                    passion that fueled my desire to build innovative solutions. Over the years, I’ve delved
+                    into diverse languages such as Python, JavaScript, and even experimented with C++, all
+                    while developing creative projects ranging from dynamic Discord bots to compelling web
+                    experiences. Every project is a new opportunity to learn, experiment, and push the
+                    boundaries of digital creativity.
+                </p>
+            </div>
+        </section>
 
-        <div id="biography" class="step skip slide" data-goto="step-2" data-x="-1000" data-y="500" data-z="-1000"
-            data-rotate="30">
-            <p>
-                درود برتو من سبحان هستم که با نام Mr.Sinre فعالیت میکنم حتی گاهی ممکن است بنده را با نام Sobhan-SRZA نیز
-                ببینید. <br>
-                بنده متولد سال 2005 در ماه November و در روز 22 ام هستم، اکنون که در سال 2024 این بایوگرافی را مینویسم
-                18
-                سال و
-                6 ماه سن دارم. <br>
-                <a href="#hobbies">به چیز هایی علاقه داری؟</a><br>
-                <a href="#life-story">چطور با برنامه نویسی آشنا شدی؟</a><br>
-            </p>
-        </div>
+        <section id="projects">
+            <div class="content" lang="en">
+                <h2 data-key="projects">Projects</h2>
+                <ul>
+                    <li data-key="padio">
+                        Padio - A versatile radio bot with easy server setup and high-quality streaming.
+                    </li>
+                    <li data-key="hycom">
+                        HyCom - A project focusing on improved server management.
+                    </li>
+                    <li data-key="ticker">
+                        Ticker Boy - A bot for live updates and notifications.
+                    </li>
+                    <li data-key="djboy">
+                        DJ Boy - Music management and streaming for Discord servers.
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-        <div id="hobbies" class="step skip slide" data-goto="biography" data-x="-2000" data-y="1000" data-z="-40"
-            data-rotate-y="10" data-rotate="-50">
-            <p>
-                درجواب «به چه چیز هایی علاقه داری؟» میتونم بگویم که برنامه نویسی را بیشتر از هرچیزی دوست دارم و در کنار
-                آن
-                به
-                فیلم دیدن و انیمه دیدن علاقه خاصی دارم، نا گفته نماند که از ورزش و کتاب خواندن نیز یکی از سرگرمی هایم
-                است.
-                در فری تایم خود سرگرم گیم میشوم و گاهی وقت ها با موزیک گوش دادن به خیال پردازی درباره آینده میپردازم.
-            </p>
-        </div>
+        <section id="contact">
+            <div class="content" lang="en">
+                <h2 data-key="contact">Contact</h2>
+                <p data-key="contact_content">
+                    Feel free to reach out for any collaboration or to connect!
+                </p>
+            </div>
+        </section>
 
-        <div id="life-story" class="step skip slide" data-goto-prev="biography" data-goto-next="biography" data-x="1000"
-            data-y="2500" data-rotate-x="20">
-            <h2>به نظرم جالب است که داستان آشنایی بنده با دنیای برنامه نویسی را بدانید بالاخره شما یک آدم بیکار هستید که
-                دنبال
-                سرگرمی بودید که به وبسایت بنده آمدید.</h2>
-            <a href="#instagram">شروع فعالیت تولید محتوا در اینستاگرام</a><br>
-            <a href="#youtube">شروع فعالیت تولید محتوا در یوتوب</a><br>
-            <a href="#discord">آشنایی با دیسکورد و شروع برنامه نویسی</a><br>
-            <a href="#me">حال روزم</a><br>
-        </div>
+        <section id="biography">
+            <div class="content" lang="en">
+                <h2 data-key="biography">Biography</h2>
+                <p data-key="biography_content">
+                    From endless nights spent debugging code to the thrill of launching my first project,
+                    my journey has been a mosaic of challenges, learning, and triumphs. Each line of code I
+                    write echoes my passion for innovation and commitment to excellence. As I continue to
+                    evolve in this ever-changing digital landscape, my mission remains clear: to craft
+                    experiences that not only solve real-world problems but also inspire others to explore the
+                    boundless possibilities of technology.
+                </p>
+            </div>
+        </section>
 
-        <div id="instagram" class="step skip slide" data-goto="life-story" data-x="-2500" data-y="-1000"
-            data-rotate-x="30">
-            <p>در ابتدا من از سال 1397 به دنبال تولید محتوا و معروفیت از این راه بودم و شروع فعالیت خود را با نام
-                S.R.Z.A
-                انجام
-                دادم.
-                چرا این اسم؟ خب با توجه به کتاب هایی که خوانده بودم نظرم جلب نام نویسنده هایی افتاد که مخفف اسم خود را
-                نام
-                برده
-                اند بجای کل نام، پس اینجا بود که S.R.Z.A متولد شد.
-                در ابتدای شروع کار تصمیم به ساخت یک چنل در وبسایت آپارات شدم و در آن فیلم و سریال و کارتون آپلود کردم.
-                پس از چند مدت بازخورد خوبی گرفتم ولی بدون درآمد و وقتی متوجه شدم میتوان این بازدید هارا به پول تبدیل کرد
-                ترغیب
-                شدم به احراز هویت و گرفتن مجوز ولی کانال طبق انتظار رد صلاحیت شد.
-                پس از آن تصمیم به بزرگ کردن چنل شدم و برای درآمد زایی به اینستگرام روی اوردم و اکانت خود را در هر دو
-                سایت به
-                S.R.Z.A ACTION تغییر دادم.
-                پس از چند مدت فعالیت برای تبلیغ کانال آپارات در اینستگرام متوجه شدم با این روش نمیتوان به درآمد زایی
-                رسید پس
-                تصمیم گرفتم با ادیت و باز پخش ویدیو های خنده دار و میم پیج اینستگرام را بالا ببرم و البته همینطور هم شد.
-                در چند ماه پسر جوانی مثل من که همسن هاش هیچی جز وقت تلف کردن بلد نبودن به 1600 فالوور در اینستگرام و 500
-                فالوور
-                در آپارات با 5 میلیون رسیده است.
-                حال دیگر نگرانی درباره مسیر خود نداشتم ولی توجه به پیج هایی افتاد که با آپلود ویدیو گیمپلی خود از بازی
-                های
-                مشهور
-                آن دوره توانسته اند رشد کنند و به درآمد برسند.
-                در همین حین یک جرقه به ذهنم خطور کرد و متوجه شدم که میتوانم از گیمپلی خود در بازی ها و معرفی بازی های
-                خوب به
-                رشد
-                خوبی برسم.
-                پس تصمیم گرفتم پیج S.R.Z.A GAMER را راه اندازی کنم و در آن ویدیو هایی از گیمپلی پابجی موبایل که گاه با
-                دوستانم
-                ضبط کرده بوده ام را ادیت و آپلود کنم.
-                پس از چند مدت فعالیت در آن پیج رشد متوسطی داشتم ولی راضیم نکرد و متوجه شدم پلتفورم یوتوب خیلی بهتر از
-                همه ی
-                پلتفورم هایی که استفاده کردم است.
-                پس چنلی با همان نام ساختم و در هردو چنل یوتوب و آپارات ویدیو های گیمپلی را آپلود کردم.</p>
-        </div>
-        <div id="youtube" class="step skip slide" data-goto="life-story" data-x="-2000" data-y="2500"
-            data-rotate-z="-10" data-scale="2" data-rotate="-40">
-            با کمی گشت و گذار در یوتوب و درک الگوریتم تصمیم گرفتم اینستگرام و آپارات را کنار بگذارم و با یوتوب به فعالیت
-            ادامه بدم.
-            کمی گذشت و کمی ادیت با برنامه Flimora یادگرفتم. ویدیو های قبلی چنل را حذف کردم و چنل را با ویدیو های جدید به
-            صورت تستی شروع کردم.
-            با سیستمی که داشتم که همان لپ تاپ ضعیف شروع به ضبط ویدیوی سری دار ماینکرفت کردم و با ادیت های معمولی و ضعیف
-            سعی
-            کردم ویدیو های سرگرم کننده درست کنم.
-            بخاطر درس نتونستم فعالیت رو ادامه بدم و در سال 1399 کنار گذاشتم.
-            بخاطر سماجتی که داشتم دوباره در سال 1400 شروع به فعالیت آزمایشی به صورت جدی کردم و در هفته دو ویدیو با موضوع
-            های
-            متفاوت آپلود کردم.
-            با دو سری ماینکرفتی با عنوان سری سروایوال و سری بدوارز و واکترو بازی کالاف دیوتی ادونسد وارفای توانستم به 50
-            سابکرایب و مجموع 2 هزار ویو و 160 ساعت واچ تایم برسم که با درآمد زایی فاصله ی چندانی نداشتم ولی بازم بخاطر
-            درس
-            همه چیز بهم خورد.
-            چون دیگر نمیتوانستم به ادیت و ساخت ویدیو ادامه دهم تصمیم گرفتم که با گشت و گذار در یوتوب بیشتر در مورد یوتوب
-            یاد
-            بگیرم.
-        </div>
-        <div id="discord" class="step skip slide" data-goto-next="discord-1" data-goto-prev="life-story" data-x="3000"
-            data-y="-1500" data-rotate-z="5" data-scale="3" data-rotate="-40">
-            <p> همین گشت و گذار ها با عنوان دیسکورد آشنا شدم و متوجه شدم گیمر ها در آن بیشترین فعالیت را دارند و اکثر
-                یوتوبر
-                ها
-                یک سرور در آن دارند. برایم جالب شد و تصمیم گرفتم برای یوتوبم یک سرور دیسکورد داشته باشم پس اپلیکشن
-                دیسکورد
-                را
-                نصب کردم و با فضایش بیشتر آشنا شدم. با تحقیق بیشتر در مورد دیسکورد و آشنایی با کانفیگ و ربات های
-                دیسکوردی
-                سرور
-                را بهبود بخشیدم. در یکی از سرور ها متوجه شدم آنها یک ربات مخصوص در سرور دارند و کار بخصوصی را انجام
-                میدهد.
-                با
-                تحقیق متوجه شدم میتوان با ساخت ربات دیسکوردی سرور خود را منحصر به فرد کرد. برایم جالب شد و برایم آشکارا
-                بود
-                که
-                در آن زمان ربات نیترو جنریتور محبوب هست و بعضی سرور ها با این تکنیک ممبر های بیشتری میگرفتن. با منجری در
-                بعضی
-                سرور ها دانش خود را بیشتر کردم و رفتم سراغ یوتوب که چگونه ربات دیسکوردی بسازم و زبان node.js آشنا شدم.
-                ولی
-                اولین
-                سورس کدی که با آن کار کردم سورس کدی به زبان Python بود که با بی سوادی سورس را تغییر میدادم و برایم جذاب
-                میشد
-                که
-                میتوانستم تغییرات را به طور مستقیم در ربات ببینم و همین موضوع برایم جذاب بود. به مرور با سورس کد های
-                بیشتری
-                آشنا
-                شدم و کمی سواد برنامه نویسی ام بیشتر شد. نا گفته نماند که برای سرور خود چند ربات برای پخش موزیک ساخته
-                بودم
-                با
-                نام های DJ BOY و DJ GIRL ولی آن ها را با تغییر دادن سورس کد بقیه نوشته بودم. با تبلیغ DJ BOY متوجه شدم
-                میتوان
-                ربات هایی که ساخته میشود را میتوان وریفای کرد و تیک آبی بگیرند. برایم جذاب بود که یک دست آورد داشته باشم
-                در
-                این
-                پلتفورم و سعی در بیشتر کردن تعداد سرور های دی جی بوی شدم و البته در همین حین با موضوع ساخت ویدیو و درس
-                خواندن در
-                حال کنجار رفتن بودم. شروع یوتوب به صورت رسمی پس از ورودم به دیسکورد بود پس هر بار که ویدیوی جدیدی
-                میگذاشتم
-                در
-                سرورم و دیسکورد معرفی و تبلیغ میکردم.</p>
-        </div>
-        <div id="discord-1" class="step skip slide" data-goto-prev="discord" data-goto-next="life-story" data-x="-1000"
-            data-y="-1500" data-rotate-z="-50" data-rotate-x="20">
-            <p> بعد ها بنظرم جذاب می آمد که با ربات خودم داخل سرور خودم ویدیو های
-                جدید
-                را
-                اعلان کنم پس با دست به دامن اینترنت شدن توانستم سورس کد نه چندان خوبی را بنویسم و آن کار را انجام دهد.
-                بعد
-                ها
-                تصمیم گرفتم اکثر های مدیریتی سرور را به ربات خود واگذار کنم و به مرور باعث شد تصمیم به ساخت سورس کد همه
-                کاره
-                در
-                داخل دیسکورد شوم و رباتی با نام Ordak Farangi متولد شد. با دوستان خوبی که توانسته بودم پیدا کنم این ربات
-                را
-                توسعه دادم و سورس کدش را داخل گیت هاب پابلیک کردم و میتوانم بگویم بهترین کاری که میتوانستم بکنم بود و
-                بشدت
-                راضیم. از طریق گیت هاب با برنامه نویس های بیشتری آشنا شدم و با کمک آنها دانش خود را افزایش دادم. با گذشت
-                هفته ها
-                و ماه ها در ساخت و برنامه نویسی ربات های دیسکوردی بهتر و بهتر شدم و با معروفیت سورس کد All For One Bot
-                آدم
-                های
-                زیادی با من آشنا شدن و توانستم با برنامه نویسی ربات برای بعضی از آنها به درآمد ناچیز برسم ولی همین باعث
-                شد
-                بیشتر
-                عاشق کارم شوم. پس بیشتر روی برنامه نویسی تمرکز کردم و زبان پایتون و جاوا اسکریپت را به کمک یوتوب و برخی
-                از
-                دوستان بهتر یاد گرفتم.</p>
-        </div>
-        <div id="me" class="step skip slide" data-goto="life-story" data-x="500" data-y="-2500" data-rotate-x="-20"
-            data-rotate-y="10">
-            <p>در سال 1402 آزمون دیپلم را دادم و وارد دانشگاه آزاد شدم ولی به اجبار زیرا که میخواستم با
-                سربازی رفتن یکی از مشکلات زندگیم رو کمتر کنم و بیشتر روی برنامه نویسی تمرکز کنم چون بهترین راه و البته
-                آسون
-                ترین
-                راه برای من برای درآمد زایی بود. با اینکه مشتری های کمی داشتم ولی راضی بودم چون مشتری ها باعث میشدن
-                دانشم
-                بیشتر
-                شود. خب چه میشه کرد زندگی همیشه قابل پیش بینی نیست. سال 1402 ربات Ticker Boy را در دیسکورد ساختم و سعی
-                کردم
-                جای
-                پروژه شکست خورده ی دی جی بوی را پر کند ولی تا کنون من را نا امید کرده است. اکنون با دانش کامل در باره
-                ربات
-                های
-                دیسکورد و پیج discord.js و دانش کافی از زبان جاوا اسکریپت و زبان پایتون و کمی زبان C++ به فعالیت خود در
-                گیت
-                هاب
-                و دیسکورد ادامه میدم. یوتوب برایم شکست بزرگی بود که هنوز نمیتونم هندلش کنم و دوباره شروعش کنم پس تا
-                اطلاعات
-                ثانویه خبری از یوتوب نیست.</p>
-            <!-- <h2> پروژه های فعالم:</h2>
-            <p>
-            <h3>های کام:</h3> وب سایتی برای یاد گیری و سرکرمی که به لطف آریا فعالیت راضی کننده ای دارد.
-            </p>
-            <p>
-            <h3>تیکر بوی:</h3> درست است این ربات من را مایوس کرده است ولی من شکست را قبول ندارم و میخواهم آن را جایگزین
-            ربات
-            های
-            بزرگ تر و خفن تر در دیسکورد بکنم.
-            </p>
-            <p>
-            <h3>دی جی بوی:</h3> درست است این ربات شکست خورده است ولی برایم نوستالژی است و البته برای نماد خاصی دارد قصد
-            ندارم
-            کنار بگذارمش.</p>
-            <p>
-            <h3>پادیو:</h3> رباتی مخصوص پخش رادیو در دیسکورد که قابلیت های ربات های مشابه را دارد ولی رایگان که قابلیت
-            چند
-            زبانی
-            دارد و درسال 1403 ارائه کرده ام.
-            </p><br> -->
-            <p> برای فعالیت در دنیای برنامه نویسی کلی ایده دارم که سواد کمی که دارم این اجازه را بهم نمیدهد که آن ها را
-                اجرا
-                کنم و همچنان درس دست از سرم برنمیدارد و دست و پایم را گرفته است و مسیر پیشرفتم را مسدود کرده است.
-                این داستان زندگی و آشنایی با برنامه نویسی بود که در سال 1403 آن را ثبت کردم.
-            </p>
-        </div>
+        <section id="social">
+            <div class="content" lang="en">
+                <h2 data-key="social">Social Profiles</h2>
+            </div>
+            <ul>
+                <li>
+                    <a href="https://www.upwork.com/freelancers/~0167afbcbca01071d4" target="_blank">Upwork</a>
+                </li>
+                <li>
+                    <a href="https://github.com/Sobhan-SRZA/" target="_blank">GitHub - Personal</a>
+                </li>
+                <li>
+                    <a href="https://github.com/Persian-Caesar" target="_blank">GitHub - Team Persian-Caesar</a>
+                </li>
+                <li>
+                    <a href="https://github.com/aparatjs" target="_blank">GitHub - Team AparatJS</a>
+                </li>
+                <li>
+                    <a href="https://orcid.org/0009-0001-7969-6447" target="_blank">Academic (ORCID)</a>
+                </li>
+                <li>
+                    <a href="https://srza.ir/?i=1" target="_blank">Main Website</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@mr_sinre" target="_blank">YouTube</a>
+                </li>
+                <li>
+                    <a href="https://www.twitch.tv/sobhan_srza" target="_blank">Twitch</a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/mr.sinre" target="_blank">Instagram</a>
+                </li>
+                <li>
+                    <a href="https://t.me/Sobhan_SRZA" target="_blank">Telegram Personal</a>
+                </li>
+                <li>
+                    <a href="https://t.me/d_opa_mine" target="_blank">Telegram Channel</a>
+                </li>
+                <li>
+                    <a href="https://discord.com/invite/xh2S2h67UW" target="_blank">Discord Team</a>
+                </li>
+                <li>
+                    <a href="https://discord.com/invite/54zDNTAymF" target="_blank">Discord Personal</a>
+                </li>
+                <li>
+                    <a href="https://discord.com/users/865630940361785345" target="_blank">Discord Profile</a>
+                </li>
+                <li>
+                    <a href="https://discord.com/users/986314682547716117" target="_blank">Discord Team Profile</a>
+                </li>
+            </ul>
+        </section>
+    </main>
 
-        <!-- <div class="step slide" data-x="0" data-y="1000" data-z="-20" data-rotate-x="-60">
-        </div> -->
-
-        <!-- <div class="step slide" data-x="1500" data-y="500" data-rotate="90">
-            <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of
-                your talk?</q>
-        </div> -->
-        <!-- <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <span class="try">then you should try</span>
-        <h1>impress.js<sup>*</sup></h1>
-        <span class="footnote"><sup>*</sup> no rhyme intended</span>
-    </div>
-
-    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-        <p>It’s a <strong>presentation tool</strong> <br />
-            inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br />
-            and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
-    </div>
-
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
-    </div>
-
-    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-        <p>and <b>tiny</b> ideas</p>
-    </div>
-
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-z="0" data-rotate="270" data-scale="6">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b
-                class="scaling">scaling</b>
-            them on an infinite canvas</p>
-    </div>
-
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-    </div>
-
-    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/impress/impress.js">use the source</a>, Luke!</q>
-    </div>
-
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <p>one more thing...</p>
-    </div>
-
-    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10"
-        data-scale="2">
-        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span
-                class="its">it’s</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-        <span class="footnote">* beat that, prezi ;)</span>
-    </div> -->
-
-        <div id="overview" class="step" data-x="0" data-y="0" data-z="0" data-scale="10">
-        </div>
-
-    </div>
-    <!-- <div class="hint">
-    <p>برای حرکت در اسلاید ها از فلش های کیبورد استفاده کنید.</p>
-</div>
-<script>
-    if ("ontouchstart" in document.documentElement) {
-        document.querySelector(".hint").innerHTML = "<p>برای حرکت در اسلاید ها صفحه را به راست یا چپ بکشید.</p>";
-    }
-</script> -->
-    <script src="js/impress.js"></script>
-    <script>impress().init();</script>
+    <footer>
+        <p>&copy; 2025 Mr.Sinre | Sobhan-SRZA</p>
+    </footer>
 </body>
 
 </html>
+<!-- 
+ * @copyright
+ * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
+ * Developed for Persian Caesar | https://github.com/Persian-Caesar | https://dsc.gg/persian-caesar
+ *
+ * If you encounter any issues or need assistance with this code,
+ * please make sure to credit "Persian Caesar" in your documentation or communications.
+ -->
