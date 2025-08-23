@@ -1,0 +1,15 @@
+{
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "biography": "Biography",
+    "social": "Social Profiles",
+    "about_content": "From a young age, I was captivated by the magic of technology—where lines of code transform ideas into reality. Born in 2005, my journey into the world of programming began in 2018. Initially driven by pure curiosity, I soon discovered that coding was a passion that fueled my desire to build innovative solutions. Over the years, I’ve delved into diverse languages such as Python, JavaScript, and even experimented with C++, all while developing creative projects ranging from dynamic Discord bots to compelling web experiences. Every project is a new opportunity to learn, experiment, and push the boundaries of digital creativity.",
+    "biography_content": "From endless nights spent debugging code to the thrill of launching my first project, my journey has been a mosaic of challenges, learning, and triumphs. Each line of code I write echoes my passion for innovation and commitment to excellence. As I continue to evolve in this ever-changing digital landscape, my mission remains clear: to craft experiences that not only solve real-world problems but also inspire others to explore the boundless possibilities of technology.",
+    "contact_content": "Feel free to reach out for any collaboration or just to connect!",
+    "padio": "Padio - A versatile radio bot with easy setup and high-quality streaming.",
+    "hycom": "HyCom - A modern technology news website and programming education platform.",
+    "ticker": "Ticker Boy - A Discord bot dedicated to managing server tickets.",
+    "djboy": "DJ Boy - Music management and streaming for Discord servers.",
+    "meta_description": "Portfolio of Mr. Sinre (Sobhan-SRZA) - Developer, content creator, and Discord bot enthusiast. Discover my biography, projects, and social profiles."
+}
