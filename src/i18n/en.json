@@ -11,5 +11,10 @@
     "hycom": "HyCom - A modern technology news website and programming education platform.",
     "ticker": "Ticker Boy - A Discord bot dedicated to managing server tickets.",
     "djboy": "DJ Boy - Music management and streaming for Discord servers.",
-    "meta_description": "Portfolio of Mr. Sinre (Sobhan-SRZA) - Developer, content creator, and Discord bot enthusiast. Discover my biography, projects, and social profiles."
+    "meta_description": "Portfolio of Mr. Sinre (Sobhan-SRZA) - Developer, content creator, and Discord bot enthusiast. Discover my biography, projects, and social profiles.",
+    "not_found_title": "Page Not Found",
+    "not_found_description": "Sorry, the page you are looking for does not exist.",
+    "back_to_home": "Back to Home",
+    "view_projects": "View My Projects",
+    "contact_me": "Contact Me"
 }

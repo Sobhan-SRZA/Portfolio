@@ -1,0 +1,21 @@
+export const social = {
+    upwork: "https://www.upwork.com/freelancers/~0167afbcbca01071d4",
+    github: "https://github.com/Sobhan-SRZA/",
+    github_pc: "https://github.com/Persian-Caesar",
+    github_aparat: "https://github.com/aparatjs",
+    orcid: "https://orcid.org/0009-0001-7969-6447",
+    linkedin: "https://www.linkedin.com/in/sobhan-rasoulzadeh-asl-a0679635b/",
+    website: "https://srza.ir/",
+    last_website: "https://sobhan.epizy.com/",
+    youtube: "https://www.youtube.com/@mr_sinre",
+    twitch: "https://www.twitch.tv/sobhan_srza",
+    instagram: "https://www.instagram.com/mr.sinre",
+    instagram_private: "https://www.instagram.com/sobhan.rasoulzadeh.asl",
+    telegram: "https://t.me/Sobhan_SRZA",
+    telegram_second: "https://t.me/mr.sinre",
+    telegram_channel: "https://t.me/d_opa_mine",
+    discord_account: "https://discord.com/users/865630940361785345",
+    discord_account_pc: "https://discord.com/users/986314682547716117",
+    discord_server_pc_development: "https://discord.com/invite/xh2S2h67UW",
+    discord_server_pc_club: "https://discord.com/invite/54zDNTAymF"
+} as const;

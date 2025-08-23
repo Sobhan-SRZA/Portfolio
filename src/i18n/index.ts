@@ -6,13 +6,13 @@ import fa from "./fa.json";
 i18n.use(initReactI18next).init({
     resources: {
         en: { translation: en },
-        fa: { translation: fa },
+        fa: { translation: fa }
     },
     lng: "en", 
     fallbackLng: "en",
     interpolation: {
-        escapeValue: false,
-    },
+        escapeValue: false
+    }
 });
 
 export default i18n;

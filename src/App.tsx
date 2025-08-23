@@ -1,14 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import Biography from "./components/Biography";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Social from "./components/Social";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import About from "./components/About";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Biography from "./components/Biography";
-import Social from "./components/Social";
 import "./i18n";
+import NotFound from "./components/NotFound";
 
 const App: React.FC = () => {
   const { i18n, t } = useTranslation();
@@ -23,10 +24,13 @@ const App: React.FC = () => {
           name="description"
           content={t("meta_description")}
         />
-        <meta
-          name="keywords"
-          content="Mr. Sinre, Sobhan-SRZA, Portfolio, Developer, Programmer, Discord Bot, Farsi, English"
-        />
+
+        <meta name="keywords" content="Sobhan Rasoulzadeh Asl, Sobhan Rasulzadeh, Sobhan Rasoolzadeh, Subhan Rasoulzadeh, Soban Rasoulzadeh, Rasoulzadeh-Asl, Rasoul Zadeh Asl, Rasoulzade, Rasolzadeh, Sobhan SRZA, sobhan srza, srzaa, Sobhan-SRZA, Mr. Sinre, Mr Sinre, mr.sinre, mr sinre, mr_sinre, mr-sinre, Sinre, Persian Caesar, Persian Cezar, Persian Cesar, Persian Caeser, پرشین سزار, سبحان رسول‌زاده اصل, سبحن رسول‌زاده, رسول زاده اصل, فول استک دولوپر, Full-stack developer, برنامه‌نویس فول‌استک, Node.js, Nodejs, نودجی‌اس, نود جی اس, Node.js developer, توسعه‌دهنده Node.js, JavaScript, جاوااسکریپت, TypeScript, تایپ‌اسکریپت, React, React.js, Reactjs, ری‌اکت, توسعه‌دهنده React, NestJS, Nest.js, توسعه‌دهنده NestJS, API development, توسعه API, REST API, وب‌سرویس, Website designer, طراحی وب‌سایت, Frontend developer, Backend developer, Python, Python developer, پایتون, توسعه‌دهنده پایتون, Telegram bot, ربات تلگرام, Telegram bot developer, سازنده ربات تلگرام, Discord bot, بات دیسکورد, Discord bot developer, توسعه‌دهنده بات دیسکورد, Freelancer, فریلنسر, Portfolio, نمونه‌کار, Upwork, GitHub, sobhan.rasoulzadeh.asl, Instagram sobhan.rasoulzadeh.asl, اینستاگرام سبحان, t.me/Sobhan_SRZA, Telegram Sobhan_SRZA, تلگرام سبحان, سبحان, sobhan, سبحان برنامه نویس, آرتا عمران ورق, استیل کوهستان, ارتا عمران ورق, aov, a-o-v, arta omran varag, arta omran varagh, arta omran varaq, t.me/d_opa_mine, Discord Sobhan_SRZA, discord.com/users/865630940361785345, discord.com/users/986314682547716117, استخدام, فریلنسر, freelancer, job, developer, programmer, iran, azarbaijan, ardabil, آذربایجان, ترک, اردبیل, برنامه اردبیل" />
+
+        <meta name="description" lang="fa" content="سبحان رسول‌زاده اصل (Mr. Sinre/SRZA) ـ فول‌استک دولوپر: Node.js، React.js، NestJS، توسعه API، ساخت ربات دیسکورد و تلگرام، طراحی و توسعه وب‌سایت." />
+
+        <meta name="description" lang="en" content="Sobhan Rasoulzadeh Asl (Mr. Sinre / SRZA): Full-stack developer—Node.js, React.js, NestJS, API development, Discord & Telegram bots, modern web design." />
+
         <meta property="og:title" content="Mr. Sinre | Sobhan-SRZA" />
         <meta
           property="og:description"
@@ -40,21 +44,74 @@ const App: React.FC = () => {
         <title>Mr. Sinre | Sobhan-SRZA</title>
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "Person",
-            name: "Mr. Sinre / Sobhan-SRZA",
-            url: "https://srza.ir/",
-            sameAs: [
+            "name": "Sobhan Rasoulzadeh Asl",
+            "alternateName": [
+              "Mr. Sinre", "mr.sinre", "Mr Sinre", "mr_sinre", "mr-sinre", "sinre",
+              "SRZA", "sobhan srza", "Sobhan-SRZA", "srzaa",
+              "Persian Caesar", "Persian Cezar", "Persian Cesar", "Persian Caeser", "پرشین سزار",
+              "Sobhan Rasulzadeh", "Sobhan Rasoolzadeh", "Subhan Rasoulzadeh", "Soban Rasoulzadeh",
+              "سبحان رسول‌زاده اصل", "سبحن رسول‌زاده", "رسول زاده اصل"
+            ],
+            "url": "https://srza.ir/",
+            "sameAs": [
               "https://www.upwork.com/freelancers/~0167afbcbca01071d4",
               "https://github.com/Sobhan-SRZA/",
-              // ... سایر لینک‌ها
+              "https://github.com/Persian-Caesar",
+              "https://github.com/aparatjs",
+              "https://orcid.org/0009-0001-7969-6447",
+              "https://www.linkedin.com/in/sobhan-rasoulzadeh-asl-a0679635b/",
+              "https://srza.ir/",
+              "https://sobhan.epizy.com/",
+              "https://www.youtube.com/@mr_sinre",
+              "https://www.twitch.tv/sobhan_srza",
+              "https://www.instagram.com/mr.sinre",
+              "https://www.instagram.com/sobhan.rasoulzadeh.asl",
+              "https://t.me/Sobhan_SRZA",
+              "https://t.me/mr.sinre",
+              "https://t.me/d_opa_mine",
+              "https://discord.com/users/865630940361785345",
+              "https://discord.com/users/986314682547716117",
+              "https://discord.com/invite/xh2S2h67UW",
+              "https://discord.com/invite/54zDNTAymF"
             ],
-            jobTitle: "Developer & Content Creator",
-            birthDate: "2005-11-22",
+            "jobTitle": "Full-stack Developer",
+            "description": "Full-stack developer specializing in Node.js, React.js, NestJS, API development, and Discord/Telegram bot development. وب‌سایت: srza.ir",
+            "knowsAbout": [
+              "Node.js", "JavaScript", "TypeScript", "React.js", "NestJS",
+              "API development", "REST API", "GraphQL", "Database design",
+              "Telegram bot", "Discord bot", "Bot automation",
+              "Python", "Web design", "UI/UX", "Backend", "Frontend",
+              "Freelancing", "Open source projects"
+            ],
+            "skills": [
+              "Full-stack development", "Bot development", "API integration",
+              "Frontend engineering", "Backend engineering", "Database management",
+              "RESTful services", "DevOps basics"
+            ],
+            "nationality": "IR",
+            "brand": {
+              "@type": "Brand",
+              "name": "SRZA / Mr. Sinre",
+              "url": "https://srza.ir/"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Freelancer / Independent Developer",
+              "url": "https://upwork.com/"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "availableLanguage": ["English", "Persian"],
+              "url": "https://t.me/Sobhan_SRZA"
+            }
           })}
         </script>
       </Helmet>
-      <div className={`min-h-screen flex flex-col ${i18n.language === "fa" ? "font-vazir" : "font-sans"}`}>
+
+      <div className={`min-h-screen flex flex-col ${i18n.language === "fa" ? "font-iransans rtl" : "font-sans ltr"}`}>
         <Header />
         <main className="flex-grow container mx-auto px-4 py-8">
           <Routes>
@@ -63,6 +120,7 @@ const App: React.FC = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/biography" element={<Biography />} />
             <Route path="/social" element={<Social />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

@@ -1,8 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'IRANSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  background-color: #111131;
+}
 
 @font-face {
-  font-family: 'Vazir';
-  src: url('/fonts/IRANSansWeb(FaNum).ttf') format('woff2');
+  font-family: 'IRANSans';
+  src: url('/fonts/IRANSansWeb(FaNum).ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    --font-iransans: 'IRANSans', sans-serif;
+    --default-transition-timing-function: easy-in-out;
+    --default-transition-duration:10.5s;
+  }
+}
+
+@layer utilities {
+  .rtl {
+    direction: rtl;
+  }
+
+  .ltr {
+    direction: ltr;
+  }
 }
