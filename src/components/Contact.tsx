@@ -156,7 +156,7 @@ const Contact: React.FC = () => {
               </h3>
               <form
                 onSubmit={handleSubmit}
-                action="https://script.google.com/macros/s/WEBHOOK_ID/exec"
+                action="https://script.google.com/macros/s/AKfycbwwg1gH7aXeFxFBgbK66Vt3hjoVUHOxX2DnBsyxWhalKUBSPYRPRj-hIAfOnSsq7UnNcw/exec"
                 method="POST"
                 className="space-y-4"
               >
