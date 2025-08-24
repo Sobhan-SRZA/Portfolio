@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { social } from "./storage";
 import Biography from "./components/Biography";
 import Projects from "./components/Projects";
 import NotFound from "./components/NotFound";
@@ -15,7 +16,6 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 
 import "./i18n";
-import { social } from "./storage";
 
 const App: React.FC = () => {
   const { i18n, t } = useTranslation();
