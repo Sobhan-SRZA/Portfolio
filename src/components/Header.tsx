@@ -1,26 +1,26 @@
 import {
     Bars3Icon,
     XMarkIcon
-} from '@heroicons/react/24/outline';
+} from "@heroicons/react/24/outline";
 import {
     Dialog,
     DialogPanel
-} from '@headlessui/react';
-import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import LanguageSwitcher from './LanguageSwitcher';
+} from "@headlessui/react";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header: React.FC = () => {
     const { t, i18n } = useTranslation();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navItems = [
-        { name: t('about'), href: '/' },
-        { name: t('projects'), href: '/projects' },
-        { name: t('contact'), href: '/contact' },
-        { name: t('biography'), href: '/biography' },
-        { name: t('social'), href: '/social' }
+        { name: t("about"), href: "/" },
+        { name: t("projects"), href: "/projects" },
+        { name: t("contact"), href: "/contact" },
+        { name: t("biography"), href: "/biography" },
+        { name: t("social"), href: "/social" }
     ];
 
     return (
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
                         type="button"
                         onClick={() => setMobileMenuOpen(true)}
                         className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-400 hover:text-white focus:outline-none"
-                        aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                        aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                     >
                         <Bars3Icon aria-hidden="true" className="h-6 w-6" />
                     </button>
@@ -62,8 +62,8 @@ const Header: React.FC = () => {
                             to={item.href}
                             className={({ isActive }) =>
                                 `text-sm font-semibold font-iransans px-3 py-2 rounded-md transition-colors duration-200 ${isActive
-                                    ? 'text-blue-400 bg-gray-800/50'
-                                    : 'text-gray-200 hover:text-blue-400 hover:bg-gray-800/50'
+                                    ? "text-blue-400 bg-gray-800/50"
+                                    : "text-gray-200 hover:text-blue-400 hover:bg-gray-800/50"
                                 }`
                             }
                         >
@@ -78,8 +78,8 @@ const Header: React.FC = () => {
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 <div className="fixed inset-0 z-50 bg-black/30" aria-hidden="true" />
                 <DialogPanel
-                    className={`fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto bg-gray-900/80 backdrop-blur-md p-6 transition-transform duration-300 transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                        } ${i18n.language === 'fa' ? 'rtl' : 'ltr'}`}
+                    className={`fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto bg-gray-900/80 backdrop-blur-md p-6 transition-transform duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                        } ${i18n.language === "fa" ? "rtl" : "ltr"}`}
                 >
                     <div className="flex items-center justify-between">
                         <NavLink to="/" className="flex items-center space-x-2 space-x-reverse">
@@ -103,7 +103,7 @@ const Header: React.FC = () => {
                                     key={item.name}
                                     to={item.href}
                                     className={({ isActive }) =>
-                                        `block rounded-lg px-3 py-2 text-base font-semibold font-iransans text-white hover:bg-gray-800/50 ${isActive ? 'text-blue-400' : ''
+                                        `block rounded-lg px-3 py-2 text-base font-semibold font-iransans text-white hover:bg-gray-800/50 ${isActive ? "text-blue-400" : ""
                                         }`
                                     }
                                     onClick={() => setMobileMenuOpen(false)}

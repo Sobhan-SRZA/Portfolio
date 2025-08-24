@@ -3,13 +3,14 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import Biography from "./components/Biography";
 import Projects from "./components/Projects";
+import NotFound from "./components/NotFound";
 import Contact from "./components/Contact";
 import Social from "./components/Social";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import About from "./components/About";
+
 import "./i18n";
-import NotFound from "./components/NotFound";
 
 const App: React.FC = () => {
   const { i18n, t } = useTranslation();

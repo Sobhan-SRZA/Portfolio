@@ -16,5 +16,23 @@
     "not_found_description": "Sorry, the page you are looking for does not exist.",
     "back_to_home": "Back to Home",
     "view_projects": "View My Projects",
-    "contact_me": "Contact Me"
+    "contact_me": "Contact Me",
+    "contact_info": "Contact Information",
+    "send_message": "Send a Message",
+    "your_name": "Your Name",
+    "your_email": "Your Email",
+    "your_message": "Your Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "message_success": "Your message was sent successfully!",
+    "message_error": "Error sending message. Please try again.",
+    "close": "Close",
+    "contact_links": {
+        "email": "Email",
+        "discord": "Discord",
+        "telegram": "Telegram",
+        "instagram": "Instagram",
+        "github": "GitHub",
+        "linkedin": "LinkedIn"
+    }
 }

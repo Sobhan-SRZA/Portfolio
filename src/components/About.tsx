@@ -22,7 +22,7 @@ const About: React.FC = () => {
                 >
                     <div className={`text-center ${i18n.language === "fa" ? "md:text-right" : "md:text-left"}`}>
                         {/* عنوان */}
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-6 font-iransans text-green-200 animate-fade-in">
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-6 font-iransans text-blue-200 animate-fade-in">
                             {t("about")}
                         </h2>
 

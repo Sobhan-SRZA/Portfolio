@@ -16,5 +16,23 @@
     "not_found_description": "متأسفیم، صفحه‌ای که به دنبال آن هستید وجود ندارد.",
     "back_to_home": "بازگشت به خانه",
     "view_projects": "مشاهده پروژه‌های من",
-    "contact_me": "تماس با من"
+    "contact_me": "تماس با من",
+    "contact_info": "اطلاعات تماس",
+    "send_message": "ارسال پیام",
+    "your_name": "نام شما",
+    "your_email": "ایمیل شما",
+    "your_message": "پیام شما",
+    "send": "ارسال",
+    "sending": "در حال ارسال...",
+    "message_success": "پیام شما با موفقیت ارسال شد!",
+    "message_error": "خطا در ارسال پیام. لطفاً دوباره تلاش کنید.",
+    "close": "بستن",
+    "contact_links": {
+        "email": "ایمیل",
+        "discord": "دیسکورد",
+        "telegram": "تلگرام",
+        "instagram": "اینستاگرام",
+        "github": "گیتهاب",
+        "linkedin": "لینکدین"
+    }
 }
