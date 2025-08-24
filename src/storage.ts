@@ -1,4 +1,5 @@
 export const social = {
+    email: "sobhan.rasoulzadeh.asl@gmail.com",
     upwork: "https://www.upwork.com/freelancers/~0167afbcbca01071d4",
     github: "https://github.com/Sobhan-SRZA/",
     github_pc: "https://github.com/Persian-Caesar",
@@ -17,5 +18,8 @@ export const social = {
     discord_account: "https://discord.com/users/865630940361785345",
     discord_account_pc: "https://discord.com/users/986314682547716117",
     discord_server_pc_development: "https://discord.com/invite/xh2S2h67UW",
-    discord_server_pc_club: "https://discord.com/invite/54zDNTAymF"
+    discord_server_pc_club: "https://discord.com/invite/54zDNTAymF",
+    karlancer: "https://karlancer.com/profile/517510",
+    gitlab: "https://gitlab.com/Sobhan-SRZA",
+    npm: "https://www.npmjs.com/~sobhan-srza"
 } as const;

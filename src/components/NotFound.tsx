@@ -6,7 +6,7 @@ const NotFound: React.FC = () => {
 
     return (
         <main
-            className={`grid min-h-min mt-44 rounded-3xl bg-gray-900/80 backdrop-blur-md place-items-center px-6 py-24 sm:py-32 lg:px-8 ${i18n.language === 'fa' ? 'rtl' : 'ltr'
+            className={`min-h-min mt-28 bg-gray-900/80 backdrop-blur-md grid rounded-3xl place-items-center px-6 py-24 sm:py-32 lg:px-8 ${i18n.language === 'fa' ? 'rtl' : 'ltr'
                 }`}
         >
             <div className="text-center">

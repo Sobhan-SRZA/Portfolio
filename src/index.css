@@ -22,7 +22,7 @@ body {
   :root {
     --font-iransans: 'IRANSans', sans-serif;
     --default-transition-timing-function: easy-in-out;
-    --default-transition-duration:10.5s;
+    --default-transition-duration: 10.5s;
   }
 }
 
@@ -33,5 +33,21 @@ body {
 
   .ltr {
     direction: ltr;
+  }
+
+  .flex-cols-1 {
+    flex: 0 1 calc(33.333% - 2rem);
+  }
+
+  .flex-cols-2 {
+    flex: 0 1 calc(50% - 2rem);
+  }
+
+  .flex-cols-3 {
+    flex: 0 1 calc(25% - 2rem);
+  }
+
+  .flex-cols-4 {
+    flex: 0 1 100%;
   }
 }

@@ -1,4 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import Biography from "./components/Biography";
@@ -8,9 +12,10 @@ import Contact from "./components/Contact";
 import Social from "./components/Social";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import About from "./components/About";
+import Home from "./components/Home";
 
 import "./i18n";
+import { social } from "./storage";
 
 const App: React.FC = () => {
   const { i18n, t } = useTranslation();
@@ -56,27 +61,7 @@ const App: React.FC = () => {
               "سبحان رسول‌زاده اصل", "سبحن رسول‌زاده", "رسول زاده اصل"
             ],
             "url": "https://srza.ir/",
-            "sameAs": [
-              "https://www.upwork.com/freelancers/~0167afbcbca01071d4",
-              "https://github.com/Sobhan-SRZA/",
-              "https://github.com/Persian-Caesar",
-              "https://github.com/aparatjs",
-              "https://orcid.org/0009-0001-7969-6447",
-              "https://www.linkedin.com/in/sobhan-rasoulzadeh-asl-a0679635b/",
-              "https://srza.ir/",
-              "https://sobhan.epizy.com/",
-              "https://www.youtube.com/@mr_sinre",
-              "https://www.twitch.tv/sobhan_srza",
-              "https://www.instagram.com/mr.sinre",
-              "https://www.instagram.com/sobhan.rasoulzadeh.asl",
-              "https://t.me/Sobhan_SRZA",
-              "https://t.me/mr.sinre",
-              "https://t.me/d_opa_mine",
-              "https://discord.com/users/865630940361785345",
-              "https://discord.com/users/986314682547716117",
-              "https://discord.com/invite/xh2S2h67UW",
-              "https://discord.com/invite/54zDNTAymF"
-            ],
+            "sameAs": Object.values(social),
             "jobTitle": "Full-stack Developer",
             "description": "Full-stack developer specializing in Node.js, React.js, NestJS, API development, and Discord/Telegram bot development. وب‌سایت: srza.ir",
             "knowsAbout": [
@@ -116,7 +101,7 @@ const App: React.FC = () => {
         <Header />
         <main className="flex-grow container mx-auto px-4 py-8">
           <Routes>
-            <Route path="/" element={<About />} />
+            <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/biography" element={<Biography />} />

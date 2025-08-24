@@ -16,7 +16,7 @@ const Header: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navItems = [
-        { name: t("about"), href: "/" },
+        { name: t("home"), href: "/" },
         { name: t("projects"), href: "/projects" },
         { name: t("contact"), href: "/contact" },
         { name: t("biography"), href: "/biography" },
