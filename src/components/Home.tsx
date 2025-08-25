@@ -40,13 +40,13 @@ const Home: React.FC = () => {
                             alt="Mr. Sinre | Sobhan-SRZA"
                             className="mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-blue-400/50 shadow-lg object-cover mb-6 animate-scale-in"
                         />
-                        <h1 className="text-4xl sm:text-5xl font-bold mb-4 font-iransans text-blue-200 animate-fade-in">
+                        <h1 className="max-[400px]:text-3xl text-4xl sm:text-5xl font-bold mb-4 font-iransans text-blue-200 animate-fade-in">
                             Mr. Sinre | Sobhan-SRZA
                         </h1>
                         <p className="text-xl text-gray-300 mb-8 font-iransans animate-fade-in delay-200">
                             {t("hero.tagline")}
                         </p>
-                        <div className="flex justify-center gap-4 animate-fade-in delay-400">
+                        <div className="flex max-[560px]:flex-col justify-center gap-4 animate-fade-in delay-400">
                             <NavLink
                                 to="/projects"
                                 className="px-6 py-3 text-sm font-semibold text-white bg-blue-500 rounded-md shadow-sm hover:bg-blue-400 transition-all duration-200 font-iransans"

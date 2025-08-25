@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
     ];
 
     const usefulLinks = [
-        { name: t("footer.about"), url: "/about" },
+        { name: t("footer.home"), url: "/" },
         { name: t("footer.projects"), url: "/projects" },
         { name: t("footer.contact"), url: "/contact" }
     ];
