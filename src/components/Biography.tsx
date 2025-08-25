@@ -47,8 +47,7 @@ const Biography: React.FC = () => {
     <>
       <Helmet>
         <title>{t("biography")} | Mr. Sinre | Sobhan-SRZA</title>
-        <meta name="description" content={t("biography_intro").substring(0, 160)} />
-        <meta name="keywords" content="Mr. Sinre, Sobhan-SRZA, Biography, Developer, Portfolio, Discord Bots" />
+        <meta name="description" content={t("biography_intro")} />
       </Helmet>
       <section
         id="biography"

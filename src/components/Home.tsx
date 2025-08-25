@@ -28,7 +28,6 @@ const Home: React.FC = () => {
             <Helmet>
                 <title>{t("home")} | Mr. Sinre | Sobhan-SRZA</title>
                 <meta name="description" content={t("about_content").substring(0, 160)} />
-                <meta name="keywords" content="Mr. Sinre, Sobhan-SRZA, Portfolio, Developer, Programmer, Discord Bot, Farsi, English" />
             </Helmet>
 
             {/* Hero Section */}

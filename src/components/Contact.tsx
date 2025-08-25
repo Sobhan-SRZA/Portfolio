@@ -136,8 +136,7 @@ const Contact: React.FC = () => {
     <>
       <Helmet>
         <title>{t("contact")} | Mr. Sinre | Sobhan-SRZA</title>
-        <meta name="description" content={t("contact_content").substring(0, 160)} />
-        <meta name="keywords" content="Mr. Sinre, Sobhan-SRZA, Contact, Developer, Portfolio, Discord, GitHub" />
+        <meta name="description" content={t("contact_content")} />
       </Helmet>
 
       <section
@@ -157,6 +156,7 @@ const Contact: React.FC = () => {
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
+            
             {/* اطلاعات تماس */}
             <div className="bg-gray-800/60 p-6 rounded-lg shadow-lg border border-gray-700 animate-fade-in delay-400">
               <h3 className="text-xl font-semibold text-blue-200 mb-6 font-iransans">

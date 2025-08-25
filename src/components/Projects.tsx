@@ -100,7 +100,6 @@ const Projects: React.FC = () => {
       <Helmet>
         <title>{t("projects")} | Mr. Sinre | Sobhan-SRZA</title>
         <meta name="description" content={t("projects_content").substring(0, 160)} />
-        <meta name="keywords" content="Mr. Sinre, Sobhan-SRZA, Projects, GitHub, Developer, Portfolio" />
       </Helmet>
       <section
         id="projects"

@@ -15,7 +15,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
 
     const languages = [
         { code: 'en', name: 'English' },
-        { code: 'fa', name: 'فارسی' },
+        { code: 'fa', name: 'فارسی' }
     ];
 
     const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];

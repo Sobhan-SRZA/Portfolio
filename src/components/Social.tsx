@@ -125,7 +125,6 @@ const Social: React.FC = () => {
       <Helmet>
         <title>{t("social")} | Mr. Sinre | Sobhan-SRZA</title>
         <meta name="description" content={t("social_content").substring(0, 160)} />
-        <meta name="keywords" content="Mr. Sinre, Sobhan-SRZA, Social Profiles, Developer, Portfolio, Discord, GitHub" />
       </Helmet>
       <section
         id="social"

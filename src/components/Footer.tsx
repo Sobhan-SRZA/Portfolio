@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { social } from "../storage";
+import { NavLink } from "react-router-dom";
 
 const Footer: React.FC = () => {
     const { t, i18n } = useTranslation();
@@ -30,13 +31,13 @@ const Footer: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start animate-fade-in">
                     {/* لوگو و نام برند */}
                     <div className="flex flex-col items-center justify-self-center">
-                        <a
-                            href="/"
+                        <NavLink
+                            to="/"
                             className="text-2xl font-bold text-blue-200 hover:text-blue-100 transition-colors duration-200"
                             aria-label="Mr. Sinre | Sobhan-SRZA"
                         >
                             Mr. Sinre | Sobhan-SRZA
-                        </a>
+                        </NavLink>
                         <p className="text-gray-400 text-sm mt-2 text-center md:text-start">
                             {t("footer.tagline")}
                         </p>
@@ -50,13 +51,13 @@ const Footer: React.FC = () => {
                         <ul className="space-y-2 text-center">
                             {usefulLinks.map((link, index) => (
                                 <li key={index}>
-                                    <a
-                                        href={link.url}
+                                    <NavLink
+                                        to={link.url}
                                         className="text-gray-300 hover:text-blue-200 text-sm transition-colors duration-200"
                                         aria-label={link.name}
                                     >
                                         {link.name}
-                                    </a>
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
