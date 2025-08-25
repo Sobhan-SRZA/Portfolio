@@ -13,7 +13,7 @@ body {
 
 @font-face {
   font-family: 'IRANSans';
-  src: url('/fonts/IRANSansWeb(FaNum).ttf') format('truetype');
+  src: url('/fonts/IRANSansWeb.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
