@@ -1,9 +1,0 @@
-User-agent: *
-
-Allow: /
-Allow: /biography
-Allow: /social
-Allow: /contact
-Allow: /projects
-
-Sitemap: https://srza.ir/sitemap.xml
