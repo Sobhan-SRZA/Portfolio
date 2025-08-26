@@ -42,11 +42,11 @@ const App: React.FC = () => {
           property="og:description"
           content={t("meta_description")}
         />
-        <meta property="og:image" content="images/og-image.jpg" />
+        <meta property="og:image" content="/images/og-image.jpg" />
         <meta property="og:url" content="https://srza.ir/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <title>Mr. Sinre | Sobhan-SRZA</title>
         <script type="application/ld+json">
           {JSON.stringify({

@@ -35,7 +35,7 @@ const Home: React.FC = () => {
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <div className="text-center">
                         <img
-                            src="images/profile.jpg"
+                            src="/images/profile.jpg"
                             alt="Mr. Sinre | Sobhan-SRZA"
                             className="mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-blue-400/50 shadow-lg object-cover mb-6 animate-scale-in"
                         />
