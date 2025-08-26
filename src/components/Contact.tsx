@@ -141,23 +141,23 @@ const Contact: React.FC = () => {
 
       <section
         id="contact"
-        className="min-h-min mt-28 py-16 bg-gray-900/80 backdrop-blur-md flex items-center justify-center"
+        className="min-h-min py-16 bg-gray-800/80 rounded-3xl backdrop-blur-md flex items-center justify-center"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
             }`}
         >
-          {/* عنوان */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-blue-200 text-center font-iransans animate-fade-in">
+          {/* Page Title*/}
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-blue-200 text-center animate-fade-in">
             {t("contact")}
           </h2>
-          <p className="text-center text-gray-300 mb-12 text-lg font-iransans animate-fade-in delay-200">
+          <p className="text-center text-gray-300 mb-12 text-lg animate-fade-in delay-200">
             {t("contact_content")}
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
             
-            {/* اطلاعات تماس */}
+            {/* Contact Information */}
             <div className="bg-gray-800/60 p-6 rounded-lg shadow-lg border border-gray-700 animate-fade-in delay-400">
               <h3 className="text-xl font-semibold text-blue-200 mb-6 font-iransans">
                 {t("contact_info")}
@@ -179,7 +179,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* فرم تماس */}
+            {/* Contact Form */}
             <div className="bg-gray-800/60 p-6 rounded-lg shadow-lg border border-gray-700 animate-fade-in delay-600">
               <h3 className="text-xl font-semibold text-blue-200 mb-6 font-iransans">
                 {t("send_message")}
@@ -196,7 +196,7 @@ const Contact: React.FC = () => {
                     name="name"
                     placeholder={t("your_name")}
                     required
-                    className="w-full p-3 rounded-md bg-gray-900 border border-gray-700 text-gray-200 font-iransans focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200"
+                    className="w-full p-3 rounded-md bg-gray-900 border border-gray-700 text-gray-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200"
                   />
                 </div>
                 <div>
@@ -205,7 +205,7 @@ const Contact: React.FC = () => {
                     name="email"
                     placeholder={t("your_email")}
                     required
-                    className="w-full p-3 rounded-md bg-gray-900 border border-gray-700 text-gray-200 font-iransans focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200"
+                    className="w-full p-3 rounded-md bg-gray-900 border border-gray-700 text-gray-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200"
                   />
                 </div>
                 <div>
@@ -214,13 +214,13 @@ const Contact: React.FC = () => {
                     placeholder={t("your_message")}
                     rows={5}
                     required
-                    className="w-full p-3 rounded-md bg-gray-900 border border-gray-700 text-gray-200 font-iransans focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200 resize-none"
+                    className="w-full p-3 rounded-md bg-gray-900 border border-gray-700 text-gray-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200 resize-none"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-md bg-blue-500 text-white font-semibold font-iransans hover:bg-blue-400 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-md bg-blue-500 text-white font-semibold hover:bg-blue-400 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5" />
                   {loading ? t("sending") : t("send")}
@@ -236,7 +236,7 @@ const Contact: React.FC = () => {
           <div className="fixed inset-0 flex items-center justify-center p-4">
             <DialogPanel
               className={`w-full max-w-md rounded-lg bg-gray-800/90 backdrop-blur-md p-6 text-center transform transition-all duration-300 ${alert.show ? "scale-100 opacity-100" : "scale-95 opacity-0"
-                } ${i18n.language === "fa" ? "font-iransans rtl" : "font-sans ltr"}`}
+                } ${i18n.language === "fa" ? "rtl" : "font-sans ltr"}`}
             >
               <div className="flex justify-center mb-4">
                 {alert.type === "success" && (
@@ -265,10 +265,10 @@ const Contact: React.FC = () => {
                   </svg>
                 )}
               </div>
-              <p className="text-lg font-iransans text-gray-200 mb-6">{alert.message}</p>
+              <p className="text-lg text-gray-200 mb-6">{alert.message}</p>
               <button
                 onClick={() => setAlert({ ...alert, show: false })}
-                className="px-6 py-2 bg-blue-500 text-white rounded-md font-iransans font-semibold hover:bg-blue-400 transition-all duration-200"
+                className="px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-400 transition-all duration-200"
               >
                 {t("close")}
               </button>

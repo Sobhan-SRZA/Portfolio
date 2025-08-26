@@ -31,7 +31,7 @@ const Home: React.FC = () => {
             </Helmet>
 
             {/* Hero Section */}
-            <section className="min-h-min mt-28 py-16 bg-gray-900/80 backdrop-blur-md flex items-center justify-center">
+            <section className="min-h-min py-16 bg-gray-800/80 rounded-3xl backdrop-blur-md flex items-center justify-center">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <div className="text-center">
                         <img
@@ -48,7 +48,7 @@ const Home: React.FC = () => {
                         <div className="flex max-[560px]:flex-col justify-center gap-4 animate-fade-in delay-400">
                             <NavLink
                                 to="/projects"
-                                className="px-6 py-3 text-sm font-semibold text-white bg-blue-500 rounded-md shadow-sm hover:bg-blue-400 transition-all duration-200 font-iransans"
+                                className="px-6 py-3 text-sm font-semibold text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-500 transition-all duration-200 font-iransans"
                             >
                                 {t("view_projects")}
                             </NavLink>
@@ -61,7 +61,7 @@ const Home: React.FC = () => {
                             <a
                                 href={`/resume-${i18n.language}.pdf`}
                                 download="Sobhan-SRZA-Resume.pdf"
-                                className="flex items-center px-6 py-3 text-sm font-semibold text-white bg-green-500 rounded-md shadow-sm hover:bg-green-400 transition-all duration-200 font-iransans"
+                                className="flex items-center px-6 py-3 text-sm font-semibold text-white bg-green-700 rounded-md shadow-sm hover:bg-green-600 transition-all duration-200 font-iransans"
                                 aria-label={t("download_resume")}
                             >
                                 <Download className="w-5 h-5 mr-2" />
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Skills Section */}
-            <section className="py-16 bg-gray-900/80 backdrop-blur-md">
+            <section className="py-16 bg-gray-800/80 backdrop-blur-md">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-blue-200 text-center font-iransans">
                         {t("skills")}
@@ -121,7 +121,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/projects"
-                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-blue-500 rounded-md shadow-sm hover:bg-blue-400 transition-all duration-200 font-iransans"
+                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-500 transition-all duration-200 font-iransans"
                         >
                             {t("view_projects")}
                         </NavLink>
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Contact Teaser */}
-            <section className="py-16 bg-gray-900/80 backdrop-blur-md">
+            <section className="py-16 bg-gray-800/80 backdrop-blur-md">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-blue-200 text-center font-iransans">
                         {t("contact")}

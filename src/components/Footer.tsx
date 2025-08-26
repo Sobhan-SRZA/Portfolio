@@ -25,11 +25,11 @@ const Footer: React.FC = () => {
     ];
 
     return (
-        <footer className="relative bg-gray-900/80 backdrop-blur-md text-white py-12">
+        <footer className="relative bg-gray-800/80 backdrop-blur-md text-white py-12">
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent z-[-1]"></div>
             <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start animate-fade-in">
-                    {/* لوگو و نام برند */}
+                    {/* Logo or Name */}
                     <div className="flex flex-col items-center justify-self-center">
                         <NavLink
                             to="/"
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
                         </p>
                     </div>
 
-                    {/* لینک‌های مفید */}
+                    {/* Usefull links */}
                     <div className="flex flex-col items-center justify-self-center">
                         <h3 className="text-lg font-semibold text-blue-200 mb-4">
                             {t("footer.links")}
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
                         </ul>
                     </div>
 
-                    {/* شبکه‌های اجتماعی */}
+                    {/* Social Pages */}
                     <div className="flex flex-col items-center justify-self-center">
                         <h3 className="text-lg font-semibold text-blue-200 mb-4">
                             {t("footer.social")}
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
 
-                {/* کپی‌رایت */}
+                {/* Copy Rights */}
                 <div className="mt-8 pt-8 border-t border-gray-700 text-center">
                     <p className="text-gray-400 text-sm">
                         &copy; {`${i18n.language === "fa" ? "1404-1397" : "2025-2018"} Mr.Sinre | Sobhan - SRZA. ${t("footer.copyright")}`}

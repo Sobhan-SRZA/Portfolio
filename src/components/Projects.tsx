@@ -103,23 +103,23 @@ const Projects: React.FC = () => {
       </Helmet>
       <section
         id="projects"
-        className="min-h-min mt-28 py-16 bg-gray-900/80 backdrop-blur-md flex items-center justify-center"
+        className="min-h-min py-16 bg-gray-800/80 rounded-3xl backdrop-blur-md flex items-center justify-center"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
             }`}
         >
-          {/* عنوان */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-blue-200 text-center font-iransans animate-fade-in">
+          {/* Page Title*/}
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-blue-200 text-center animate-fade-in">
             {t("projects")}
           </h2>
 
-          {/* توضیحات */}
-          <p className="text-center text-gray-300 mb-12 text-lg font-iransans animate-fade-in delay-200">
+          {/* Describe Page */}
+          <p className="text-center text-gray-300 mb-12 text-lg animate-fade-in delay-200">
             {t("projects_content")}
           </p>
 
-          {/* وضعیت بارگذاری */}
+          {/* Loading animation */}
           {loading && (
             <div className="text-center text-gray-300 animate-pulse">
               {t("loading")}
@@ -132,53 +132,53 @@ const Projects: React.FC = () => {
             </div>
           )}
 
-          {/* پروژه‌ها */}
+          {/* Projects */}
           {!loading && !error && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center animate-fade-in delay-400">
+            <div className="flex flex-wrap justify-center gap-5 justify-items-center animate-fade-in delay-400">
               {projects.map((project, index) => (
                 <a
                   key={index}
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full max-w-xs flex flex-col gap-4 p-6 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-blue-400 hover:bg-gray-800 hover:-translate-y-1 transition-all duration-200 group"
+                  className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-blue-400 hover:bg-gray-800 hover:-translate-y-1 transition-all duration-200 group"
                   aria-label={project.name}
                 >
-                  {/* عنوان پروژه */}
-                  <h3 className="text-center text-xl font-semibold text-blue-200 font-iransans group-hover:text-gray-100">
+                  {/* Projects Name */}
+                  <h3 className="text-center text-xl font-semibold text-blue-200 group-hover:text-gray-100 font-sans">
                     {project.name}
                   </h3>
 
-                  {/* توضیحات */}
-                  <p className="text-gray-300 text-sm font-iransans group-hover:text-gray-100">
+                  {/* Projects Describe */}
+                  <p className="text-gray-300 text-sm group-hover:text-gray-100">
                     {getDescription(project) || t("no_description")}
                   </p>
 
-                  {/* وضعیت و دسترسی */}
-                  <div className="flex justify-between text-sm text-gray-400 font-iransans">
+                  {/* Projects Access and status */}
+                  <div className="flex justify-between text-sm text-gray-400 ltr">
                     <span className="flex items-center gap-2">
                       {statusIcons[project.status] || project.status}
                     </span>
 
-                    {/* ستاره‌ها و فورک‌ها */}
+                    {/* Projects Forks and Stars */}
                     {!project.private && (
                       <div className="flex justify-center gap-4">
                         <div className="flex items-center gap-2">
                           <Star className="w-5 h-5 text-gray-400 group-hover:text-gray-100" />
-                          <span className="text-sm text-gray-400 group-hover:text-gray-100 font-iransans">
+                          <span className="text-sm text-gray-400 group-hover:text-gray-100">
                             {project.stars}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
                           <GitFork className="w-5 h-5 text-gray-400 group-hover:text-gray-100" />
-                          <span className="text-sm text-gray-400 group-hover:text-gray-100 font-iransans">
+                          <span className="text-sm text-gray-400 group-hover:text-gray-100">
                             {project.forks}
                           </span>
                         </div>
                       </div>
                     )}
-                    {/* ستاره‌ها و فورک‌ها */}
 
+                    {/* Projects Access */}
                     <span className="flex items-center gap-2">
                       {project.private ? (
                         <Lock className="w-5 h-5 text-gray-400 group-hover:text-gray-100" />
@@ -188,13 +188,13 @@ const Projects: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* زبان‌ها */}
-                  <div className="flex flex-wrap gap-2 justify-center">
+                  {/* Projects Languages */}
+                  <div className="flex flex-wrap gap-2 justify-center ltr">
                     {project.languages && project.languages.length > 0 ? (
                       project.languages.map((lang, idx) => (
                         <span
                           key={idx}
-                          className={`px-2 py-1 text-xs font-iransans rounded-full text-white ${techColors[lang] || techColors.default
+                          className={`px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default
                             } group-hover:scale-105 transition-transform duration-200`}
                         >
                           {lang}
@@ -203,13 +203,13 @@ const Projects: React.FC = () => {
                     ) : <></>}
                   </div>
 
-                  {/* تکنولوژی‌ها */}
-                  <div className="flex flex-wrap gap-2 justify-center">
+                  {/* Projects technologies */}
+                  <div className="flex flex-wrap gap-2 justify-center  ltr">
                     {project.technologies && project.technologies.length > 0 ? (
                       project.technologies.map((tech, idx) => (
                         <span
                           key={idx}
-                          className={`px-2 py-1 text-xs font-iransans rounded-full text-white ${techColors[tech] || techColors.default
+                          className={`px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default
                             } group-hover:scale-105 transition-transform duration-200`}
                         >
                           {tech}

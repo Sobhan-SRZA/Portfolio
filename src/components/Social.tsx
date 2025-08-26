@@ -128,23 +128,23 @@ const Social: React.FC = () => {
       </Helmet>
       <section
         id="social"
-        className="min-h-min mt-28 py-16 bg-gray-900/80 backdrop-blur-md flex items-center justify-center"
+        className="min-h-min py-16 bg-gray-800/80 rounded-3xl backdrop-blur-md flex items-center justify-center"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
             }`}
         >
-          {/* عنوان */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-blue-200 text-center font-iransans animate-fade-in">
+          {/* Page Title*/}
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-blue-200 text-center animate-fade-in">
             {t("social")}
           </h2>
 
-          {/* توضیحات */}
-          <p className="text-center text-gray-300 mb-12 text-lg font-iransans animate-fade-in delay-200">
+          {/* Page Descripe */}
+          <p className="text-center text-gray-300 mb-12 text-lg animate-fade-in delay-200">
             {t("social_content")}
           </p>
 
-          {/* لینک‌های اجتماعی */}
+          {/* Social links */}
           <div className="flex flex-wrap justify-center gap-5 animate-fade-in delay-400">
             {socialLinks.map((link, index) => (
               <a
@@ -152,11 +152,11 @@ const Social: React.FC = () => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-[600px]:min-w-2xs max-[1200px]:flex-cols-1 max-[900px]:flex-cols-2 max-[600px]:min-w-full max-[600px]:flex-cols-4 flex items-center gap-4 p-6 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-blue-400 hover:bg-gray-800 transition-all duration-200"
+                className="min-w-[300px] max-w-[315px] max-[768px]:min-w-full flex items-center gap-4 p-6 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-blue-400 hover:bg-gray-800 transition-all duration-200"
                 aria-label={t(`social_links.${link.key}`)}
               >
                 {link.icon}
-                <span className="text-gray-200 font-iransans">{t(`social_links.${link.key}`)}</span>
+                <span className="text-gray-200">{t(`social_links.${link.key}`)}</span>
               </a>
             ))}
           </div>

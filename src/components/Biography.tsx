@@ -51,25 +51,25 @@ const Biography: React.FC = () => {
       </Helmet>
       <section
         id="biography"
-        className="min-h-min mt-28 py-16 bg-gray-900/80 backdrop-blur-md flex items-center justify-center"
+        className="min-h-min py-16 bg-gray-800/80 rounded-3xl backdrop-blur-md flex items-center justify-center"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
             }`}
         >
-          {/* عنوان */}
+          {/* Page Title*/}
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-blue-200 text-center font-iransans animate-fade-in">
             {t("biography")}
           </h2>
 
-          {/* مقدمه */}
+          {/* Biograohy Describe*/}
           <div className="mb-12 text-center">
             <p className={`${i18n.language === "fa" ? "rtl text-right" : "ltr text-left"} text-lg sm:text-xl font-iransans text-gray-300 leading-relaxed animate-fade-in delay-200`}>
               {t("biography_intro")}
             </p>
           </div>
 
-          {/* جدول زمانی */}
+          {/* Time Table of biography */}
           <div className={`relative border-blue-400/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"}`}>
             {timeline.map((item, index) => (
               <div
@@ -86,7 +86,7 @@ const Biography: React.FC = () => {
             ))}
           </div>
 
-          {/* پروژه‌های فعال */}
+          {/* Active projects list */}
           <div className="mt-12">
             <h3 className="text-2xl font-semibold text-blue-200 font-iransans mb-6 text-center animate-fade-in delay-800">
               {t("active_projects")}
@@ -111,7 +111,7 @@ const Biography: React.FC = () => {
             </div>
           </div>
 
-          {/* دکمه‌های فراخوان */}
+          {/* Redirect  */}
           <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in delay-1200">
             <NavLink
               to="/projects"
