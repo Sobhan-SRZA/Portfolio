@@ -25,15 +25,16 @@ const Footer: React.FC = () => {
     ];
 
     return (
-        <footer className="relative bg-[var(--sec-bg)] backdrop-blur-md text-[var(--text)] py-12 animate-fade-in transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
+        <footer className="relative bg-[var(--sec-bg)] backdrop-blur-md text-[var(--text)] py-12 animate-fade-in fade-out-transation">
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)]/20 to-transparent z-[-1]"></div>
             <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
                     {/* Logo or Name */}
-                    <div className="flex flex-col items-center justify-self-center">
+                    <div className="flex flex-col items-center min-[768px]:items-start">
                         <NavLink
                             to="/"
-                            className="text-2xl font-bold text-[var(--primary)] hover:text-[var(--text)] transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-[var(--primary)] hover:text-[var(--text)] fade-out-transation"
                             aria-label="Mr. Sinre | Sobhan-SRZA"
                         >
                             Mr. Sinre | Sobhan-SRZA
@@ -53,7 +54,7 @@ const Footer: React.FC = () => {
                                 <li key={index}>
                                     <NavLink
                                         to={link.url}
-                                        className="text-[var(--text)]/70 hover:text-[var(--primary)] text-sm transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                                        className="text-[var(--text)]/70 hover:text-[var(--primary)] text-sm fade-out-transation"
                                         aria-label={link.name}
                                     >
                                         {link.name}
@@ -75,7 +76,7 @@ const Footer: React.FC = () => {
                                     href={link.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[var(--text)] hover:text-[var(--primary)] transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                                    className="text-[var(--text)] hover:text-[var(--primary)] fade-out-transation"
                                     aria-label={link.name}
                                 >
                                     {link.icon}

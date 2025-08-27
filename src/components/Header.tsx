@@ -80,7 +80,7 @@ const Header: React.FC = () => {
             </nav>
 
             {/* Mobile menu */}
-            <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+            <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden rtl">
                 <div className="fixed inset-0 z-50 bg-black/30" aria-hidden="true" />
                 <DialogPanel
                     className={`fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto bg-[var(--sec-bg)] backdrop-blur-md p-6 transition-transform duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
