@@ -16,9 +16,41 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 
 import "./i18n";
+import { useEffect } from "react";
 
 const App: React.FC = () => {
   const { i18n, t } = useTranslation();
+
+  // Set language
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language");
+    const systemLanguage = navigator.language || navigator.languages[0] || "en";
+    const userLanguage = savedLanguage || (systemLanguage.startsWith("fa") ? "fa" : "en");
+
+    i18n.changeLanguage(userLanguage);
+    document.documentElement.setAttribute("lang", userLanguage);
+    localStorage.setItem("language", userLanguage);
+  }, [i18n]);
+
+  // Set theme
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const defaultTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+
+    document.documentElement.setAttribute("data-theme", defaultTheme);
+    localStorage.setItem("theme", defaultTheme);
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleThemeChange = (e: MediaQueryListEvent) => {
+      const newTheme = localStorage.getItem("theme") || (e.matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    };
+    mediaQuery.addEventListener("change", handleThemeChange);
+
+    return () => mediaQuery.removeEventListener("change", handleThemeChange);
+  }, []);
 
   return (
     <Router>
@@ -106,6 +138,7 @@ const App: React.FC = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/biography" element={<Biography />} />
             <Route path="/social" element={<Social />} />
+            <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

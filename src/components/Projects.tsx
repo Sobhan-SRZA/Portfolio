@@ -6,12 +6,12 @@ import {
   Globe,
   Lock,
   Star,
-  GitFork
+  GitFork,
 } from "lucide-react";
 import {
   useEffect,
   useState,
-  type JSX
+  type JSX,
 } from "react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
@@ -54,8 +54,7 @@ const Projects: React.FC = () => {
     "C++": "bg-pink-700",
     "Node.js": "bg-green-700",
     NPM: "bg-red-500",
-
-    default: "bg-gray-600"
+    default: "bg-gray-600",
   };
 
   useEffect(() => {
@@ -67,31 +66,25 @@ const Projects: React.FC = () => {
         if (!response.ok) {
           throw new Error(t("error_fetch"));
         }
-
         const data: Project[] = await response.json();
         const initialProjects = data.map((project) => ({
           ...project,
           stars: project.stars ?? 0,
-          forks: project.forks ?? 0
+          forks: project.forks ?? 0,
         }));
         setProjects(initialProjects);
         setLoading(false);
-      }
-
-      catch (err) {
+      } catch (err) {
         setError(t("error_fetch"));
         setProjects([]);
         setLoading(false);
       }
     };
-
     fetchProjects();
   }, [t]);
 
   const getDescription = (project: Project) => {
-    if (!project.description_en && !project.description_fa)
-      return project.description;
-
+    if (!project.description_en && !project.description_fa) return project.description;
     return i18n.language === "fa" ? project.description_fa : project.description_en;
   };
 
@@ -103,25 +96,25 @@ const Projects: React.FC = () => {
       </Helmet>
       <section
         id="projects"
-        className="min-h-min py-16 bg-gray-800/80 rounded-3xl backdrop-blur-md flex items-center justify-center"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
             }`}
         >
-          {/* Page Title*/}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-blue-200 text-center animate-fade-in">
+          {/* Page Title */}
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
             {t("projects")}
           </h2>
 
           {/* Describe Page */}
-          <p className="text-center text-gray-300 mb-12 text-lg animate-fade-in delay-200">
+          <p className="text-center text-[var(--text)] mb-12 text-lg animate-fade-in delay-200">
             {t("projects_content")}
           </p>
 
           {/* Loading animation */}
           {loading && (
-            <div className="text-center text-gray-300 animate-pulse">
+            <div className="text-center text-[var(--text)] animate-pulse">
               {t("loading")}
             </div>
           )}
@@ -141,21 +134,21 @@ const Projects: React.FC = () => {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-blue-400 hover:bg-gray-800 hover:-translate-y-1 transition-all duration-200 group"
-                  aria-label={project.name}
+                  className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)] group"
+                  aria-label={t(`project_${project.name.toLowerCase().replace(/\s+/g, "_")}`) || project.name}
                 >
                   {/* Projects Name */}
-                  <h3 className="text-center text-xl font-semibold text-blue-200 group-hover:text-gray-100 font-sans">
+                  <h3 className="text-center text-xl font-semibold text-[var(--primary)] group-hover:text-[var(--text)] font-sans">
                     {project.name}
                   </h3>
 
                   {/* Projects Describe */}
-                  <p className="text-gray-300 text-sm group-hover:text-gray-100">
+                  <p className="text-[var(--text)] text-sm group-hover:text-[var(--primary)]">
                     {getDescription(project) || t("no_description")}
                   </p>
 
-                  {/* Projects Access and status */}
-                  <div className="flex justify-between text-sm text-gray-400 ltr">
+                  {/* Projects Access and Status */}
+                  <div className="flex justify-between text-sm text-[var(--text)] ltr">
                     <span className="flex items-center gap-2">
                       {statusIcons[project.status] || project.status}
                     </span>
@@ -164,14 +157,14 @@ const Projects: React.FC = () => {
                     {!project.private && (
                       <div className="flex justify-center gap-4">
                         <div className="flex items-center gap-2">
-                          <Star className="w-5 h-5 text-gray-400 group-hover:text-gray-100" />
-                          <span className="text-sm text-gray-400 group-hover:text-gray-100">
+                          <Star className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--primary)]" />
+                          <span className="text-sm text-[var(--text)] group-hover:text-[var(--primary)]">
                             {project.stars}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <GitFork className="w-5 h-5 text-gray-400 group-hover:text-gray-100" />
-                          <span className="text-sm text-gray-400 group-hover:text-gray-100">
+                          <GitFork className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--primary)]" />
+                          <span className="text-sm text-[var(--text)] group-hover:text-[var(--primary)]">
                             {project.forks}
                           </span>
                         </div>
@@ -181,9 +174,9 @@ const Projects: React.FC = () => {
                     {/* Projects Access */}
                     <span className="flex items-center gap-2">
                       {project.private ? (
-                        <Lock className="w-5 h-5 text-gray-400 group-hover:text-gray-100" />
+                        <Lock className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--primary)]" />
                       ) : (
-                        <Globe className="w-5 h-5 text-blue-400 group-hover:text-gray-100" />
+                        <Globe className="w-5 h-5 text-[var(--primary)] group-hover:text-[var(--text)]" />
                       )}
                     </span>
                   </div>
@@ -195,29 +188,32 @@ const Projects: React.FC = () => {
                         <span
                           key={idx}
                           className={`px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default
-                            } group-hover:scale-105 transition-transform duration-200`}
+                            } group-hover:scale-105 transition-transform duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]`}
                         >
                           {lang}
                         </span>
                       ))
-                    ) : <></>}
+                    ) : (
+                      <></>
+                    )}
                   </div>
 
-                  {/* Projects technologies */}
-                  <div className="flex flex-wrap gap-2 justify-center  ltr">
+                  {/* Projects Technologies */}
+                  <div className="flex flex-wrap gap-2 justify-center ltr">
                     {project.technologies && project.technologies.length > 0 ? (
                       project.technologies.map((tech, idx) => (
                         <span
                           key={idx}
                           className={`px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default
-                            } group-hover:scale-105 transition-transform duration-200`}
+                            } group-hover:scale-105 transition-transform duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]`}
                         >
                           {tech}
                         </span>
                       ))
-                    ) : (<></>)}
+                    ) : (
+                      <></>
+                    )}
                   </div>
-
                 </a>
               ))}
             </div>
