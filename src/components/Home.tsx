@@ -49,7 +49,7 @@ const Home: React.FC = () => {
                         <div className="flex max-[560px]:flex-col justify-center gap-4 animate-fade-in delay-400">
                             <NavLink
                                 to="/projects"
-                                className="px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[color-mix(in srgb, var(--primary) 80%, transparent)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                                className="px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
                             >
                                 {t("view_projects")}
                             </NavLink>
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
                             <a
                                 href={`/resume-${i18n.language}.pdf`}
                                 download="Sobhan-SRZA-Resume.pdf"
-                                className="flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--accent)] rounded-md shadow-sm hover:bg-[color-mix(in srgb, var(--accent) 50%, transparent)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                                className="flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--accent)] rounded-md shadow-sm hover:bg-[var(--accent-hover)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
                                 aria-label={t("download_resume")}
                             >
                                 <Download className="w-5 h-5 mr-2" />
@@ -92,32 +92,50 @@ const Home: React.FC = () => {
                         {t("skills")}
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        {skills.map((skill, index) => {
-                            const [width, setWidth] = useState(0);
 
-                            useEffect(() => {
-                                const timeout = setTimeout(() => {
-                                    setWidth(skill.level);
-                                }, index * 100);
-                                return () => clearTimeout(timeout);
-                            }, [skill.level, index]);
+                    {skills.map((skill, index) => {
+  const [count, setCount] = useState(0);
 
-                            return (
+  useEffect(() => {
+    const delay = index * 100; // کمی فاصله بین مهارت‌ها
+    let start: number | null = null;
 
-                                <div key={index} className="bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transation">
-                                    <div className="flex justify-between mb-2">
-                                        <span className="text-[var(--text)]">{skill.name}</span>
-                                        <span className="text-[var(--primary)]">{width}%</span>
-                                    </div>
-                                    <div className="h-2 bg-[var(--border)] rounded-full">
-                                        <div
-                                            className="h-full bg-[var(--primary)] rounded-full transition-all duration-1000 ease-out"
-                                            style={{ width: `${width}%` }}
-                                        ></div>
-                                    </div>
-                                </div>
-                            );
-                        })}
+    const duration = 800; // مدت انیمیشن
+
+    const animate = (timestamp: number) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      setCount(Math.round(progress * skill.level));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    const timeout = setTimeout(() => {
+      requestAnimationFrame(animate);
+    }, delay);
+
+    return () => clearTimeout(timeout);
+  }, [skill.level, index]);
+
+  return (
+    <div key={index} className="bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transation">
+      <div className="flex justify-between mb-2">
+        <span className="text-[var(--text)]">{skill.name}</span>
+        <span className="text-[var(--primary)]">{count}%</span>
+      </div>
+      <div className="h-2 bg-[var(--border)] rounded-full">
+        <div
+          className="h-full bg-[var(--primary)] rounded-full transition-all duration-1000 ease-out"
+          style={{ width: `${count}%` }}
+        ></div>
+      </div>
+    </div>
+  );
+})}
+
+
                     </div>
                 </div>
             </section>
@@ -134,7 +152,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/projects"
-                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[color-mix(in srgb, var(--primary) 80%, transparent)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
                         >
                             {t("view_projects")}
                         </NavLink>

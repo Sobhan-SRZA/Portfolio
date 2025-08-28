@@ -199,7 +199,7 @@ const Contact: React.FC = () => {
                     name="name"
                     placeholder={t("your_name")}
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transation"
+                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transation"
                   />
                 </div>
                 <div>
@@ -208,7 +208,7 @@ const Contact: React.FC = () => {
                     name="email"
                     placeholder={t("your_email")}
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transation"
+                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transation"
                   />
                 </div>
                 <div>
@@ -217,13 +217,13 @@ const Contact: React.FC = () => {
                     placeholder={t("your_message")}
                     rows={5}
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transation"
+                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transation"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-md bg-[var(--primary)] text-white font-semibold hover:bg-[color-mix(in srgb, var(--primary) 80%, transparent)] fade-out-transation disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-[var(--primary)] text-white font-semibold hover:bg-[var(--primary-hover)] fade-out-transation disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5" />
                   {loading ? t("sending") : t("send")}
@@ -297,7 +297,7 @@ const Contact: React.FC = () => {
               <p className="text-lg text-[var(--text)] mb-6">{alert.message}</p>
               <button
                 onClick={() => setAlert({ ...alert, show: false })}
-                className="px-6 py-2 bg-[var(--primary)] text-white rounded-md font-semibold hover:bg-[color-mix(in srgb, var(--primary) 80%, transparent)] fade-out-transation"
+                className="cursor-pointer px-6 py-2 bg-[var(--primary)] text-white rounded-md font-semibold hover:bg-[var(--primary-hover)] fade-out-transation"
                 aria-label={t("close")}
               >
                 {t("close")}

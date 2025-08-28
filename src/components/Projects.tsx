@@ -103,12 +103,12 @@ const Projects: React.FC = () => {
             }`}
         >
           {/* Page Title */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in fade-out-transation">
             {t("projects")}
           </h2>
 
           {/* Describe Page */}
-          <p className="text-center text-[var(--text)] mb-12 text-lg animate-fade-in delay-200">
+          <p className="text-center text-[var(--text)] mb-12 text-lg animate-fade-in delay-200 fade-out-transation">
             {t("projects_content")}
           </p>
 
@@ -134,22 +134,22 @@ const Projects: React.FC = () => {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)] group"
+                  className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 fade-out-transation group"
                   aria-label={t(`project_${project.name.toLowerCase().replace(/\s+/g, "_")}`) || project.name}
                 >
                   {/* Projects Name */}
-                  <h3 className="text-center text-xl font-semibold text-[var(--primary)] group-hover:text-[var(--text)] font-sans">
+                  <h3 className="fade-out-transation text-center text-xl font-semibold text-[var(--primary)] group-hover:text-[var(--primary-hover)] font-sans">
                     {project.name}
                   </h3>
 
                   {/* Projects Describe */}
-                  <p className="text-[var(--text)] text-sm group-hover:text-[var(--hover)]">
+                  <p className="fade-out-transation text-[var(--text)] text-sm group-hover:text-[var(--hover)]">
                     {getDescription(project) || t("no_description")}
                   </p>
 
                   {/* Projects Access and Status */}
                   <div className="flex justify-between text-sm text-[var(--text)] ltr">
-                    <span className="flex items-center gap-2">
+                    <span className="fade-out-transation flex items-center gap-2">
                       {statusIcons[project.status] || project.status}
                     </span>
 
@@ -157,14 +157,14 @@ const Projects: React.FC = () => {
                     {!project.private && (
                       <div className="flex justify-center gap-4">
                         <div className="flex items-center gap-2">
-                          <Star className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
-                          <span className="text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
+                          <Star className="fade-out-transation w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
+                          <span className="fade-out-transation text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
                             {project.stars}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <GitFork className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
-                          <span className="text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
+                          <GitFork className="fade-out-transation w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
+                          <span className="fade-out-transation text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
                             {project.forks}
                           </span>
                         </div>
@@ -174,9 +174,9 @@ const Projects: React.FC = () => {
                     {/* Projects Access */}
                     <span className="flex items-center gap-2">
                       {project.private ? (
-                        <Lock className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
+                        <Lock className="fade-out-transation w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
                       ) : (
-                        <Globe className="w-5 h-5 text-[var(--primary)] group-hover:text-[var(--text)]" />
+                        <Globe className="fade-out-transation w-5 h-5 text-[var(--primary)] group-hover:text-[var(--primary-hover)]" />
                       )}
                     </span>
                   </div>
@@ -187,8 +187,8 @@ const Projects: React.FC = () => {
                       project.languages.map((lang, idx) => (
                         <span
                           key={idx}
-                          className={`px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default
-                            } group-hover:scale-105 transition-transform duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]`}
+                          className={`fade-out-transation px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default
+                            } group-hover:scale-105`}
                         >
                           {lang}
                         </span>
@@ -204,7 +204,7 @@ const Projects: React.FC = () => {
                       project.technologies.map((tech, idx) => (
                         <span
                           key={idx}
-                          className={`px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default
+                          className={`fade-out-transation px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default
                             } group-hover:scale-105 transition-transform duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]`}
                         >
                           {tech}

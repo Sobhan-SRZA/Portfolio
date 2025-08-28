@@ -119,7 +119,7 @@ const Biography: React.FC = () => {
           <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in delay-400">
             <NavLink
               to="/projects"
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[color-mix(in srgb, var(--primary) 80%, transparent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2 focus:ring-offset-[var(--card-bg)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)] font-iransans"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2 focus:ring-offset-[var(--card-bg)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)] font-iransans"
               aria-label={t("view_projects")}
             >
               {t("view_projects")}

@@ -12,10 +12,10 @@ const Footer: React.FC = () => {
     const { t, i18n } = useTranslation();
 
     const socialLinks = [
-        { name: "GitHub", icon: <Github className="w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.github },
-        { name: "LinkedIn", icon: <Linkedin className="w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.linkedin },
-        { name: "Telegram", icon: <Send className="w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.telegram },
-        { name: "Instagram", icon: <Instagram className="w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.instagram }
+        { name: "GitHub", icon: <Github className="fade-out-transation w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.github },
+        { name: "LinkedIn", icon: <Linkedin className="fade-out-transation w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.linkedin },
+        { name: "Telegram", icon: <Send className="fade-out-transation w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.telegram },
+        { name: "Instagram", icon: <Instagram className="fade-out-transation w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.instagram }
     ];
 
     const usefulLinks = [
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                     <div className="flex flex-col items-center min-[768px]:items-start">
                         <NavLink
                             to="/"
-                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-[var(--primary)] hover:text-[var(--text)] fade-out-transation"
+                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-[var(--primary)] hover:text-[var(--primary-hover)] fade-out-transation"
                             aria-label="Mr. Sinre | Sobhan-SRZA"
                         >
                             Mr. Sinre | Sobhan-SRZA
@@ -76,7 +76,6 @@ const Footer: React.FC = () => {
                                     href={link.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[var(--text)] hover:text-[var(--hover)] fade-out-transation"
                                     aria-label={link.name}
                                 >
                                     {link.icon}

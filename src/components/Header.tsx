@@ -66,7 +66,7 @@ const Header: React.FC = () => {
                             to={item.href}
                             className={({ isActive }) =>
                                 `max-[1116px]:text-[15px] text-[17px] font-semibold px-3 bg-transparent py-2 rounded-md fade-out-transation ${isActive
-                                    ? "text-[var(--hover)]"
+                                    ? "cursor-not-allowed text-[var(--hover)]"
                                     : "text-[var(--text)] hover:text-[var(--hover)] hover:bg-[var(--card-bg)]/50"
                                 }`
                             }

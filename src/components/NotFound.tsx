@@ -33,7 +33,7 @@ const NotFound: React.FC = () => {
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                     <NavLink
                         to="/"
-                        className="rounded-md bg-[var(--primary)] px-3.5 py-2.5 text-sm font-semibold text-white font-iransans shadow-sm hover:bg-[color-mix(in srgb, var(--primary) 80%, transparent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] fade-out-transation"
+                        className="rounded-md bg-[var(--primary)] px-3.5 py-2.5 text-sm font-semibold text-white font-iransans shadow-sm hover:bg-[var(--primary-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] fade-out-transation"
                         aria-label={t("back_to_home")}
                     >
                         {t("back_to_home")}
