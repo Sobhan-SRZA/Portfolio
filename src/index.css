@@ -2,24 +2,38 @@
 
 :root {
   /* Light Theme */
-  --background: #ffffff; /* White background */
-  --text: #1f2937; /* Dark gray text */
-  --primary: #2563eb; /* Blue-600 (primary color) */
-  --card-bg: #deefff; /* Light gray card */
-  --border: #a9b8c5; /* Light border */
-  --sec-bg: #e2e2e2e6; /* Secondary background with opacity */
-  --accent: #6eff86; /* Purple-600 (accent color) */
+  --background: #ffffff;
+  /* White background */
+  --text: #1f2937;
+  /* Dark gray text */
+  --primary: #1f58d2;
+  /* Blue-600 (primary color) */
+  --card-bg: #eff8ff;
+  /* Light gray card */
+  --border: #a9b8c5;
+  /* Light border */
+  --sec-bg: #c5ccdde6;
+  /* Secondary background with opacity */
+  --accent: #11a72aec;
+  /* Purple-600 (accent color) */
 }
 
 [data-theme="dark"] {
   /* Dark Theme */
-  --background: #111131; /* Slate-800 (dark background) */
-  --text: #f1f5f9; /* Slate-100 (light text) */
-  --primary: #3b82f6; /* Blue-500 (primary in dark) */
-  --card-bg: #2d3748; /* Slate-700 (dark card) */
-  --border: #4b5563; /* Slate-600 (dark border) */
-  --sec-bg: #2a3850e6; /* Dark secondary background with opacity */
-  --accent: #11a72aec; /* Purple-500 (accent in dark) */
+  --background: #111131;
+  /* Slate-800 (dark background) */
+  --text: #f1f5f9;
+  /* Slate-100 (light text) */
+  --primary: #3b82f6;
+  /* Blue-500 (primary in dark) */
+  --card-bg: #2d3748;
+  /* Slate-700 (dark card) */
+  --border: #4b5563;
+  /* Slate-600 (dark border) */
+  --sec-bg: #2a3850e6;
+  /* Dark secondary background with opacity */
+  --accent: #11a72aec;
+  /* Purple-500 (accent in dark) */
 }
 
 html {
@@ -57,7 +71,7 @@ body {
     direction: ltr;
   }
 
-  .fade-out-transation{
+  .fade-out-transation {
     transition: all var(--default-transition-duration) var(--default-transition-timing-function);
   }
 }

@@ -34,24 +34,24 @@ const Header: React.FC = () => {
                 <div className="flex flex-1">
                     <NavLink
                         to="/"
-                        className="flex items-center space-x-2 space-x-reverse"
+                        className="text-2xl max-[1074px]:text-[18px] max-[1137px]:text-[22px] flex items-center space-x-2 space-x-reverse"
                     >
-                        <span className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary)] transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
+                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary)] fade-out-transation">
                             Sobhan-SRZA
                         </span>
-                        <span className="text-[var(--primary)] text-xl sm:text-2xl">/</span>
-                        <span className="ml-1 mr-1.5 text-xl sm:text-2xl font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary)] transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
+                        <span className="text-[var(--primary)]">/</span>
+                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary)] fade-out-transation">
                             Mr. Sinre
                         </span>
                     </NavLink>
                 </div>
 
                 {/* Hamburger button for mobile toggle */}
-                <div className="flex min-[1028px]:hidden">
+                <div className="flex min-[1032px]:hidden">
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)}
-                        className="inline-flex items-center justify-center rounded-md p-2.5 text-[var(--text)] hover:text-[var(--primary)] focus:outline-none transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                        className="inline-flex items-center justify-center rounded-md p-2.5 text-[var(--text)] hover:text-[var(--primary)] focus:outline-none fade-out-transation"
                         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                     >
                         <Bars3Icon aria-hidden="true" className="h-6 w-6" />
@@ -59,13 +59,13 @@ const Header: React.FC = () => {
                 </div>
 
                 {/* Desktop Navbar */}
-                <div className="hidden min-[1028px]:flex lg:gap-x-8">
+                <div className="hidden min-[1032px]:flex lg:gap-x-8">
                     {navItems.map((item) => (
                         <NavLink
                             key={item.name}
                             to={item.href}
                             className={({ isActive }) =>
-                                `text-sm font-semibold px-3 bg-transparent py-2 rounded-md transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)] ${isActive
+                                `max-[1115px]:text-[15px] text-[17px] font-semibold px-3 bg-transparent py-2 rounded-md fade-out-transation ${isActive
                                     ? "text-[var(--primary)]"
                                     : "text-[var(--text)] hover:text-[var(--primary)] hover:bg-[var(--card-bg)]/50"
                                 }`
@@ -83,11 +83,13 @@ const Header: React.FC = () => {
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden rtl">
                 <div className="fixed inset-0 z-50 bg-black/30" aria-hidden="true" />
                 <DialogPanel
-                    className={`fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto bg-[var(--sec-bg)] backdrop-blur-md p-6 transition-transform duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-                        } ${i18n.language === "fa" ? "rtl" : "ltr"}`}
+                    className={`fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto bg-[var(--sec-bg)] backdrop-blur-md p-6 transition-transform duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
                 >
                     <div className="flex items-center justify-between">
-                        <NavLink to="/" className="flex items-center space-x-2 space-x-reverse">
+                        <NavLink
+                            to="/"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center space-x-2 space-x-reverse">
                             <span className="text-xl font-bold tracking-tight text-[var(--text)]">
                                 Sobhan-SRZA / Mr. Sinre
                             </span>
@@ -95,7 +97,7 @@ const Header: React.FC = () => {
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="rounded-md p-2.5 text-[var(--text)] hover:text-[var(--primary)] transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                            className="rounded-md p-2.5 text-[var(--text)] hover:text-[var(--primary)] fade-out-transation"
                             aria-label="Close menu"
                         >
                             <XMarkIcon aria-hidden="true" className="h-6 w-6" />
@@ -109,7 +111,7 @@ const Header: React.FC = () => {
                                     to={item.href}
                                     className={({ isActive }) =>
                                         `block rounded-lg px-3 py-2 text-base font-semibold text-[var(--text)] hover:bg-[var(--card-bg)]/50 ${isActive ? "text-[var(--primary)]" : ""
-                                        } transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]`
+                                        } fade-out-transation`
                                     }
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
