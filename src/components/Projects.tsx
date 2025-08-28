@@ -96,7 +96,7 @@ const Projects: React.FC = () => {
       </Helmet>
       <section
         id="projects"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transation"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
@@ -143,7 +143,7 @@ const Projects: React.FC = () => {
                   </h3>
 
                   {/* Projects Describe */}
-                  <p className="text-[var(--text)] text-sm group-hover:text-[var(--primary)]">
+                  <p className="text-[var(--text)] text-sm group-hover:text-[var(--hover)]">
                     {getDescription(project) || t("no_description")}
                   </p>
 
@@ -157,14 +157,14 @@ const Projects: React.FC = () => {
                     {!project.private && (
                       <div className="flex justify-center gap-4">
                         <div className="flex items-center gap-2">
-                          <Star className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--primary)]" />
-                          <span className="text-sm text-[var(--text)] group-hover:text-[var(--primary)]">
+                          <Star className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
+                          <span className="text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
                             {project.stars}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <GitFork className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--primary)]" />
-                          <span className="text-sm text-[var(--text)] group-hover:text-[var(--primary)]">
+                          <GitFork className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
+                          <span className="text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
                             {project.forks}
                           </span>
                         </div>
@@ -174,7 +174,7 @@ const Projects: React.FC = () => {
                     {/* Projects Access */}
                     <span className="flex items-center gap-2">
                       {project.private ? (
-                        <Lock className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--primary)]" />
+                        <Lock className="w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
                       ) : (
                         <Globe className="w-5 h-5 text-[var(--primary)] group-hover:text-[var(--text)]" />
                       )}

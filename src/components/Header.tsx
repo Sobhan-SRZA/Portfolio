@@ -13,7 +13,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeToggle from "./ThemeToggle";
 
 const Header: React.FC = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navItems = [
@@ -36,11 +36,11 @@ const Header: React.FC = () => {
                         to="/"
                         className="text-2xl max-[1074px]:text-[18px] max-[1137px]:text-[22px] flex items-center space-x-2 space-x-reverse"
                     >
-                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary)] fade-out-transation">
+                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--hover)] fade-out-transation">
                             Sobhan-SRZA
                         </span>
                         <span className="text-[var(--primary)]">/</span>
-                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary)] fade-out-transation">
+                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--hover)] fade-out-transation">
                             Mr. Sinre
                         </span>
                     </NavLink>
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)}
-                        className="inline-flex items-center justify-center rounded-md p-2.5 text-[var(--text)] hover:text-[var(--primary)] focus:outline-none fade-out-transation"
+                        className="inline-flex items-center justify-center rounded-md p-2.5 text-[var(--text)] hover:text-[var(--hover)] focus:outline-none fade-out-transation"
                         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                     >
                         <Bars3Icon aria-hidden="true" className="h-6 w-6" />
@@ -65,9 +65,9 @@ const Header: React.FC = () => {
                             key={item.name}
                             to={item.href}
                             className={({ isActive }) =>
-                                `max-[1115px]:text-[15px] text-[17px] font-semibold px-3 bg-transparent py-2 rounded-md fade-out-transation ${isActive
-                                    ? "text-[var(--primary)]"
-                                    : "text-[var(--text)] hover:text-[var(--primary)] hover:bg-[var(--card-bg)]/50"
+                                `max-[1116px]:text-[15px] text-[17px] font-semibold px-3 bg-transparent py-2 rounded-md fade-out-transation ${isActive
+                                    ? "text-[var(--hover)]"
+                                    : "text-[var(--text)] hover:text-[var(--hover)] hover:bg-[var(--card-bg)]/50"
                                 }`
                             }
                         >
@@ -80,12 +80,12 @@ const Header: React.FC = () => {
             </nav>
 
             {/* Mobile menu */}
-            <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden rtl">
+            <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="min-[1032px]:hidden rtl">
                 <div className="fixed inset-0 z-50 bg-black/30" aria-hidden="true" />
                 <DialogPanel
                     className={`fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto bg-[var(--sec-bg)] backdrop-blur-md p-6 transition-transform duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
                 >
-                    <div className="flex items-center justify-between">
+                    <div className="ltr flex items-center justify-between">
                         <NavLink
                             to="/"
                             onClick={() => setMobileMenuOpen(false)}
@@ -97,7 +97,7 @@ const Header: React.FC = () => {
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="rounded-md p-2.5 text-[var(--text)] hover:text-[var(--primary)] fade-out-transation"
+                            className="rounded-md p-2.5 text-[var(--text)] hover:text-[var(--hover)] fade-out-transation"
                             aria-label="Close menu"
                         >
                             <XMarkIcon aria-hidden="true" className="h-6 w-6" />
@@ -110,7 +110,7 @@ const Header: React.FC = () => {
                                     key={item.name}
                                     to={item.href}
                                     className={({ isActive }) =>
-                                        `block rounded-lg px-3 py-2 text-base font-semibold text-[var(--text)] hover:bg-[var(--card-bg)]/50 ${isActive ? "text-[var(--primary)]" : ""
+                                        `text-center block rounded-lg px-3 py-2 text-base font-semibold text-[var(--text)] hover:bg-[var(--card-bg)]/50 ${isActive ? "text-[var(--primary)]" : ""
                                         } fade-out-transation`
                                     }
                                     onClick={() => setMobileMenuOpen(false)}
@@ -119,8 +119,8 @@ const Header: React.FC = () => {
                                 </NavLink>
                             ))}
                             <div className="flex flex-row justify-between px-3 py-2">
-                                <LanguageSwitcher onChange={() => setMobileMenuOpen(false)} />
-                                <ThemeToggle onChange={() => setMobileMenuOpen(false)} />
+                                <LanguageSwitcher />
+                                <ThemeToggle />
                             </div>
                         </div>
                     </div>

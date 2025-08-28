@@ -128,7 +128,7 @@ const Social: React.FC = () => {
       </Helmet>
       <section
         id="social"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transation"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"

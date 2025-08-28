@@ -27,13 +27,15 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ onChange }) => {
         setIsDark(!isDark);
         document.documentElement.dataset.theme = newTheme;
         localStorage.setItem("theme", newTheme);
-        if (onChange) onChange();
+        if (onChange)
+            onChange();
+
     };
 
     return (
         <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-transparent text-[var(--text)] hover:bg-[var(--card-bg)] transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+            className="justify-self-center cursor-pointer p-2 w-max h-max rounded-full bg-transparent text-[var(--text)] hover:bg-[var(--card-bg)] fade-out-transation"
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
         >
             {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}

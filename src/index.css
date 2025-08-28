@@ -1,39 +1,27 @@
 @import "tailwindcss";
 
+/* Light Theme */
 :root {
-  /* Light Theme */
-  --background: #ffffff;
-  /* White background */
+  --background: #ececec;
   --text: #1f2937;
-  /* Dark gray text */
   --primary: #1f58d2;
-  /* Blue-600 (primary color) */
-  --card-bg: #eff8ff;
-  /* Light gray card */
+  --hover: #2b6cfa;
+  --card-bg: #e4e4e4;
   --border: #a9b8c5;
-  /* Light border */
-  --sec-bg: #c5ccdde6;
-  /* Secondary background with opacity */
+  --sec-bg: #d3d3d3e6;
   --accent: #11a72aec;
-  /* Purple-600 (accent color) */
 }
 
+/* Dark Theme */
 [data-theme="dark"] {
-  /* Dark Theme */
   --background: #111131;
-  /* Slate-800 (dark background) */
+  --hover: #95beff;
   --text: #f1f5f9;
-  /* Slate-100 (light text) */
   --primary: #3b82f6;
-  /* Blue-500 (primary in dark) */
   --card-bg: #2d3748;
-  /* Slate-700 (dark card) */
   --border: #4b5563;
-  /* Slate-600 (dark border) */
   --sec-bg: #2a3850e6;
-  /* Dark secondary background with opacity */
   --accent: #11a72aec;
-  /* Purple-500 (accent in dark) */
 }
 
 html {

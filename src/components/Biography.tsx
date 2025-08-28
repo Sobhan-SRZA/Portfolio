@@ -14,33 +14,33 @@ const Biography: React.FC = () => {
     {
       year: extractNumbers(t("biography_timeline.start"))[0],
       title: t("biography_timeline.start"),
-      description: t("biography_timeline.start_description"),
+      description: t("biography_timeline.start_description")
     },
     {
       year: extractNumbers(t("biography_timeline.pause"))[0],
       title: t("biography_timeline.pause"),
-      description: t("biography_timeline.pause_description"),
+      description: t("biography_timeline.pause_description")
     },
     {
       year: extractNumbers(t("biography_timeline.resume"))[0],
       title: t("biography_timeline.resume"),
-      description: t("biography_timeline.resume_description"),
+      description: t("biography_timeline.resume_description")
     },
     {
       year: extractNumbers(t("biography_timeline.discord"))[0],
       title: t("biography_timeline.discord"),
-      description: t("biography_timeline.discord_description"),
+      description: t("biography_timeline.discord_description")
     },
     {
       year: extractNumbers(t("biography_timeline.university"))[0],
       title: t("biography_timeline.university"),
-      description: t("biography_timeline.university_description"),
+      description: t("biography_timeline.university_description")
     },
     {
       year: extractNumbers(t("biography_timeline.current"))[0],
       title: t("biography_timeline.current"),
-      description: t("biography_timeline.current_description"),
-    },
+      description: t("biography_timeline.current_description")
+    }
   ];
 
   return (
@@ -51,7 +51,7 @@ const Biography: React.FC = () => {
       </Helmet>
       <section
         id="biography"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transation"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
@@ -71,7 +71,7 @@ const Biography: React.FC = () => {
 
           {/* Time Table of Biography */}
           <div
-            className={`relative border-[var(--primary)]/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"} transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]`}
+            className={`relative border-[var(--primary)]/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"} fade-out-transation`}
           >
             {timeline.map((item, index) => (
               <div
@@ -80,7 +80,7 @@ const Biography: React.FC = () => {
                 style={{ animationDelay: `${(index + 1) * 100}ms` }} // تأخیر نرم‌تر
               >
                 <div
-                  className={`absolute ${i18n.language === "fa" ? "-right-2.5" : "-left-2.5"} h-5 w-5 bg-[var(--primary)] rounded-full transition-colors duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]`}
+                  className={`absolute ${i18n.language === "fa" ? "-right-2.5" : "-left-2.5"} h-5 w-5 bg-[var(--primary)] rounded-full fade-out-transation`}
                 />
                 <h3 className="text-xl font-semibold text-[var(--primary)] font-iransans mb-2">
                   {item.year}: {item.title}

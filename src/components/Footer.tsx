@@ -12,16 +12,16 @@ const Footer: React.FC = () => {
     const { t, i18n } = useTranslation();
 
     const socialLinks = [
-        { name: "GitHub", icon: <Github className="w-5 h-5 text-[var(--text)] hover:text-[var(--primary)]" />, url: social.github },
-        { name: "LinkedIn", icon: <Linkedin className="w-5 h-5 text-[var(--text)] hover:text-[var(--primary)]" />, url: social.linkedin },
-        { name: "Telegram", icon: <Send className="w-5 h-5 text-[var(--text)] hover:text-[var(--primary)]" />, url: social.telegram },
-        { name: "Instagram", icon: <Instagram className="w-5 h-5 text-[var(--text)] hover:text-[var(--primary)]" />, url: social.instagram },
+        { name: "GitHub", icon: <Github className="w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.github },
+        { name: "LinkedIn", icon: <Linkedin className="w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.linkedin },
+        { name: "Telegram", icon: <Send className="w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.telegram },
+        { name: "Instagram", icon: <Instagram className="w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.instagram }
     ];
 
     const usefulLinks = [
         { name: t("footer.home"), url: "/" },
         { name: t("footer.projects"), url: "/projects" },
-        { name: t("footer.contact"), url: "/contact" },
+        { name: t("footer.contact"), url: "/contact" }
     ];
 
     return (
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                                 <li key={index}>
                                     <NavLink
                                         to={link.url}
-                                        className="text-[var(--text)]/70 hover:text-[var(--primary)] text-sm fade-out-transation"
+                                        className="text-[var(--text)]/70 hover:text-[var(--hover)] text-sm fade-out-transation"
                                         aria-label={link.name}
                                     >
                                         {link.name}
@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
                                     href={link.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[var(--text)] hover:text-[var(--primary)] fade-out-transation"
+                                    className="text-[var(--text)] hover:text-[var(--hover)] fade-out-transation"
                                     aria-label={link.name}
                                 >
                                     {link.icon}

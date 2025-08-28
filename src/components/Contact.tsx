@@ -68,8 +68,8 @@ const Contact: React.FC = () => {
         method: "POST",
         body: new URLSearchParams([...formData] as any),
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-        },
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+        }
       });
 
       const result = await res.json();
