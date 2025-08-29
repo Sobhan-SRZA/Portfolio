@@ -71,7 +71,7 @@ const Projects: React.FC = () => {
         const initialProjects = data.map((project) => ({
           ...project,
           stars: project.stars ?? 0,
-          forks: project.forks ?? 0,
+          forks: project.forks ?? 0
         }));
         setProjects(initialProjects);
         setLoading(false);
@@ -92,6 +92,33 @@ const Projects: React.FC = () => {
 
     return i18n.language === "fa" ? project.description_fa : project.description_en;
   };
+
+  const LoadingSkeleton = () => (
+    <div className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 animate-pulse">
+      <div className="text-center h-5 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+      <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full w-3/4"></div>
+      <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full w-2/5"></div>
+      <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full w-1/4"></div>
+      <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full w-1/2"></div>
+      <div className="flex justify-between mt-2 gap-3">
+        <div className="h-8 w-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+        <div className="flex gap-5">
+          <div className="h-8 w-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+          <div className="h-8 w-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+        </div>
+        <div className="h-8 w-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+      </div>
+      <div className="flex flex-wrap gap-2 justify-center mt-2">
+        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+      </div>
+      <div className="flex flex-wrap gap-2 justify-center mt-2">
+        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -117,11 +144,19 @@ const Projects: React.FC = () => {
             {t("projects_content")}
           </p>
 
+
           {/* Loading animation */}
           {loading && (
-            <div className="text-center text-[var(--text)] animate-pulse">
-              {t("loading")}
-            </div>
+            <>
+              <div className="text-center text-[var(--text)] animate-pulse mb-5">
+                {t("loading")}
+              </div>
+              <div className="flex flex-wrap justify-center gap-5 animate-fade-in delay-400">
+                {Array(4).fill(0).map((_, index) => (
+                  <LoadingSkeleton key={index} />
+                ))}
+              </div>
+            </>
           )}
           {error && (
             <div className="text-center text-red-400 flex items-center justify-center gap-2">

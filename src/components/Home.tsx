@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Download } from "lucide-react";
+import { Download, Image as ImageIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
@@ -24,6 +24,25 @@ const Home: React.FC = () => {
         { name: t("skills.sass"), level: 90 }
     ];
 
+    const [loading, setLoading] = useState(true);
+
+    const LoadingIcon = () => (
+        <div
+            className="relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg bg-[var(--sec-bg)] animate-pulse mb-6"
+        >
+            <ImageIcon
+                className="p-2 w-full h-full text-[var(--primary)] transition-all duration-500 hover:filter-grayscale hover:brightness-125"
+            />
+        </div>
+    );
+
+    useEffect(() => {
+        const img = new Image();
+        img.src = "/images/profile.jpg";
+        img.onload = () => setLoading(false);
+        img.onerror = () => setLoading(false);
+    }, []);
+
     return (
         <>
             <Helmet>
@@ -35,12 +54,18 @@ const Home: React.FC = () => {
             <section className="min-h-min py-16 bg-[var(--sec-bg)] rounded-t-3xl backdrop-blur-md flex items-center justify-center fade-out-transition">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <div className="text-center">
-                        <img
-                            src="/images/profile.jpg"
-                            loading="lazy"
-                            alt="Mr. Sinre | Sobhan-SRZA"
-                            className="mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg object-cover mb-6 animate-scale-in"
-                        />
+                        <div className="relative">
+                            {loading ? (
+                                <LoadingIcon />
+                            ) : (
+                                <img
+                                    src="/images/profile.jpg"
+                                    alt="Mr. Sinre | Sobhan-SRZA"
+                                    className="mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg object-cover mb-6 animate-scale-in"
+                                    loading="lazy"
+                                />
+                            )}
+                        </div>
                         <h1 className="max-[480px]:text-3xl max-[411px]:text-[26px] max-[365px]:text-[22px] text-4xl sm:text-5xl font-bold mb-4 text-[var(--primary)] animate-fade-in">
                             Mr. Sinre | Sobhan-SRZA
                         </h1>
@@ -50,20 +75,20 @@ const Home: React.FC = () => {
                         <div className="flex max-[560px]:flex-col justify-center gap-4 animate-fade-in delay-400">
                             <NavLink
                                 to="/projects"
-                                className="px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                                className="px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] fade-out-transition"
                             >
                                 {t("view_projects")}
                             </NavLink>
                             <NavLink
                                 to="/contact"
-                                className="px-6 py-3 text-sm font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                                className="px-6 py-3 text-sm font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 fade-out-transition"
                             >
                                 {t("contact_me")}
                             </NavLink>
                             <a
                                 href={`/resume-${i18n.language}.pdf`}
                                 download="Sobhan-SRZA-Resume.pdf"
-                                className="flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--accent)] rounded-md shadow-sm hover:bg-[var(--accent-hover)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                                className="flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--accent)] rounded-md shadow-sm hover:bg-[var(--accent-hover)] fade-out-transition"
                                 aria-label={t("download_resume")}
                             >
                                 <Download className="w-5 h-5 mr-2" />
@@ -156,7 +181,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/projects"
-                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] fade-out-transition"
                         >
                             {t("view_projects")}
                         </NavLink>
@@ -176,7 +201,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/contact"
-                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 fade-out-transition"
                         >
                             {t("contact_me")}
                         </NavLink>
