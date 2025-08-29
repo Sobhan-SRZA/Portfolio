@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { social } from "./storage";
-import SeoSection from "./components/Seo";
+import SeoSection from "./components/SeoSection";
 import Biography from "./components/Biography";
 import Projects from "./components/Projects";
 import NotFound from "./components/NotFound";
