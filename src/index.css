@@ -9,9 +9,9 @@
   --hover: #2b6cfa;
   --card-bg: #d3d3d3e6;
   --border: #a9b8c5;
-  --sec-bg: #e4e4e4;
-  --accent: #0a9621ec;
-  --accent-hover: #29c843ec;
+  --sec-bg: #d2d4dbda;
+  --accent: #009e1a;
+  --accent-hover: #19c736;
 }
 
 /* Dark Theme */
@@ -23,9 +23,9 @@
   --primary-hover: #60a5fa;
   --card-bg: #2d3748;
   --border: #4b5563;
-  --sec-bg: #2a3850;
-  --accent: #11a72aec;
-  --accent-hover: #04e329ec;
+  --sec-bg: #2a3850de;
+  --accent: #00a71c;
+  --accent-hover: #04e329;
 }
 
 html {

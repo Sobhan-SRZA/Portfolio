@@ -28,10 +28,10 @@ const Home: React.FC = () => {
 
     const LoadingIcon = () => (
         <div
-            className="relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg bg-[var(--sec-bg)] animate-pulse mb-6"
+            className="fade-out-transition relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg bg-[var(--sec-bg)] animate-pulse mb-6"
         >
             <ImageIcon
-                className="p-2 w-full h-full text-[var(--primary)] transition-all duration-500 hover:filter-grayscale hover:brightness-125"
+                className="p-2 w-full h-full text-[var(--primary)] fade-out-transition hover:filter-grayscale hover:brightness-125"
             />
         </div>
     );
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
     useEffect(() => {
         const img = new Image();
         img.src = "/images/profile.jpg";
-        img.loading = "lazy";
+
         img.onload = () => setLoading(false);
         img.onerror = () => setLoading(false);
     }, []);
@@ -64,6 +64,8 @@ const Home: React.FC = () => {
                                     alt="Mr. Sinre | Sobhan-SRZA"
                                     className="mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg object-cover mb-6 animate-scale-in"
                                     loading="lazy"
+                                    onLoad={() => setLoading(false)}
+                                    onError={() => setLoading(false)}
                                 />
                             )}
                         </div>
