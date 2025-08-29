@@ -39,6 +39,7 @@ const Home: React.FC = () => {
     useEffect(() => {
         const img = new Image();
         img.src = "/images/profile.jpg";
+        img.loading = "lazy";
         img.onload = () => setLoading(false);
         img.onerror = () => setLoading(false);
     }, []);
@@ -75,20 +76,20 @@ const Home: React.FC = () => {
                         <div className="flex max-[560px]:flex-col justify-center gap-4 animate-fade-in delay-400">
                             <NavLink
                                 to="/projects"
-                                className="px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] fade-out-transition"
+                                className="px-6 py-3 text-[16px] font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] fade-out-transition"
                             >
                                 {t("view_projects")}
                             </NavLink>
                             <NavLink
                                 to="/contact"
-                                className="px-6 py-3 text-sm font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 fade-out-transition"
+                                className="px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 fade-out-transition"
                             >
                                 {t("contact_me")}
                             </NavLink>
                             <a
                                 href={`/resume-${i18n.language}.pdf`}
                                 download="Sobhan-SRZA-Resume.pdf"
-                                className="flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--accent)] rounded-md shadow-sm hover:bg-[var(--accent-hover)] fade-out-transition"
+                                className="flex justify-center items-center px-6 py-3 text-[16px] font-semibold text-white bg-[var(--accent)] rounded-md shadow-sm hover:bg-[var(--accent-hover)] fade-out-transition"
                                 aria-label={t("download_resume")}
                             >
                                 <Download className="w-5 h-5 mr-2" />
@@ -150,7 +151,7 @@ const Home: React.FC = () => {
                             }, [skill.level, index]);
 
                             return (
-                                <div key={index} className="bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transition">
+                                <div key={index} className="text-[20px] font-bold bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transition">
                                     <div className="flex justify-between mb-2">
                                         <span className="text-[var(--text)]">{skill.name}</span>
                                         <span className="text-[var(--primary)]">{count}%</span>
@@ -181,7 +182,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/projects"
-                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] fade-out-transition"
+                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] fade-out-transition"
                         >
                             {t("view_projects")}
                         </NavLink>
@@ -201,7 +202,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/contact"
-                            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 fade-out-transition"
+                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 fade-out-transition"
                         >
                             {t("contact_me")}
                         </NavLink>
