@@ -93,47 +93,47 @@ const Home: React.FC = () => {
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-                    {skills.map((skill, index) => {
-  const [count, setCount] = useState(0);
+                        {skills.map((skill, index) => {
+                            const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    const delay = index * 100; // کمی فاصله بین مهارت‌ها
-    let start: number | null = null;
+                            useEffect(() => {
+                                const delay = index * 100; // کمی فاصله بین مهارت‌ها
+                                let start: number | null = null;
 
-    const duration = 800; // مدت انیمیشن
+                                const duration = 800; // مدت انیمیشن
 
-    const animate = (timestamp: number) => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      setCount(Math.round(progress * skill.level));
+                                const animate = (timestamp: number) => {
+                                    if (!start) start = timestamp;
+                                    const progress = Math.min((timestamp - start) / duration, 1);
+                                    setCount(Math.round(progress * skill.level));
 
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
+                                    if (progress < 1) {
+                                        requestAnimationFrame(animate);
+                                    }
+                                };
 
-    const timeout = setTimeout(() => {
-      requestAnimationFrame(animate);
-    }, delay);
+                                const timeout = setTimeout(() => {
+                                    requestAnimationFrame(animate);
+                                }, delay);
 
-    return () => clearTimeout(timeout);
-  }, [skill.level, index]);
+                                return () => clearTimeout(timeout);
+                            }, [skill.level, index]);
 
-  return (
-    <div key={index} className="bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transation">
-      <div className="flex justify-between mb-2">
-        <span className="text-[var(--text)]">{skill.name}</span>
-        <span className="text-[var(--primary)]">{count}%</span>
-      </div>
-      <div className="h-2 bg-[var(--border)] rounded-full">
-        <div
-          className="h-full bg-[var(--primary)] rounded-full transition-all duration-1000 ease-out"
-          style={{ width: `${count}%` }}
-        ></div>
-      </div>
-    </div>
-  );
-})}
+                            return (
+                                <div key={index} className="bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transation">
+                                    <div className="flex justify-between mb-2">
+                                        <span className="text-[var(--text)]">{skill.name}</span>
+                                        <span className="text-[var(--primary)]">{count}%</span>
+                                    </div>
+                                    <div className="h-2 bg-[var(--border)] rounded-full">
+                                        <div
+                                            className="h-full bg-[var(--primary)] rounded-full transition-all duration-1000 ease-out"
+                                            style={{ width: `${count}%` }}
+                                        ></div>
+                                    </div>
+                                </div>
+                            );
+                        })}
 
 
                     </div>
@@ -184,3 +184,11 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+/**
+ * @copyright
+ * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
+ * Developed for Persian Caesar | https://github.com/Persian-Caesar | https://dsc.gg/persian-caesar
+ *
+ * If you encounter any issues or need assistance with this code,
+ * please make sure to credit "Persian Caesar" in your documentation or communications.
+ */

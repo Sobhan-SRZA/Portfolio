@@ -2,32 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://srza.ir/</loc>
-    <lastmod>2025-08-26</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-08-29</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://srza.ir/projects</loc>
-    <lastmod>2025-08-26</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-08-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://srza.ir/contact</loc>
-    <lastmod>2025-08-26</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-08-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://srza.ir/biography</loc>
-    <lastmod>2025-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-08-29</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://srza.ir/social</loc>
-    <lastmod>2025-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-08-29</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
