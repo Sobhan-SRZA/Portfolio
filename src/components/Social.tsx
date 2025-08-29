@@ -9,6 +9,8 @@ import {
   MessageCircle,
   Gitlab,
   NotepadText,
+  BriefcaseBusiness,
+  University,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
@@ -21,103 +23,103 @@ const Social: React.FC = () => {
     {
       key: "upwork",
       url: social.upwork,
-      icon: <Briefcase className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <BriefcaseBusiness className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "gitlab",
       url: social.gitlab,
-      icon: <Gitlab className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Gitlab className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "npm",
       url: social.npm,
-      icon: <NotepadText className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <NotepadText className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "github_main",
       url: social.github,
-      icon: <Github className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Github className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "github_persian_caesar",
       url: social.github_pc,
-      icon: <Github className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Github className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "github_aparatjs",
       url: social.github_aparat,
-      icon: <Github className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Github className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "orcid",
       url: social.orcid,
-      icon: <Briefcase className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <University className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "karlancer",
       url: social.karlancer,
-      icon: <Briefcase className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Briefcase className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "linkedin",
       url: social.linkedin,
-      icon: <Linkedin className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Linkedin className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "youtube",
       url: social.youtube,
-      icon: <Youtube className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Youtube className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "twitch",
       url: social.twitch,
-      icon: <Twitch className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Twitch className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "instagram_main",
       url: social.instagram,
-      icon: <Instagram className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Instagram className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "instagram_private",
       url: social.instagram_private,
-      icon: <Instagram className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Instagram className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "telegram_main",
       url: social.telegram,
-      icon: <Send className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Send className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "telegram_second",
       url: social.telegram_second,
-      icon: <Send className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Send className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "telegram_channel",
       url: social.telegram_channel,
-      icon: <Send className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <Send className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "discord_main",
       url: social.discord_account,
-      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "discord_persian_caesar",
       url: social.discord_account_pc,
-      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "discord_pc_development",
       url: social.discord_server_pc_development,
-      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" />,
+      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" />
     },
     {
       key: "discord_pc_club",
       url: social.discord_server_pc_club,
-      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" />,
-    },
+      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" />
+    }
   ];
 
   return (
@@ -128,7 +130,7 @@ const Social: React.FC = () => {
       </Helmet>
       <section
         id="social"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transation"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transition"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"

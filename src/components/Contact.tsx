@@ -145,7 +145,7 @@ const Contact: React.FC = () => {
 
       <section
         id="contact"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors fade-out-transation"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors fade-out-transition"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
@@ -172,7 +172,7 @@ const Contact: React.FC = () => {
                     href={contact.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 bg-[var(--card-bg)]/50 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] fade-out-transation"
+                    className="flex items-center gap-3 p-4 bg-[var(--card-bg)]/50 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] fade-out-transition"
                     aria-label={t(`contact_links.${contact.key}`)}
                   >
                     {contact.icon}
@@ -199,7 +199,7 @@ const Contact: React.FC = () => {
                     name="name"
                     placeholder={t("your_name")}
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transation"
+                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transition"
                   />
                 </div>
                 <div>
@@ -208,7 +208,7 @@ const Contact: React.FC = () => {
                     name="email"
                     placeholder={t("your_email")}
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transation"
+                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transition"
                   />
                 </div>
                 <div>
@@ -217,13 +217,13 @@ const Contact: React.FC = () => {
                     placeholder={t("your_message")}
                     rows={5}
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transation"
+                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transition"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-[var(--primary)] text-white font-semibold hover:bg-[var(--primary-hover)] fade-out-transation disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-[var(--primary)] text-white font-semibold hover:bg-[var(--primary-hover)] fade-out-transition disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5" />
                   {loading ? t("sending") : t("send")}
@@ -240,11 +240,11 @@ const Contact: React.FC = () => {
           className="relative z-50"
         >
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity fade-out-transation"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity fade-out-transition"
           />
           <div className="fixed inset-0 flex items-center justify-center p-4">
             <DialogPanel
-              className={`w-full max-w-md rounded-lg bg-[var(--card-bg)]/90 backdrop-blur-md p-6 text-center transform fade-out-transation ${alert.show ? "scale-100 opacity-100" : "scale-95 opacity-0"
+              className={`w-full max-w-md rounded-lg bg-[var(--card-bg)]/90 backdrop-blur-md p-6 text-center transform fade-out-transition ${alert.show ? "scale-100 opacity-100" : "scale-95 opacity-0"
                 } ${i18n.language === "fa" ? "rtl" : "font-sans ltr"}`}
             >
               <div className="flex justify-center mb-4">
@@ -297,7 +297,7 @@ const Contact: React.FC = () => {
               <p className="text-lg text-[var(--text)] mb-6">{alert.message}</p>
               <button
                 onClick={() => setAlert({ ...alert, show: false })}
-                className="cursor-pointer px-6 py-2 bg-[var(--primary)] text-white rounded-md font-semibold hover:bg-[var(--primary-hover)] fade-out-transation"
+                className="cursor-pointer px-6 py-2 bg-[var(--primary)] text-white rounded-md font-semibold hover:bg-[var(--primary-hover)] fade-out-transition"
                 aria-label={t("close")}
               >
                 {t("close")}

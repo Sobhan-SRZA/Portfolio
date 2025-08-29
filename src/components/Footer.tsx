@@ -12,10 +12,10 @@ const Footer: React.FC = () => {
     const { t, i18n } = useTranslation();
 
     const socialLinks = [
-        { name: "GitHub", icon: <Github className="fade-out-transation w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.github },
-        { name: "LinkedIn", icon: <Linkedin className="fade-out-transation w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.linkedin },
-        { name: "Telegram", icon: <Send className="fade-out-transation w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.telegram },
-        { name: "Instagram", icon: <Instagram className="fade-out-transation w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.instagram }
+        { name: "GitHub", icon: <Github className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.github },
+        { name: "LinkedIn", icon: <Linkedin className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.linkedin },
+        { name: "Telegram", icon: <Send className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.telegram },
+        { name: "Instagram", icon: <Instagram className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.instagram }
     ];
 
     const usefulLinks = [
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
     ];
 
     return (
-        <footer className="relative bg-[var(--sec-bg)] backdrop-blur-md text-[var(--text)] py-12 animate-fade-in fade-out-transation">
+        <footer className="relative bg-[var(--sec-bg)] backdrop-blur-md text-[var(--text)] py-12 animate-fade-in fade-out-transition">
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)]/20 to-transparent z-[-1]"></div>
             <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                     <div className="flex flex-col items-center min-[768px]:items-start">
                         <NavLink
                             to="/"
-                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-[var(--primary)] hover:text-[var(--primary-hover)] fade-out-transation"
+                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-[var(--primary)] hover:text-[var(--primary-hover)] fade-out-transition"
                             aria-label="Mr. Sinre | Sobhan-SRZA"
                         >
                             Mr. Sinre | Sobhan-SRZA
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                                 <li key={index}>
                                     <NavLink
                                         to={link.url}
-                                        className="text-[var(--text)]/70 hover:text-[var(--hover)] text-sm fade-out-transation"
+                                        className="text-[var(--text)]/70 hover:text-[var(--hover)] text-sm fade-out-transition"
                                         aria-label={link.name}
                                     >
                                         {link.name}

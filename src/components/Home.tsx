@@ -32,11 +32,12 @@ const Home: React.FC = () => {
             </Helmet>
 
             {/* Hero Section */}
-            <section className="min-h-min py-16 bg-[var(--sec-bg)] rounded-t-3xl backdrop-blur-md flex items-center justify-center fade-out-transation">
+            <section className="min-h-min py-16 bg-[var(--sec-bg)] rounded-t-3xl backdrop-blur-md flex items-center justify-center fade-out-transition">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <div className="text-center">
                         <img
                             src="/images/profile.jpg"
+                            loading="lazy"
                             alt="Mr. Sinre | Sobhan-SRZA"
                             className="mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg object-cover mb-6 animate-scale-in"
                         />
@@ -91,25 +92,29 @@ const Home: React.FC = () => {
                     <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
                         {t("skills")}
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
+                    {/* Skills List */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                         {skills.map((skill, index) => {
                             const [count, setCount] = useState(0);
 
                             useEffect(() => {
-                                const delay = index * 100; // کمی فاصله بین مهارت‌ها
+                                const delay = index * 100;
                                 let start: number | null = null;
 
-                                const duration = 800; // مدت انیمیشن
+                                const duration = 800;
 
                                 const animate = (timestamp: number) => {
-                                    if (!start) start = timestamp;
+                                    if (!start)
+                                        start = timestamp;
+
                                     const progress = Math.min((timestamp - start) / duration, 1);
                                     setCount(Math.round(progress * skill.level));
 
                                     if (progress < 1) {
                                         requestAnimationFrame(animate);
                                     }
+
                                 };
 
                                 const timeout = setTimeout(() => {
@@ -120,7 +125,7 @@ const Home: React.FC = () => {
                             }, [skill.level, index]);
 
                             return (
-                                <div key={index} className="bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transation">
+                                <div key={index} className="bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transition">
                                     <div className="flex justify-between mb-2">
                                         <span className="text-[var(--text)]">{skill.name}</span>
                                         <span className="text-[var(--primary)]">{count}%</span>
@@ -134,9 +139,8 @@ const Home: React.FC = () => {
                                 </div>
                             );
                         })}
-
-
                     </div>
+
                 </div>
             </section>
 

@@ -51,7 +51,7 @@ const Biography: React.FC = () => {
       </Helmet>
       <section
         id="biography"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transation"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transition"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
@@ -71,7 +71,7 @@ const Biography: React.FC = () => {
 
           {/* Time Table of Biography */}
           <div
-            className={`relative border-[var(--primary)]/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"} fade-out-transation`}
+            className={`relative border-[var(--primary)]/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"} fade-out-transition`}
           >
             {timeline.map((item, index) => (
               <div
@@ -80,7 +80,7 @@ const Biography: React.FC = () => {
                 style={{ animationDelay: `${(index + 1) * 100}ms` }} // تأخیر نرم‌تر
               >
                 <div
-                  className={`absolute ${i18n.language === "fa" ? "-right-2.5" : "-left-2.5"} h-5 w-5 bg-[var(--primary)] rounded-full fade-out-transation`}
+                  className={`absolute ${i18n.language === "fa" ? "-right-2.5" : "-left-2.5"} h-5 w-5 bg-[var(--primary)] rounded-full fade-out-transition`}
                 />
                 <h3 className="text-xl font-semibold text-[var(--primary)] font-iransans mb-2">
                   {item.year}: {item.title}

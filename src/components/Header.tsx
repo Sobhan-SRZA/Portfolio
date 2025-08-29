@@ -36,11 +36,11 @@ const Header: React.FC = () => {
                         to="/"
                         className="text-2xl max-[1074px]:text-[18px] max-[1137px]:text-[22px] flex items-center space-x-2 space-x-reverse"
                     >
-                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] fade-out-transation">
+                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] fade-out-transition">
                             Sobhan-SRZA
                         </span>
                         <span className="text-[var(--primary)]">/</span>
-                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] fade-out-transation">
+                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] fade-out-transition">
                             Mr. Sinre
                         </span>
                     </NavLink>
@@ -51,10 +51,10 @@ const Header: React.FC = () => {
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)}
-                        className="inline-flex items-center justify-center rounded-md p-2.5 text-[var(--text)] hover:text-[var(--hover)] focus:outline-none fade-out-transation"
+                        className="inline-flex items-center justify-center rounded-md text-[var(--text)] hover:text-[var(--hover)] focus:outline-none fade-out-transition p-0"
                         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                     >
-                        <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+                        <Bars3Icon aria-hidden="true" className="h-8 w-8" />
                     </button>
                 </div>
 
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
                             key={item.name}
                             to={item.href}
                             className={({ isActive }) =>
-                                `max-[1116px]:text-[15px] text-[17px] font-semibold px-3 bg-transparent py-2 rounded-md fade-out-transation ${isActive
+                                `max-[1116px]:text-[15px] text-[17px] font-semibold px-3 bg-transparent py-2 rounded-md fade-out-transition ${isActive
                                     ? "cursor-not-allowed text-[var(--hover)]"
                                     : "text-[var(--text)] hover:text-[var(--hover)] hover:bg-[var(--card-bg)]/50"
                                 }`
@@ -97,10 +97,10 @@ const Header: React.FC = () => {
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="rounded-md p-2.5 text-[var(--text)] hover:text-[var(--hover)] fade-out-transation"
+                            className="rounded-md text-[var(--text)] hover:text-[var(--hover)] fade-out-transition p-0"
                             aria-label="Close menu"
                         >
-                            <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+                            <XMarkIcon aria-hidden="true" className="h-8 w-8" />
                         </button>
                     </div>
                     <div className="mt-6 flow-root">
@@ -111,7 +111,7 @@ const Header: React.FC = () => {
                                     to={item.href}
                                     className={({ isActive }) =>
                                         `text-center block rounded-lg px-3 py-2 text-base font-semibold text-[var(--text)] hover:bg-[var(--card-bg)]/50 ${isActive ? "text-[var(--primary)]" : ""
-                                        } fade-out-transation`
+                                        } fade-out-transition`
                                     }
                                     onClick={() => setMobileMenuOpen(false)}
                                 >

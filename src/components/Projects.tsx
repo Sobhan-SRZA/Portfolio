@@ -32,9 +32,9 @@ interface Project {
 }
 
 const statusIcons: { [key: string]: JSX.Element } = {
-  "✅ Done": <CheckCircle className="fade-out-transation w-5 h-5 text-green-600 group-hover:text-green-400" />,
-  "⚒ Working...": <Clock className="fade-out-transation w-5 h-5 text-yellow-600 group-hover:text-yellow-400" />,
-  "⏸ Paused": <PauseCircle className="fade-out-transation w-5 h-5 text-gray-600 group-hover:text-gray-400" />
+  "✅ Done": <CheckCircle className="fade-out-transition w-5 h-5 text-green-600 group-hover:text-green-400" />,
+  "⚒ Working...": <Clock className="fade-out-transition w-5 h-5 text-yellow-600 group-hover:text-yellow-400" />,
+  "⏸ Paused": <PauseCircle className="fade-out-transition w-5 h-5 text-gray-600 group-hover:text-gray-400" />
 };
 
 const Projects: React.FC = () => {
@@ -48,7 +48,6 @@ const Projects: React.FC = () => {
     TypeScript: "bg-blue-700 group-hover:bg-blue-500",
     React: "bg-cyan-500 group-hover:bg-cyan-400",
     Django: "bg-green-600 group-hover:bg-green-500",
-    Node: "bg-green-500 group-hover:bg-green-400",
     HTML: "bg-orange-500 group-hover:bg-orange-400",
     CSS: "bg-blue-400 group-hover:bg-blue-400",
     "C++": "bg-pink-700 group-hover:bg-pink-500",
@@ -61,11 +60,13 @@ const Projects: React.FC = () => {
     const fetchProjects = async () => {
       try {
         const response = await fetch(
-          "https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/projects.json"
+          "https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/projects.json",
+          { mode: "cors" }
         );
         if (!response.ok) {
           throw new Error(t("error_fetch"));
         }
+
         const data: Project[] = await response.json();
         const initialProjects = data.map((project) => ({
           ...project,
@@ -74,7 +75,9 @@ const Projects: React.FC = () => {
         }));
         setProjects(initialProjects);
         setLoading(false);
-      } catch (err) {
+      }
+
+      catch (err) {
         setError(t("error_fetch"));
         setProjects([]);
         setLoading(false);
@@ -84,7 +87,9 @@ const Projects: React.FC = () => {
   }, [t]);
 
   const getDescription = (project: Project) => {
-    if (!project.description_en && !project.description_fa) return project.description;
+    if (!project.description_en && !project.description_fa)
+      return project.description;
+
     return i18n.language === "fa" ? project.description_fa : project.description_en;
   };
 
@@ -96,19 +101,19 @@ const Projects: React.FC = () => {
       </Helmet>
       <section
         id="projects"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transation"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transition"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
             }`}
         >
           {/* Page Title */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in fade-out-transation">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in fade-out-transition">
             {t("projects")}
           </h2>
 
           {/* Describe Page */}
-          <p className="text-center text-[var(--text)] mb-12 text-lg animate-fade-in delay-200 fade-out-transation">
+          <p className="text-center text-[var(--text)] mb-12 text-lg animate-fade-in delay-200 fade-out-transition">
             {t("projects_content")}
           </p>
 
@@ -134,22 +139,22 @@ const Projects: React.FC = () => {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 fade-out-transation group"
+                  className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 fade-out-transition group"
                   aria-label={t(`project_${project.name.toLowerCase().replace(/\s+/g, "_")}`) || project.name}
                 >
                   {/* Projects Name */}
-                  <h3 className="fade-out-transation text-center text-xl font-semibold text-[var(--primary)] group-hover:text-[var(--primary-hover)] font-sans">
+                  <h3 className="fade-out-transition text-center text-xl font-semibold text-[var(--primary)] group-hover:text-[var(--primary-hover)] font-sans">
                     {project.name}
                   </h3>
 
                   {/* Projects Describe */}
-                  <p className="fade-out-transation text-[var(--text)] text-sm group-hover:text-[var(--hover)]">
+                  <p className="fade-out-transition text-[var(--text)] text-sm group-hover:text-[var(--hover)]">
                     {getDescription(project) || t("no_description")}
                   </p>
 
                   {/* Projects Access and Status */}
                   <div className="flex justify-between text-sm text-[var(--text)] ltr">
-                    <span className="fade-out-transation flex items-center gap-2">
+                    <span className="fade-out-transition flex items-center gap-2">
                       {statusIcons[project.status] || project.status}
                     </span>
 
@@ -157,14 +162,14 @@ const Projects: React.FC = () => {
                     {!project.private && (
                       <div className="flex justify-center gap-4">
                         <div className="flex items-center gap-2">
-                          <Star className="fade-out-transation w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
-                          <span className="fade-out-transation text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
+                          <Star className="fade-out-transition w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
+                          <span className="fade-out-transition text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
                             {project.stars}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <GitFork className="fade-out-transation w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
-                          <span className="fade-out-transation text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
+                          <GitFork className="fade-out-transition w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
+                          <span className="fade-out-transition text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
                             {project.forks}
                           </span>
                         </div>
@@ -174,9 +179,9 @@ const Projects: React.FC = () => {
                     {/* Projects Access */}
                     <span className="flex items-center gap-2">
                       {project.private ? (
-                        <Lock className="fade-out-transation w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
+                        <Lock className="fade-out-transition w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" />
                       ) : (
-                        <Globe className="fade-out-transation w-5 h-5 text-[var(--primary)] group-hover:text-[var(--primary-hover)]" />
+                        <Globe className="fade-out-transition w-5 h-5 text-[var(--primary)] group-hover:text-[var(--primary-hover)]" />
                       )}
                     </span>
                   </div>
@@ -187,7 +192,7 @@ const Projects: React.FC = () => {
                       project.languages.map((lang, idx) => (
                         <span
                           key={idx}
-                          className={`fade-out-transation px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default
+                          className={`fade-out-transition px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default
                             } group-hover:scale-105`}
                         >
                           {lang}
@@ -204,7 +209,7 @@ const Projects: React.FC = () => {
                       project.technologies.map((tech, idx) => (
                         <span
                           key={idx}
-                          className={`fade-out-transation px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default
+                          className={`fade-out-transition px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default
                             } group-hover:scale-105 transition-transform duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]`}
                         >
                           {tech}

@@ -7,9 +7,9 @@
   --primary: #1f58d2;
   --primary-hover: #0084ff;
   --hover: #2b6cfa;
-  --card-bg: #e4e4e4;
+  --card-bg: #d3d3d3e6;
   --border: #a9b8c5;
-  --sec-bg: #d3d3d3e6;
+  --sec-bg: #e4e4e4;
   --accent: #0a9621ec;
   --accent-hover: #29c843ec;
 }
@@ -17,13 +17,13 @@
 /* Dark Theme */
 [data-theme="dark"] {
   --background: #111131;
-  --hover: #95beff;
+  --hover: #93c5fd;
   --text: #f1f5f9;
   --primary: #3b82f6;
-  --primary-hover: #0084ff;
+  --primary-hover: #60a5fa;
   --card-bg: #2d3748;
   --border: #4b5563;
-  --sec-bg: #2a3850e6;
+  --sec-bg: #2a3850;
   --accent: #11a72aec;
   --accent-hover: #04e329ec;
 }
@@ -63,7 +63,7 @@ body {
     direction: ltr;
   }
 
-  .fade-out-transation {
+  .fade-out-transition {
     transition: all var(--default-transition-duration) var(--default-transition-timing-function);
   }
 }

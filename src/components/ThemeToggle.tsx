@@ -17,8 +17,9 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ onChange }) => {
     useEffect(() => {
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         const savedTheme = localStorage.getItem("theme");
-        const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+        const initialTheme = savedTheme || (prefersDark ? "dark" : "light") || "light";
         setIsDark(initialTheme === "dark");
+        
         document.documentElement.dataset.theme = initialTheme;
     }, []);
 
@@ -35,7 +36,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ onChange }) => {
     return (
         <button
             onClick={toggleTheme}
-            className="justify-self-center cursor-pointer p-2 w-max h-max rounded-full bg-transparent text-[var(--text)] hover:bg-[var(--card-bg)] fade-out-transation"
+            className="justify-self-center cursor-pointer p-2 w-max h-max rounded-full bg-transparent text-[var(--text)] hover:bg-[var(--card-bg)] fade-out-transition"
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
         >
             {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
