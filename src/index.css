@@ -11,23 +11,23 @@
   --border: #cbd5e1;
   --lgs-bg: #e5e7eb;
   --sec-bg: #f3f4f6;
-  --accent: #ea580c;
-  --accent-hover: #c2410c;
+  --accent: #c2410c;
+  --accent-hover: #9a3412;
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
-  --background: #0a0f1e;
-  --text: #f9fafb;
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --hover: #60a5fa;
+  --background: #0f172a;
+  --hover: #3b82f6;
+  --text: #f8fafc;
+  --primary: #60a5fa;
+  --primary-hover: #3b82f6;
   --card-bg: #1e293b;
   --border: #334155;
   --lgs-bg: #1e293b;
-  --sec-bg: #121e36;
+  --sec-bg: #1e293bf1;
   --accent: #fb923c;
-  --accent-hover: #f97316;
+  --accent-hover: #fdba74;
 }
 
 

@@ -153,7 +153,7 @@ const Home: React.FC = () => {
                             }, [skill.level, index]);
 
                             return (
-                                <div key={index} className="text-[20px] bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transition border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1">
+                                <div key={index} className="text-[20px] bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transition border border-[var(--border)] hover:border-[var(--primary)]">
                                     <div className="flex justify-between mb-2">
                                         <span className="text-[var(--text)]">{skill.name}</span>
                                         <span className="text-[var(--primary)] font-bold">{count}%</span>
