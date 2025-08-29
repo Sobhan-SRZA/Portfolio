@@ -33,20 +33,20 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
     return (
         <Popover className="relative inline-flex">
             <PopoverButton
-                className="cursor-pointer inline-flex items-center gap-x-1 px-3 py-1.5 text-sm font-medium text-[var(--text)] bg-transparent border border-gray-600 rounded-md fade-out-transition hover:bg-gray-700 hover:text-white focus:outline-none"
+                className="cursor-pointer inline-flex items-center gap-x-1 px-3 py-1.5 text-sm font-medium text-[var(--text)] bg-transparent border border-gray-600 rounded-md fade-out-transition hover:bg-gray-600 hover:text-white focus:outline-none"
                 aria-label="Select language"
             >
                 {currentLanguage.name}
                 <ChevronDownIcon className="h-4 w-4 text-gray-400" aria-hidden="true" />
             </PopoverButton>
             <PopoverPanel
-                className="absolute top-12 z-10 w-32 rounded-md border border-gray-600 bg-[var(--sec-bg)] shadow-sm fade-out-transition transform data-[closed]:opacity-0 data-[closed]:scale-95 data-[enter]:opacity-100 data-[enter]:scale-100 right-0">
+                className="absolute top-12 z-10 w-32 rounded-md border border-gray-600 bg-[var(--lgs-bg)] shadow-sm fade-out-transition transform data-[closed]:opacity-0 data-[closed]:scale-95 data-[enter]:opacity-100 data-[enter]:scale-100 right-0">
                 <div className="p-2">
                     {languages.map((lang) => (
                         <button
                             key={lang.code}
                             onClick={() => handleLanguageChange(lang.code)}
-                            className="mt-1 mb-1 cursor-pointer block w-full px-3 py-2 text-sm font-medium text-left text-[var(--text)] rounded-md hover:bg-gray-700 hover:text-white fade-out-transition "
+                            className="mt-1 mb-1 cursor-pointer block w-full px-3 py-2 text-sm font-medium text-left text-[var(--text)] rounded-md hover:bg-gray-600 hover:text-white fade-out-transition "
                             role="menuitem"
                         >
                             {lang.name}

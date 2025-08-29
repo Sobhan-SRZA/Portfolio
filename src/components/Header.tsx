@@ -67,7 +67,7 @@ const Header: React.FC = () => {
                             className={({ isActive }) =>
                                 `max-[1116px]:text-[15px] text-[17px] font-semibold px-3 bg-transparent py-2 rounded-md fade-out-transition ${isActive
                                     ? "cursor-not-allowed text-[var(--hover)]"
-                                    : "text-[var(--text)] hover:text-[var(--hover)] hover:bg-[var(--card-bg)]/50"
+                                    : "text-[var(--text)] hover:text-[var(--hover)] hover:bg-[var(--card-bg)]"
                                 }`
                             }
                         >
