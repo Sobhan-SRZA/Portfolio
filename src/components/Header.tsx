@@ -36,11 +36,11 @@ const Header: React.FC = () => {
                         to="/"
                         className="text-2xl max-[1074px]:text-[18px] max-[1137px]:text-[22px] flex items-center space-x-2 space-x-reverse"
                     >
-                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--hover)] fade-out-transation">
+                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] fade-out-transation">
                             Sobhan-SRZA
                         </span>
                         <span className="text-[var(--primary)]">/</span>
-                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--hover)] fade-out-transation">
+                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] fade-out-transation">
                             Mr. Sinre
                         </span>
                     </NavLink>

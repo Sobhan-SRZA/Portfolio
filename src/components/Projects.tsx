@@ -32,9 +32,9 @@ interface Project {
 }
 
 const statusIcons: { [key: string]: JSX.Element } = {
-  "✅ Done": <CheckCircle className="w-5 h-5 text-green-400" />,
-  "⚒ Working...": <Clock className="w-5 h-5 text-yellow-400" />,
-  "⏸ Paused": <PauseCircle className="w-5 h-5 text-gray-400" />,
+  "✅ Done": <CheckCircle className="fade-out-transation w-5 h-5 text-green-600 group-hover:text-green-400" />,
+  "⚒ Working...": <Clock className="fade-out-transation w-5 h-5 text-yellow-600 group-hover:text-yellow-400" />,
+  "⏸ Paused": <PauseCircle className="fade-out-transation w-5 h-5 text-gray-600 group-hover:text-gray-400" />
 };
 
 const Projects: React.FC = () => {
@@ -43,18 +43,18 @@ const Projects: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const techColors: { [key: string]: string } = {
-    Python: "bg-blue-500",
-    JavaScript: "bg-yellow-500",
-    TypeScript: "bg-blue-700",
-    React: "bg-cyan-500",
-    Django: "bg-green-600",
-    Node: "bg-green-500",
-    HTML: "bg-orange-500",
-    CSS: "bg-blue-400",
-    "C++": "bg-pink-700",
-    "Node.js": "bg-green-700",
-    NPM: "bg-red-500",
-    default: "bg-gray-600",
+    Python: "bg-blue-500 group-hover:bg-blue-400",
+    JavaScript: "bg-yellow-500 group-hover:bg-yellow-400",
+    TypeScript: "bg-blue-700 group-hover:bg-blue-500",
+    React: "bg-cyan-500 group-hover:bg-cyan-400",
+    Django: "bg-green-600 group-hover:bg-green-500",
+    Node: "bg-green-500 group-hover:bg-green-400",
+    HTML: "bg-orange-500 group-hover:bg-orange-400",
+    CSS: "bg-blue-400 group-hover:bg-blue-400",
+    "C++": "bg-pink-700 group-hover:bg-pink-500",
+    "Node.js": "bg-green-700 group-hover:bg-green-500",
+    NPM: "bg-red-500 group-hover:bg-red-400",
+    default: "bg-gray-600 group-hover:bg-gray-500"
   };
 
   useEffect(() => {

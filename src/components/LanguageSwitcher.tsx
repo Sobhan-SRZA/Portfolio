@@ -43,7 +43,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
                         <button
                             key={lang.code}
                             onClick={() => handleLanguageChange(lang.code)}
-                            className="cursor-pointer block w-full px-3 py-2 text-sm font-medium text-left text-[var(--text)] rounded-md hover:bg-gray-700 hover:text-white transition-colors duration-200"
+                            className="mt-1 mb-1 cursor-pointer block w-full px-3 py-2 text-sm font-medium text-left text-[var(--text)] rounded-md hover:bg-gray-700 hover:text-white transition-colors duration-200"
                             role="menuitem"
                         >
                             {lang.name}
