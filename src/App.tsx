@@ -8,14 +8,14 @@ import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { social } from "./storage";
 import SeoSection from "./components/SeoSection";
-import Biography from "./components/Biography";
-import Projects from "./components/Projects";
-import NotFound from "./components/NotFound";
-import Contact from "./components/Contact";
-import Social from "./components/Social";
+import Biography from "./pages/Biography";
+import Projects from "./pages/Projects";
+import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
+import Social from "./pages/Social";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 
 import "./i18n";
 
