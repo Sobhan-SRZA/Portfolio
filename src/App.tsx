@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import Social from "./pages/Social";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Chand from "./pages/Chand";
 import Home from "./pages/Home";
 
 import "./i18n";
