@@ -2,9 +2,9 @@ import {
     Popover,
     PopoverButton,
     PopoverPanel
-} from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import { useTranslation } from 'react-i18next';
+} from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { useTranslation } from "react-i18next";
 
 interface LanguageSwitcherProps {
     onChange?: () => void;
@@ -14,16 +14,16 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
     const { i18n } = useTranslation();
 
     const languages = [
-        { code: 'en', name: 'English' },
-        { code: 'fa', name: 'فارسی' }
+        { code: "en", name: "English" },
+        { code: "fa", name: "فارسی" }
     ];
 
     const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
 
     const handleLanguageChange = (code: string) => {
         i18n.changeLanguage(code);
-        document.documentElement.setAttribute('lang', code);
-        document.documentElement.setAttribute('dir', code === 'fa' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute("lang", code);
+        document.documentElement.setAttribute("dir", code === "fa" ? "rtl" : "ltr");
         localStorage.setItem("language", code);
 
         if (onChange)
