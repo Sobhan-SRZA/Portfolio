@@ -127,6 +127,7 @@ const App: React.FC = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/biography" element={<Biography />} />
             <Route path="/social" element={<Social />} />
+            <Route path="/chand" element={<Chand />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
