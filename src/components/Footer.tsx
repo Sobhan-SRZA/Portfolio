@@ -2,18 +2,16 @@ import {
     Github,
     Instagram,
     Linkedin,
-    Mail,
     Send,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { social } from "../storage";
 import { NavLink } from "react-router-dom";
+import { social } from "../storage";
 
 const Footer: React.FC = () => {
     const { t, i18n } = useTranslation();
 
     const socialLinks = [
-        { name: "Mail", icon: <Mail className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: `mailto:${social.email}` },
         { name: "GitHub", icon: <Github className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.github },
         { name: "LinkedIn", icon: <Linkedin className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.linkedin },
         { name: "Telegram", icon: <Send className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.telegram },

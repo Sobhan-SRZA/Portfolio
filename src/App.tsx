@@ -15,7 +15,6 @@ import Contact from "./pages/Contact";
 import Social from "./pages/Social";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Chand from "./pages/Chand";
 import Home from "./pages/Home";
 
 import "./i18n";
@@ -128,7 +127,6 @@ const App: React.FC = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/biography" element={<Biography />} />
             <Route path="/social" element={<Social />} />
-            <Route path="/chand" element={<Chand />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -83,6 +83,7 @@ const Projects: React.FC = () => {
         setLoading(false);
       }
     };
+    
     fetchProjects();
   }, [t]);
 
