@@ -122,7 +122,7 @@ const Home: React.FC = () => {
                     </h2>
 
                     {/* Skills List */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div className="flex flex-wrap justify-center gap-6">
                         {skills.map((skill, index) => {
                             const [count, setCount] = useState(0);
 
@@ -153,7 +153,7 @@ const Home: React.FC = () => {
                             }, [skill.level, index]);
 
                             return (
-                                <div key={index} className="text-[20px] bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transition border border-[var(--border)] hover:border-[var(--primary)]">
+                                <div key={index} className="min-[1280px]:min-w-[300px] max-[1280px]:w-[325px] max-[768px]:min-w-full text-[20px] bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transition border border-[var(--border)] hover:border-[var(--primary)]">
                                     <div className="flex justify-between mb-2">
                                         <span className="text-[var(--text)]">{skill.name}</span>
                                         <span className="text-[var(--primary)] font-bold">{count}%</span>
