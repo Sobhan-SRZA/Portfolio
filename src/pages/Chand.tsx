@@ -1,125 +1,97 @@
 import React, { useEffect, useState } from "react";
 
-const formatNum = (num: number, locale: string, digits: number = 2) =>
-    new Intl.NumberFormat(locale, {
-        minimumFractionDigits: digits,
-        maximumFractionDigits: digits,
-    }).format(num);
-
-const fractionDigitsFor = (symbol: string) => {
-    if (symbol === "JPY" || symbol === "IRR") return 0;
-    if (symbol === "BTC" || symbol === "ETH") return 6;
-    return 2;
-};
+interface OrderBook {
+    status: string;
+    lastUpdate: number;
+    lastTradePrice: string;
+    asks: [string, string][]; // [price, amount]
+    bids: [string, string][];
+}
 
 const Chand: React.FC = () => {
-    const [fx, setFx] = useState<any>(null);
-    const [symbols, setSymbols] = useState<string[]>(["EUR", "GBP", "JPY"]);
-    const [usdPerOunce, setUsdPerOunce] = useState<number | null>(null);
-    const [goldLoading, setGoldLoading] = useState<boolean>(true);
-    const [goldError, setGoldError] = useState<string | null>(null);
-    const [locale] = useState<string>("fa-IR");
+    const [symbol, setSymbol] = useState<string>("BTCIRT"); // بازار پیش‌فرض
+    const [orderBook, setOrderBook] = useState<OrderBook | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
-    // دریافت نرخ ارزها
     useEffect(() => {
-        fetch("https://api.exchangerate.host/latest?base=USD&access_key=b8c68cd3fb86a9bc176d7edac4199259")
-            .then((res) => res.json())
-            .then((data) => setFx(data))
-            .catch((err) => console.error(err));
-    }, []);
+        setLoading(true);
+        setError(null);
 
-    // دریافت قیمت طلا از API رایگان
-    useEffect(() => {
-        setGoldLoading(true);
-        fetch("https://api.exchangerate.host/live?currencies=USD&access_key=b8c68cd3fb86a9bc176d7edac4199259")
+        fetch(`https://apiv2.nobitex.ir/v3/orderbook/${symbol}`)
             .then((res) => res.json())
-            .then((data) => {
-                if (data?.rates?.USD) {
-                    setUsdPerOunce(1 / data.rates.USD); // چون base=XAU هست
+            .then((data: OrderBook) => {
+                if (data.status === "ok") {
+                    setOrderBook(data);
                 }
-                setGoldLoading(false);
+
+                else {
+                    setError("مشکل در دریافت اطلاعات");
+                }
+
+                setLoading(false);
             })
-            .catch((err) => {
-                setGoldError("خطا در دریافت قیمت طلا");
-                setGoldLoading(false);
-                console.error(err);
+            .catch(() => {
+                setError("خطا در ارتباط با سرور");
+                setLoading(false);
             });
-    }, []);
+    }, [symbol]);
 
     return (
         <div className="bg-slate-900 text-slate-100 min-h-screen flex items-center justify-center">
-            <div className="w-full max-w-md p-4 space-y-6">
-                {/* بخش ارز */}
+            <div className="w-full max-w-3xl p-4 space-y-6">
                 <div className="bg-slate-800 rounded-2xl shadow p-4">
-                    <h2 className="text-lg font-bold mb-3">نرخ ارز (USD base)</h2>
-                    <div className="divide-y divide-slate-700">
-                        {symbols.length === 0 ? (
-                            <div className="flex justify-between py-2 text-sm opacity-70 italic">
-                                <span>هیچ ارزی انتخاب نشده</span>
-                                <span>—</span>
-                            </div>
-                        ) : (
-                            symbols.map((sym) => (
-                                <div
-                                    key={sym}
-                                    className="flex justify-between py-2 text-sm"
-                                >
-                                    <span>{sym}</span>
-                                    <span className="font-bold">
-                                        {fx?.rates?.[sym]
-                                            ? formatNum(
-                                                fx.rates[sym],
-                                                locale,
-                                                fractionDigitsFor(sym)
-                                            )
-                                            : "—"}
-                                    </span>
-                                </div>
-                            ))
-                        )}
-                    </div>
-                </div>
+                    <h2 className="text-lg font-bold mb-4">📊 اردربوک ({symbol})</h2>
 
-                {/* بخش طلا */}
-                <div className="bg-slate-800 rounded-2xl shadow p-4">
-                    <h2 className="text-lg font-bold mb-3">قیمت طلا</h2>
-                    {goldLoading ? (
-                        <div className="italic opacity-70">در حال دریافت...</div>
-                    ) : goldError ? (
-                        <div className="text-red-400">{goldError}</div>
-                    ) : usdPerOunce ? (
-                        <div className="divide-y divide-slate-700">
-                            <div className="flex justify-between py-2 text-sm">
-                                <span>XAU / USD</span>
-                                <span className="font-bold">
-                                    {formatNum(usdPerOunce, locale, 2)}
-                                </span>
-                            </div>
-                            <div className="flex justify-between py-2 text-sm">
-                                <span>هر گرم (USD)</span>
-                                <span className="font-bold">
-                                    {formatNum(
-                                        usdPerOunce / 31.1034768,
-                                        locale,
-                                        4
-                                    )}
-                                </span>
-                            </div>
-                            {fx?.rates?.IRR && (
-                                <div className="flex justify-between py-2 text-sm">
-                                    <span>XAU / IRR</span>
-                                    <span className="font-bold">
-                                        {formatNum(
-                                            usdPerOunce * fx.rates.IRR,
-                                            locale,
-                                            0
-                                        )}
-                                    </span>
+                    {/* Select currancy */}
+                    <div className="mb-4">
+                        <select
+                            value={symbol}
+                            onChange={(e) => setSymbol(e.target.value)}
+                            className="bg-slate-700 text-slate-100 rounded-lg p-2 w-full"
+                        >
+                            <option value="BTCIRT">BTC / IRT</option>
+                            <option value="ETHIRT">ETH / IRT</option>
+                            <option value="USDTIRT">USDT / IRT</option>
+                            <option value="BTCUSDT">BTC / USDT</option>
+                            <option value="ETHUSDT">ETH / USDT</option>
+                        </select>
+                    </div>
+
+                    {loading ? (
+                        <div className="italic opacity-70">در حال بارگذاری...</div>
+                    ) : error ? (
+                        <div className="text-red-400">{error}</div>
+                    ) : orderBook ? (
+                        <div className="grid grid-cols-2 gap-6">
+                            {/* (Bids) */}
+                            <div>
+                                <h3 className="font-semibold mb-2">خریداران (Bids)</h3>
+                                <div className="divide-y divide-slate-700">
+                                    {orderBook.bids.slice(0, 10).map(([price, amount], i) => (
+                                        <div key={i} className="flex justify-between py-1 text-sm">
+                                            <span>{Number(price).toLocaleString("fa-IR")}</span>
+                                            <span>{amount}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                            )}
+                            </div>
+
+                            {/* (Asks) */}
+                            <div>
+                                <h3 className="font-semibold mb-2">فروشندگان (Asks)</h3>
+                                <div className="divide-y divide-slate-700">
+                                    {orderBook.asks.slice(0, 10).map(([price, amount], i) => (
+                                        <div key={i} className="flex justify-between py-1 text-sm">
+                                            <span>{Number(price).toLocaleString("fa-IR")}</span>
+                                            <span>{amount}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     ) : (
-                        <div className="opacity-70 italic">—</div>
+                        <div className="italic opacity-70">اطلاعاتی موجود نیست</div>
                     )}
                 </div>
             </div>
