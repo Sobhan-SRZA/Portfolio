@@ -1,113 +1,135 @@
+// Biography.tsx: Component for the biography page, displaying a timeline of events and active projects, with internationalization and SEO support.
+
+// Import useTranslation hook from react-i18next for internationalization support.
 import { useTranslation } from "react-i18next";
+
+// Import NavLink for client-side routing.
 import { NavLink } from "react-router-dom";
+
+// Import Helmet for managing document head (meta tags, title) for SEO purposes.
 import { Helmet } from "react-helmet";
 
+// Biography component, defined as a functional component using TypeScript.
 const Biography: React.FC = () => {
+  // Access translation function and i18n instance for language support.
   const { t, i18n } = useTranslation();
 
+  // Function to extract numbers (e.g., years) from a string using regex.
   function extractNumbers(input: string): number[] {
-    const matches = input.match(/\d+/g);
-    return matches ? matches.map(Number) : [];
+    const matches = input.match(/\d+/g); // Match all sequences of digits
+    return matches ? matches.map(Number) : []; // Convert matches to numbers or return empty array
   }
 
+  // Array of timeline events with translated titles, years, and descriptions.
   const timeline = [
     {
-      year: extractNumbers(t("biography_timeline.start"))[0],
+      year: extractNumbers(t("biography_timeline.start"))[0], // Extract year from translated start title
       title: t("biography_timeline.start"),
       description: t("biography_timeline.start_description")
     },
     {
-      year: extractNumbers(t("biography_timeline.pause"))[0],
+      year: extractNumbers(t("biography_timeline.pause"))[0], // Extract year from translated pause title
       title: t("biography_timeline.pause"),
       description: t("biography_timeline.pause_description")
     },
     {
-      year: extractNumbers(t("biography_timeline.resume"))[0],
+      year: extractNumbers(t("biography_timeline.resume"))[0], // Extract year from translated resume title
       title: t("biography_timeline.resume"),
       description: t("biography_timeline.resume_description")
     },
     {
-      year: extractNumbers(t("biography_timeline.discord"))[0],
+      year: extractNumbers(t("biography_timeline.discord"))[0], // Extract year from translated discord title
       title: t("biography_timeline.discord"),
       description: t("biography_timeline.discord_description")
     },
     {
-      year: extractNumbers(t("biography_timeline.university"))[0],
+      year: extractNumbers(t("biography_timeline.university"))[0], // Extract year from translated university title
       title: t("biography_timeline.university"),
       description: t("biography_timeline.university_description")
     },
     {
-      year: extractNumbers(t("biography_timeline.current"))[0],
+      year: extractNumbers(t("biography_timeline.current"))[0], // Extract year from translated current title
       title: t("biography_timeline.current"),
       description: t("biography_timeline.current_description")
     }
   ];
 
+  // Render the biography page with a timeline, active projects, and navigation links.
   return (
     <>
+      {/* Helmet for managing SEO metadata */}
       <Helmet>
-        <title>{t("biography")} | Mr. Sinre | Sobhan-SRZA</title>
-        <meta name="description" content={t("biography_intro")} />
+        <title>{t("biography")} | Mr. Sinre | Sobhan-SRZA</title> {/* Page title with translated biography label */}
+        <meta name="description" content={t("biography_intro")} /> {/* Description for SEO */}
       </Helmet>
+      {/* Main section for biography page with theme-based styling and animations */}
       <section
         id="biography"
         className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transition"
       >
         <div
-          className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"
-            }`}
+          className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
-          {/* Page Title */}
+          {/* Page title with animation and theme-based styling */}
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
-            {t("biography")}
+            {t("biography")} {/* Translated biography section title */}
           </h2>
 
-          {/* Biography Description */}
+          {/* Biography introduction */}
           <div className="mb-12 text-center">
             <p className={`${i18n.language === "fa" ? "rtl text-right" : "ltr text-left"} text-lg sm:text-xl font-iransans text-[var(--text)] leading-relaxed animate-fade-in delay-200`}>
-              {t("biography_intro")}
+              {t("biography_intro")} {/* Translated biography introduction */}
             </p>
           </div>
 
-          {/* Time Table of Biography */}
+          {/* Timeline of biography events */}
           <div
             className={`relative border-[var(--primary)]/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"} fade-out-transition`}
           >
             {timeline.map((item, index) => (
+              // Individual timeline event with staggered animation
               <div
-                key={index}
+                key={index} // Unique key for each timeline event (consider using item.year for better uniqueness)
                 className="mb-10 pl-8 sm:pl-12 animate-fade-in"
-                style={{ animationDelay: `${(index + 1) * 100}ms` }} // تأخیر نرم‌تر
+                style={{ animationDelay: `${(index + 1) * 100}ms` }} // Staggered animation delay
               >
+                {/* Timeline marker (dot) */}
                 <div
                   className={`absolute ${i18n.language === "fa" ? "-right-2.5" : "-left-2.5"} h-5 w-5 bg-[var(--primary)] rounded-full fade-out-transition`}
                 />
+                {/* Event title with year */}
                 <h3 className="text-xl font-semibold text-[var(--primary)] font-iransans mb-2">
                   {item.year}: {item.title}
                 </h3>
+                {/* Event description */}
                 <p className="text-[var(--text)] font-iransans leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
 
-          {/* Active Projects List */}
+          {/* Active Projects Section */}
           <div className="mt-12">
             <h3 className="text-2xl font-semibold text-[var(--primary)] font-iransans mb-6 text-center animate-fade-in delay-200">
-              {t("active_projects")}
+              {t("active_projects")} {/* Translated active projects title */}
             </h3>
+            {/* Grid of active projects */}
             <div className="grid sm:grid-cols-2 gap-6 animate-fade-in delay-300">
+              {/* Project: Hycom */}
               <div className="p-6 bg-[var(--card-bg)]/60 rounded-lg shadow-lg border border-[var(--border)] hover:border-[var(--primary)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
                 <h4 className="text-lg font-semibold text-[var(--text)] font-iransans mb-2">{t("projects_list.hycom")}</h4>
                 <p className="text-[var(--text)] font-iransans">{t("projects_list.hycom_description")}</p>
               </div>
+              {/* Project: Ticker Boy */}
               <div className="p-6 bg-[var(--card-bg)]/60 rounded-lg shadow-lg border border-[var(--border)] hover:border-[var(--primary)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
                 <h4 className="text-lg font-semibold text-[var(--text)] font-iransans mb-2">{t("projects_list.ticker_boy")}</h4>
                 <p className="text-[var(--text)] font-iransans">{t("projects_list.ticker_boy_description")}</p>
               </div>
+              {/* Project: DJ Boy */}
               <div className="p-6 bg-[var(--card-bg)]/60 rounded-lg shadow-lg border border-[var(--border)] hover:border-[var(--primary)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
                 <h4 className="text-lg font-semibold text-[var(--text)] font-iransans mb-2">{t("projects_list.dj_boy")}</h4>
                 <p className="text-[var(--text)] font-iransans">{t("projects_list.dj_boy_description")}</p>
               </div>
+              {/* Project: Padio */}
               <div className="p-6 bg-[var(--card-bg)]/60 rounded-lg shadow-lg border border-[var(--border)] hover:border-[var(--primary)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
                 <h4 className="text-lg font-semibold text-[var(--text)] font-iransans mb-2">{t("projects_list.padio")}</h4>
                 <p className="text-[var(--text)] font-iransans">{t("projects_list.padio_description")}</p>
@@ -115,21 +137,23 @@ const Biography: React.FC = () => {
             </div>
           </div>
 
-          {/* Redirect */}
+          {/* Navigation Links */}
           <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in delay-400">
+            {/* Link to projects page */}
             <NavLink
               to="/projects"
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2 focus:ring-offset-[var(--card-bg)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)] font-iransans"
-              aria-label={t("view_projects")}
+              aria-label={t("view_projects")} // Accessible label for screen readers
             >
-              {t("view_projects")}
+              {t("view_projects")} {/* Translated view projects button */}
             </NavLink>
+            {/* Link to contact page */}
             <NavLink
               to="/contact"
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)] font-iransans"
-              aria-label={t("contact_me")}
+              aria-label={t("contact_me")} // Accessible label for screen readers
             >
-              {t("contact_me")}
+              {t("contact_me")} {/* Translated contact button */}
             </NavLink>
           </div>
         </div>
@@ -138,7 +162,9 @@ const Biography: React.FC = () => {
   );
 };
 
+// Export the Biography component as the default export.
 export default Biography;
+
 /**
  * @copyright
  * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA

@@ -1,47 +1,77 @@
+/* index.css: Global stylesheet for the application, defining themes, fonts, and utility classes. */
+
+/* Import Tailwind CSS to leverage its utility classes for styling the application. */
 @import "tailwindcss";
 
-/* Light Theme */
+/* Light Theme: Define CSS custom properties (variables) for the light theme, used for consistent styling across the app. */
 :root {
   --background: #f9fafb;
+  /* Background color for the light theme */
   --text: #111827;
+  /* Text color for the light theme */
   --primary: #1d4ed8;
+  /* Primary color for buttons, links, etc. */
   --primary-hover: #1e40af;
+  /* Hover state for primary color */
   --hover: #2563eb;
+  /* General hover color for interactive elements */
   --card-bg: #ffffff;
+  /* Background color for cards or panels */
   --border: #cbd5e1;
+  /* Border color for elements */
   --lgs-bg: #e5e7eb;
+  /* Background for specific UI components (e.g., light gray sections) */
   --sec-bg: #f3f4f6;
+  /* Secondary background color for subtle contrasts */
   --accent: #c2410c;
+  /* Accent color for highlights or emphasis */
   --accent-hover: #9a3412;
+  /* Hover state for accent color */
 }
 
-/* Dark Theme */
+/* Dark Theme: Define CSS custom properties for the dark theme, applied when [data-theme="dark"] is set on an element. */
 [data-theme="dark"] {
   --background: #0f172a;
+  /* Background color for the dark theme */
   --hover: #3b82f6;
+  /* Hover color for interactive elements in dark theme */
   --text: #f8fafc;
+  /* Text color for the dark theme */
   --primary: #60a5fa;
+  /* Primary color for buttons, links, etc. in dark theme */
   --primary-hover: #3b82f6;
+  /* Hover state for primary color in dark theme */
   --card-bg: #1e293b;
+  /* Background color for cards or panels in dark theme */
   --border: #334155;
+  /* Border color for elements in dark theme */
   --lgs-bg: #1e293b;
+  /* Background for specific UI components in dark theme */
   --sec-bg: #1e293bf1;
+  /* Secondary background with slight transparency in dark theme */
   --accent: #fb923c;
+  /* Accent color for highlights in dark theme */
   --accent-hover: #fdba74;
+  /* Hover state for accent color in dark theme */
 }
 
-
+/* Set smooth scrolling behavior for the entire HTML document. */
 html {
   scroll-behavior: smooth;
 }
 
+/* Style the body element with a custom font stack, theme-based colors, and smooth transitions for theme changes. */
 body {
   font-family: 'IRANSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background-color: var(--background);
+  /* Use theme-defined background color */
   color: var(--text);
+  /* Use theme-defined text color */
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  /* Smooth transitions for theme switches */
 }
 
+/* Define the custom IRANSans font, loaded from a local TTF file for Persian text support. */
 @font-face {
   font-family: 'IRANSans';
   src: url('/fonts/IRANSansWeb.ttf') format('truetype');
@@ -49,25 +79,33 @@ body {
   font-style: normal;
 }
 
+/* Tailwind base layer: Define global CSS variables for consistent font and transition settings. */
 @layer base {
   :root {
     --font-iransans: 'IRANSans', sans-serif;
+    /* Custom font variable for reusability */
     --default-transition-timing-function: ease-in-out;
+    /* Default timing function for transitions */
     --default-transition-duration: 0.5s;
+    /* Default duration for transitions */
   }
 }
 
+/* Tailwind utilities layer: Define custom utility classes for text direction and transitions. */
 @layer utilities {
   .rtl {
     direction: rtl;
+    /* Right-to-left text direction for languages like Persian */
   }
 
   .ltr {
     direction: ltr;
+    /* Left-to-right text direction for languages like English */
   }
 
   .fade-out-transition {
     transition: all var(--default-transition-duration) var(--default-transition-timing-function);
+    /* Utility for consistent fade transitions */
   }
 }
 
