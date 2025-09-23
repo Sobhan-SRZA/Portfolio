@@ -13,6 +13,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 // Import useTranslation hook from react-i18next for internationalization support.
 import { useTranslation } from "react-i18next";
 
+import { useRef } from "react";
 // Interface for component props, allowing an optional callback for language changes.
 interface LanguageSwitcherProps {
     onChange?: () => void; // Optional callback function triggered on language change
@@ -41,12 +42,16 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
         if (onChange) onChange(); // Trigger optional callback if provided
     };
 
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const panelRef = useRef<HTMLDivElement>(null);
+
     // Render the language switcher with a popover dropdown menu.
     return (
         <Popover className="relative inline-flex">
             {/* Popover button displaying the current language */}
             <PopoverButton
-                className="cursor-pointer inline-flex items-center gap-x-1 px-3 py-1.5 text-sm font-medium text-[var(--text)] bg-transparent border border-gray-600 rounded-md fade-out-transition hover:bg-gray-600 hover:text-white focus:outline-none"
+                ref={buttonRef}
+                className="cursor-pointer inline-flex items-center gap-x-1 px-3 py-1.5 text-sm font-medium text-[var(--text)] bg-transparent border border-gray-600 rounded-md default-fade-transition hover:bg-gray-600 hover:text-white focus:outline-none"
                 aria-label="Select language" // Accessible label for screen readers
             >
                 {currentLanguage.name} {/* Display name of the current language */}
@@ -54,7 +59,9 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
             </PopoverButton>
             {/* Popover panel containing language options */}
             <PopoverPanel
-                className="absolute top-12 z-10 w-32 rounded-md border border-gray-600 bg-[var(--lgs-bg)] shadow-sm fade-out-transition transform data-[closed]:opacity-0 data-[closed]:scale-95 data-[enter]:opacity-100 data-[enter]:scale-100 right-0"
+                ref={panelRef}
+                className="absolute z-50 top-9 w-32 rounded-md border border-gray-600 bg-[var(--lgs-bg)] shadow-sm default-transition duration-150  right-0 opacity-0 scale-90 invisible data-[open]:opacity-100 data-[open]:scale-100 data-[open]:top-[55px] data-[open]:visible"
+                static
             >
                 <div className="p-2">
                     {languages.map((lang) => (
@@ -62,7 +69,12 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
                         <button
                             key={lang.code} // Unique key for each language (using language code)
                             onClick={() => handleLanguageChange(lang.code)} // Trigger language change on click
-                            className="mt-1 mb-1 cursor-pointer block w-full px-3 py-2 text-sm font-medium text-left text-[var(--text)] rounded-md hover:bg-gray-600 hover:text-white fade-out-transition"
+                            className={
+                                `mt-1 mb-1 block w-full px-3 py-2 text-sm font-medium text-left rounded-md hover:bg-[var(--nav-btn-hover)] hover:text-[var(--primary)] default-transition ${currentLanguage.code === lang.code
+                                    ? 'bg-[var(--nav-btn-hover)] text-[var(--primary)] cursor-not-allowed'
+                                    : 'cursor-pointer text-[var(--text)]'
+                                }`
+                            }
                             role="menuitem" // ARIA role for accessibility
                         >
                             {lang.name} {/* Display name of the language */}
@@ -70,7 +82,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
                     ))}
                 </div>
             </PopoverPanel>
-        </Popover>
+        </Popover >
     );
 };
 

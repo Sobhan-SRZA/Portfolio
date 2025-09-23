@@ -16,7 +16,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 // Import useState hook from React for managing mobile menu state.
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Import NavLink for client-side routing.
 import { NavLink } from "react-router-dom";
@@ -28,7 +28,7 @@ import ThemeToggle from "./ThemeToggle";
 // Header component, defined as a functional component using TypeScript.
 const Header: React.FC = () => {
     // Access translation function for internationalization.
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     // State to control the visibility of the mobile menu.
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -41,6 +41,40 @@ const Header: React.FC = () => {
         { name: t("biography"), href: "/biography" }, // Biography navigation link
         { name: t("social"), href: "/social" } // Social navigation link
     ];
+
+    const [activeItem, setActiveItem] = useState<string>(window.location.pathname);
+
+    const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+    const highlightRef = useRef<HTMLDivElement>(null);
+
+    // Update highlight position and width
+    useEffect(() => {
+        const activeIndex = navItems.findIndex((item) => item.href === activeItem);
+        const activeElement = navRefs.current[activeIndex];
+        if (activeElement && highlightRef.current) {
+            const { offsetLeft, offsetWidth, offsetHeight } = activeElement;
+            highlightRef.current.style.left = `${offsetLeft}px`;
+            highlightRef.current.style.width = `${offsetWidth}px`;
+            highlightRef.current.style.height = `${offsetHeight}px`;
+        }
+    }, [activeItem, i18n.language]);
+
+    // Handle window resize for responsive highlight
+    useEffect(() => {
+        const handleResize = () => {
+            const activeIndex = navItems.findIndex((item) => item.href === activeItem);
+            const activeElement = navRefs.current[activeIndex];
+            if (activeElement && highlightRef.current) {
+                const { offsetLeft, offsetWidth, offsetHeight } = activeElement;
+                highlightRef.current.style.left = `${offsetLeft}px`;
+                highlightRef.current.style.width = `${offsetWidth}px`;
+                highlightRef.current.style.height = `${offsetHeight}px`;
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [activeItem]);
 
     // Render the header with desktop and mobile navigation.
     return (
@@ -55,11 +89,11 @@ const Header: React.FC = () => {
                         to="/" // Link to homepage
                         className="text-2xl max-[1074px]:text-[18px] max-[1137px]:text-[22px] flex items-center space-x-2 space-x-reverse"
                     >
-                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] fade-out-transition">
+                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] default-fade-transition">
                             Sobhan-SRZA
                         </span> {/* Primary part of the logo */}
                         <span className="text-[var(--primary)]">/</span> {/* Separator */}
-                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] fade-out-transition">
+                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] default-fade-transition">
                             Mr. Sinre
                         </span> {/* Secondary part of the logo */}
                     </NavLink>
@@ -70,7 +104,7 @@ const Header: React.FC = () => {
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)} // Open mobile menu
-                        className="inline-flex items-center justify-center rounded-md text-[var(--text)] hover:text-[var(--hover)] focus:outline-none fade-out-transition p-0"
+                        className="inline-flex items-center justify-center rounded-md text-[var(--text)] hover:text-[var(--hover)] focus:outline-none default-fade-transition p-0"
                         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} // Accessible label for screen readers
                     >
                         <Bars3Icon aria-hidden="true" className="h-8 w-8" /> {/* Hamburger icon */}
@@ -79,18 +113,27 @@ const Header: React.FC = () => {
 
                 {/* Desktop Navigation */}
                 <div className="hidden min-[1032px]:flex lg:gap-x-8">
-                    {navItems.map((item) => (
+                    <div
+                        ref={highlightRef}
+                        className="absolute bg-[var(--nav-hover)] rounded-md transition-all duration-300 ease-in-out"
+                    />
+
+                    {navItems.map((item, index) => (
                         <NavLink
-                            key={item.name} // Unique key for each navigation item
-                            to={item.href} // Navigation route
-                            className={({ isActive }) =>
-                                `max-[1116px]:text-[15px] text-[17px] font-semibold px-3 bg-transparent py-2 rounded-md fade-out-transition ${isActive
-                                    ? "cursor-not-allowed text-[var(--hover)]" // Active link styling
-                                    : "text-[var(--text)] hover:text-[var(--hover)] hover:bg-[var(--card-bg)]" // Inactive link styling
-                                }`
+                            key={item.name}
+                            to={item.href}
+                            className={({ isActive }) => {
+                                if (isActive)
+                                    setActiveItem(item.href)
+
+                                return `relative text-[17px] font-semibold px-3 py-2 rounded-md transition-colors duration-300 ${isActive ? "text-[var(--hover)] cursor-not-allowed" : "text-[var(--text)] hover:text-[var(--hover)] hover:bg-[var(--nav-hover)]/50"
+                                    }`
                             }
+                            }
+                            onClick={() => setActiveItem(item.href)}
+                            ref={(el) => { navRefs.current[index] = el }}
                         >
-                            {item.name} {/* Translated navigation item name */}
+                            {item.name}
                         </NavLink>
                     ))}
                     <LanguageSwitcher /> {/* Language switcher component */}
@@ -119,7 +162,7 @@ const Header: React.FC = () => {
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)} // Close mobile menu
-                            className="rounded-md text-[var(--text)] hover:text-[var(--hover)] fade-out-transition p-0"
+                            className="rounded-md text-[var(--text)] hover:text-[var(--hover)] default-fade-transition p-0"
                             aria-label="Close menu" // Accessible label for screen readers
                         >
                             <XMarkIcon aria-hidden="true" className="h-8 w-8" /> {/* Close icon */}
@@ -133,7 +176,7 @@ const Header: React.FC = () => {
                                     key={item.name} // Unique key for each navigation item
                                     to={item.href} // Navigation route
                                     className={({ isActive }) =>
-                                        `text-center block rounded-lg px-3 py-2 text-base font-semibold text-[var(--text)] hover:bg-[var(--card-bg)]/50 ${isActive ? "text-[var(--primary)]" : ""} fade-out-transition`
+                                        `text-center block rounded-lg px-3 py-2 text-base font-semibold text-[var(--text)] hover:bg-[var(--card-bg)]/50 ${isActive ? "text-[var(--primary)]" : ""} default-fade-transition`
                                     }
                                     onClick={() => setMobileMenuOpen(false)} // Close menu on click
                                 >

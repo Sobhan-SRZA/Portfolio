@@ -145,7 +145,7 @@ const Social: React.FC = () => {
       {/* Main section for social links with theme-based styling and animations */}
       <section
         id="social"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center fade-out-transition"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center default-fade-transition"
       >
         {/* Container for responsive layout with language-based text direction */}
         <div
@@ -162,7 +162,7 @@ const Social: React.FC = () => {
           </p>
 
           {/* Grid of social links with responsive layout and hover effects */}
-          <div className="flex flex-wrap justify-center gap-5 animate-fade-in delay-400">
+          <div className="flex flex-wrap justify-center justify-items-center gap-5 animate-fade-in delay-400">
             {socialLinks.map((link, index) => (
               // Individual social link with accessibility attributes and hover animations
               <a
@@ -170,7 +170,7 @@ const Social: React.FC = () => {
                 href={link.url}
                 target="_blank" // Open link in a new tab
                 rel="noopener noreferrer" // Security attributes for external links
-                className="min-[1280px]:min-w-[300px] max-[1280px]:w-[325px] max-[768px]:min-w-full flex items-center gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                className="flex-1 h-max min-w-[300px] flex items-center gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
                 aria-label={t(`social_links.${link.key}`)} // Accessible label for screen readers
               >
                 {link.icon} {/* Render the corresponding icon for the link */}

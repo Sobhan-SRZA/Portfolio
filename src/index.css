@@ -5,54 +5,56 @@
 
 /* Light Theme: Define CSS custom properties (variables) for the light theme, used for consistent styling across the app. */
 :root {
-  --background: #f9fafb;
+  --nav-hover: #ffffff;
   /* Background color for the light theme */
-  --text: #111827;
+  --background: #f9fafb;
   /* Text color for the light theme */
-  --primary: #1d4ed8;
+  --text: #111827;
   /* Primary color for buttons, links, etc. */
-  --primary-hover: #1e40af;
+  --primary: #1d4ed8;
   /* Hover state for primary color */
-  --hover: #2563eb;
+  --primary-hover: #1e40af;
   /* General hover color for interactive elements */
-  --card-bg: #ffffff;
+  --hover: #2563eb;
   /* Background color for cards or panels */
-  --border: #cbd5e1;
+  --card-bg: #ffffff;
   /* Border color for elements */
-  --lgs-bg: #e5e7eb;
+  --border: #cbd5e1;
   /* Background for specific UI components (e.g., light gray sections) */
-  --sec-bg: #f3f4f6;
+  --lgs-bg: #e5e7eb;
   /* Secondary background color for subtle contrasts */
-  --accent: #c2410c;
+  --sec-bg: #f3f4f6;
   /* Accent color for highlights or emphasis */
-  --accent-hover: #9a3412;
+  --accent: #c2410c;
   /* Hover state for accent color */
+  --accent-hover: #9a3412;
 }
 
 /* Dark Theme: Define CSS custom properties for the dark theme, applied when [data-theme="dark"] is set on an element. */
 [data-theme="dark"] {
-  --background: #0f172a;
+  --nav-hover: #293055;
   /* Background color for the dark theme */
-  --hover: #3b82f6;
+  --background: #0f172a;
   /* Hover color for interactive elements in dark theme */
-  --text: #f8fafc;
+  --hover: #3b82f6;
   /* Text color for the dark theme */
-  --primary: #60a5fa;
+  --text: #f8fafc;
   /* Primary color for buttons, links, etc. in dark theme */
-  --primary-hover: #3b82f6;
+  --primary: #60a5fa;
   /* Hover state for primary color in dark theme */
-  --card-bg: #1e293b;
+  --primary-hover: #3b82f6;
   /* Background color for cards or panels in dark theme */
-  --border: #334155;
+  --card-bg: #1e293b;
   /* Border color for elements in dark theme */
-  --lgs-bg: #1e293b;
+  --border: #334155;
   /* Background for specific UI components in dark theme */
-  --sec-bg: #1e293bf1;
+  --lgs-bg: #1e293b;
   /* Secondary background with slight transparency in dark theme */
-  --accent: #fb923c;
+  --sec-bg: #1e293bf1;
   /* Accent color for highlights in dark theme */
-  --accent-hover: #fdba74;
+  --accent: #fb923c;
   /* Hover state for accent color in dark theme */
+  --accent-hover: #fdba74;
 }
 
 /* Set smooth scrolling behavior for the entire HTML document. */
@@ -103,9 +105,17 @@ body {
     /* Left-to-right text direction for languages like English */
   }
 
-  .fade-out-transition {
+  .default-fade-transition {
     transition: all var(--default-transition-duration) var(--default-transition-timing-function);
     /* Utility for consistent fade transitions */
+  }
+
+  .custom-container {
+    width: 100%;
+
+    @media (width >=1536px) {
+      max-width: 1536px;
+    }
   }
 }
 

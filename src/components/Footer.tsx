@@ -24,10 +24,10 @@ const Footer: React.FC = () => {
 
     // Array of social media links with icons and URLs.
     const socialLinks = [
-        { name: "GitHub", icon: <Github className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.github }, // GitHub link
-        { name: "LinkedIn", icon: <Linkedin className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.linkedin }, // LinkedIn link
-        { name: "Telegram", icon: <Send className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.telegram }, // Telegram link
-        { name: "Instagram", icon: <Instagram className="fade-out-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.instagram } // Instagram link
+        { name: "GitHub", icon: <Github className="default-fade-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.github }, // GitHub link
+        { name: "LinkedIn", icon: <Linkedin className="default-fade-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.linkedin }, // LinkedIn link
+        { name: "Telegram", icon: <Send className="default-fade-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.telegram }, // Telegram link
+        { name: "Instagram", icon: <Instagram className="default-fade-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.instagram } // Instagram link
     ];
 
     // Array of useful navigation links with translated names and URLs.
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
 
     // Render the footer with logo, links, social media, and copyright notice.
     return (
-        <footer className="relative bg-[var(--sec-bg)] backdrop-blur-md text-[var(--text)] py-12 animate-fade-in fade-out-transition">
+        <footer className="relative bg-[var(--sec-bg)] backdrop-blur-md text-[var(--text)] py-12 animate-fade-in default-fade-transition">
             {/* Gradient overlay for visual effect */}
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)]/20 to-transparent z-[-1]"></div>
             <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                     <div className="flex flex-col items-center min-[768px]:items-start">
                         <NavLink
                             to="/" // Link to homepage
-                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-[var(--primary)] hover:text-[var(--primary-hover)] fade-out-transition"
+                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-[var(--primary)] hover:text-[var(--primary-hover)] default-fade-transition"
                             aria-label="Mr. Sinre | Sobhan-SRZA" // Accessible label for screen readers
                         >
                             Mr. Sinre | Sobhan-SRZA
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
                                 <li key={index}> {/* Unique key for each link (consider using link.url for better uniqueness) */}
                                     <NavLink
                                         to={link.url} // Navigation route
-                                        className="text-[var(--text)]/70 hover:text-[var(--hover)] text-sm fade-out-transition"
+                                        className="text-[var(--text)]/70 hover:text-[var(--hover)] text-sm default-fade-transition"
                                         aria-label={link.name} // Accessible label for screen readers
                                     >
                                         {link.name} {/* Translated link name */}

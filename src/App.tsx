@@ -147,7 +147,7 @@ const App: React.FC = () => {
         {/* Header component for navigation */}
         <Header />
         {/* Main content area with responsive container and padding */}
-        <main className="flex-grow container mx-auto px-4 py-8">
+        <main className="flex-grow custom-container mx-auto px-4 py-8">
           {/* SEO section for additional on-page SEO elements */}
           <SeoSection />
           {/* Define routes for different pages of the application */}

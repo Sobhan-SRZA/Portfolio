@@ -180,7 +180,7 @@ const Contact: React.FC = () => {
       {/* Main section for contact page with theme-based styling and animations */}
       <section
         id="contact"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors fade-out-transition"
+        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors default-fade-transition"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
@@ -208,7 +208,7 @@ const Contact: React.FC = () => {
                     href={contact.url}
                     target="_blank" // Open link in a new tab
                     rel="noopener noreferrer" // Security attributes for external links
-                    className="flex items-center gap-3 p-4 bg-[var(--card-bg)]/50 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] fade-out-transition"
+                    className="flex items-center gap-3 p-4 bg-[var(--card-bg)]/50 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] default-fade-transition"
                     aria-label={t(`contact_links.${contact.key}`)} // Accessible label for screen readers
                   >
                     {contact.icon} {/* Render contact icon */}
@@ -237,7 +237,7 @@ const Contact: React.FC = () => {
                     name="name"
                     placeholder={t("your_name")} // Translated placeholder
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transition"
+                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 default-fade-transition"
                   />
                 </div>
                 {/* Email input field */}
@@ -247,7 +247,7 @@ const Contact: React.FC = () => {
                     name="email"
                     placeholder={t("your_email")} // Translated placeholder
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transition"
+                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 default-fade-transition"
                   />
                 </div>
                 {/* Message textarea */}
@@ -257,14 +257,14 @@ const Contact: React.FC = () => {
                     placeholder={t("your_message")} // Translated placeholder
                     rows={5}
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 fade-out-transition"
+                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 default-fade-transition"
                   />
                 </div>
                 {/* Submit button with loading state */}
                 <button
                   type="submit"
                   disabled={loading} // Disable button during submission
-                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-[var(--primary)] text-white font-semibold hover:bg-[var(--primary-hover)] fade-out-transition disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-[var(--primary)] text-white font-semibold hover:bg-[var(--primary-hover)] default-fade-transition disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5" /> {/* Send icon */}
                   {loading ? t("sending") : t("send")} {/* Translated button text based on loading state */}
@@ -282,11 +282,11 @@ const Contact: React.FC = () => {
         >
           {/* Overlay for the dialog */}
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity fade-out-transition"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity default-fade-transition"
           />
           <div className="fixed inset-0 flex items-center justify-center p-4">
             <DialogPanel
-              className={`w-full max-w-md rounded-lg bg-[var(--card-bg)]/90 backdrop-blur-md p-6 text-center transform fade-out-transition ${alert.show ? "scale-100 opacity-100" : "scale-95 opacity-0"} ${i18n.language === "fa" ? "rtl" : "font-sans ltr"}`}
+              className={`w-full max-w-md rounded-lg bg-[var(--card-bg)]/90 backdrop-blur-md p-6 text-center transform default-fade-transition ${alert.show ? "scale-100 opacity-100" : "scale-95 opacity-0"} ${i18n.language === "fa" ? "rtl" : "font-sans ltr"}`}
             >
               {/* Alert icon based on type (success, error, loading) */}
               <div className="flex justify-center mb-4">
@@ -341,7 +341,7 @@ const Contact: React.FC = () => {
               {/* Close button */}
               <button
                 onClick={() => setAlert({ ...alert, show: false })}
-                className="cursor-pointer px-6 py-2 bg-[var(--primary)] text-white rounded-md font-semibold hover:bg-[var(--primary-hover)] fade-out-transition"
+                className="cursor-pointer px-6 py-2 bg-[var(--primary)] text-white rounded-md font-semibold hover:bg-[var(--primary-hover)] default-fade-transition"
                 aria-label={t("close")} // Accessible label for screen readers
               >
                 {t("close")} {/* Translated close button text */}

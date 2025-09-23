@@ -27,6 +27,7 @@ export const social = {
     npm: "https://www.npmjs.com/~sobhan-srza" // NPM profile for published packages
 } as const; // Use 'as const' to make the object immutable and enable strict typing
 
+export const projects_link = "https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/projects.json" as const;
 /**
  * @copyright
  * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA

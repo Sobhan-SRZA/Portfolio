@@ -44,10 +44,10 @@ const Home: React.FC = () => {
     // Component to render a loading placeholder for the profile image.
     const LoadingIcon = () => (
         <div
-            className="fade-out-transition relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg bg-[var(--sec-bg)] animate-pulse mb-6"
+            className="default-fade-transition relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg bg-[var(--sec-bg)] animate-pulse mb-6"
         >
             <ImageIcon
-                className="p-2 w-full h-full text-[var(--primary)] fade-out-transition hover:filter-grayscale hover:brightness-125"
+                className="p-2 w-full h-full text-[var(--primary)] default-fade-transition hover:filter-grayscale hover:brightness-125"
             /> {/* Placeholder icon with animation and hover effects */}
         </div>
     );
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
             </Helmet>
 
             {/* Hero Section: Displays profile image, title, tagline, and call-to-action buttons */}
-            <section className="min-h-min py-16 bg-[var(--sec-bg)] rounded-t-3xl backdrop-blur-md flex items-center justify-center fade-out-transition">
+            <section className="min-h-min py-16 bg-[var(--sec-bg)] rounded-t-3xl backdrop-blur-md flex items-center justify-center default-fade-transition">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <div className="text-center">
                         {/* Profile image or loading placeholder */}
@@ -100,20 +100,20 @@ const Home: React.FC = () => {
                         <div className="flex max-[560px]:flex-col justify-center gap-4 animate-fade-in delay-400">
                             <NavLink
                                 to="/projects"
-                                className="px-6 py-3 text-[16px] font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] fade-out-transition"
+                                className="px-6 py-3 text-[16px] font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] default-fade-transition"
                             >
                                 {t("view_projects")} {/* Translated view projects button */}
                             </NavLink>
                             <NavLink
                                 to="/contact"
-                                className="px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 fade-out-transition"
+                                className="px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 default-fade-transition"
                             >
                                 {t("contact_me")} {/* Translated contact button */}
                             </NavLink>
                             <a
                                 href={`/resume-${i18n.language}.pdf`} // Language-specific resume file
                                 download="Sobhan-SRZA-Resume.pdf" // Download filename
-                                className="flex justify-center items-center px-6 py-3 text-[16px] font-semibold text-white bg-[var(--accent)] rounded-md shadow-sm hover:bg-[var(--accent-hover)] fade-out-transition"
+                                className="flex justify-center items-center px-6 py-3 text-[16px] font-semibold text-white bg-[var(--accent)] rounded-md shadow-sm hover:bg-[var(--accent-hover)] default-fade-transition"
                                 aria-label={t("download_resume")} // Accessible label for screen readers
                             >
                                 <Download className="w-5 h-5 mr-2" /> {/* Download icon */}
@@ -174,7 +174,7 @@ const Home: React.FC = () => {
                             return (
                                 <div
                                     key={index} // Unique key for each skill (consider using skill.name for better uniqueness)
-                                    className="min-[1280px]:min-w-[300px] max-[1280px]:w-[325px] max-[768px]:min-w-full text-[20px] bg-[var(--card-bg)] p-4 rounded-lg shadow-lg fade-out-transition border border-[var(--border)] hover:border-[var(--primary)]"
+                                    className="min-[1280px]:min-w-[300px] max-[1280px]:w-[325px] max-[768px]:min-w-full text-[20px] bg-[var(--card-bg)] p-4 rounded-lg shadow-lg default-fade-transition border border-[var(--border)] hover:border-[var(--primary)]"
                                 >
                                     {/* Skill name and progress percentage */}
                                     <div className="flex justify-between mb-2">
@@ -207,7 +207,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/projects"
-                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] fade-out-transition"
+                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] default-fade-transition"
                         >
                             {t("view_projects")} {/* Translated view projects button */}
                         </NavLink>
@@ -227,7 +227,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/contact"
-                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 fade-out-transition"
+                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 default-fade-transition"
                         >
                             {t("contact_me")} {/* Translated contact button */}
                         </NavLink>
