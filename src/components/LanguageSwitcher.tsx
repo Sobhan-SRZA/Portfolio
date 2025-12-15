@@ -51,7 +51,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
             {/* Popover button displaying the current language */}
             <PopoverButton
                 ref={buttonRef}
-                className="cursor-pointer inline-flex items-center gap-x-1 px-3 py-1.5 text-sm font-medium text-[var(--text)] bg-transparent border border-gray-600 rounded-md default-fade-transition hover:bg-[var(--nav-btn-hover)] hover:text-white focus:outline-none"
+                className="cursor-pointer inline-flex items-center gap-x-1 px-3 py-1.5 text-sm font-medium text-[var(--text)] bg-transparent border border-gray-600 rounded-md default-fade-transition hover:bg-[var(--nav-hover)] hover:text-[var(--nav-text-hover)] focus:outline-none"
                 aria-label="Select language" // Accessible label for screen readers
             >
                 {currentLanguage.name} {/* Display name of the current language */}
@@ -60,7 +60,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
             {/* Popover panel containing language options */}
             <PopoverPanel
                 ref={panelRef}
-                className="absolute z-50 top-9 w-32 rounded-md border border-gray-600 bg-[var(--lgs-bg)] shadow-sm default-transition duration-150  right-0 opacity-0 scale-90 invisible data-[open]:opacity-100 data-[open]:scale-100 data-[open]:top-[55px] data-[open]:visible"
+                className="absolute z-50 top-9 w-32 rounded-md border border-gray-600 bg-[var(--lgs-bg)] shadow-sm transition-all duration-150  right-0 opacity-0 scale-90 invisible data-[open]:opacity-100 data-[open]:scale-100 data-[open]:top-[55px] data-[open]:visible"
                 static
             >
                 <div className="p-2">
@@ -70,8 +70,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
                             key={lang.code} // Unique key for each language (using language code)
                             onClick={() => handleLanguageChange(lang.code)} // Trigger language change on click
                             className={
-                                `mt-1 mb-1 block w-full px-3 py-2 text-sm font-medium text-left rounded-md hover:bg-[var(--nav-btn-hover)] hover:text-[var(--primary)] default-transition ${currentLanguage.code === lang.code
-                                    ? 'bg-[var(--nav-btn-hover)] text-[var(--primary)] cursor-not-allowed'
+                                `mt-1 mb-1 block w-full px-3 py-2 text-sm font-medium text-left rounded-md hover:bg-[var(--nav-hover)] hover:text-[var(--nav-text-hover)] transition-all ${currentLanguage.code === lang.code
+                                    ? 'bg-[var(--nav-hover)] text-[var(--nav-text-hover)] cursor-not-allowed'
                                     : 'cursor-pointer text-[var(--text)]'
                                 }`
                             }
