@@ -87,13 +87,13 @@ const Header: React.FC = () => {
                 <div className="flex flex-1">
                     <NavLink
                         to="/" // Link to homepage
-                        className="text-2xl max-[1074px]:text-[18px] max-[1137px]:text-[22px] flex items-center space-x-2 space-x-reverse"
+                        className="text-2xl max-[1074px]:text-[18px] max-[1137px]:text-[22px] flex items-center space-x-2 space-x-reverse text-[var(--text)] hover:text-[var(--nav-hover)]"
                     >
-                        <span className="font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] default-fade-transition">
+                        <span className="font-bold tracking-tight transition-all">
                             Sobhan-SRZA
                         </span> {/* Primary part of the logo */}
                         <span className="text-[var(--primary)]">/</span> {/* Separator */}
-                        <span className="ml-1 mr-1.5 font-bold tracking-tight text-[var(--text)] hover:text-[var(--primary-hover)] default-fade-transition">
+                        <span className="ml-1 mr-1.5 font-bold tracking-tight transition-all">
                             Mr. Sinre
                         </span> {/* Secondary part of the logo */}
                     </NavLink>
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)} // Open mobile menu
-                        className="inline-flex items-center justify-center rounded-md text-[var(--text)] hover:text-[var(--hover)] focus:outline-none default-fade-transition p-0"
+                        className="inline-flex items-center justify-center rounded-md text-[var(--text)] hover:text-[var(--hover)] focus:outline-none transition-all p-0"
                         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} // Accessible label for screen readers
                     >
                         <Bars3Icon aria-hidden="true" className="h-8 w-8" /> {/* Hamburger icon */}
@@ -162,7 +162,7 @@ const Header: React.FC = () => {
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)} // Close mobile menu
-                            className="rounded-md text-[var(--text)] hover:text-[var(--hover)] default-fade-transition p-0"
+                            className="rounded-md text-[var(--text)] hover:text-[var(--hover)] transition-all p-0"
                             aria-label="Close menu" // Accessible label for screen readers
                         >
                             <XMarkIcon aria-hidden="true" className="h-8 w-8" /> {/* Close icon */}
@@ -176,7 +176,7 @@ const Header: React.FC = () => {
                                     key={item.name} // Unique key for each navigation item
                                     to={item.href} // Navigation route
                                     className={({ isActive }) =>
-                                        `text-center block rounded-lg px-3 py-2 text-base font-semibold text-[var(--text)] hover:bg-[var(--card-bg)]/50 ${isActive ? "text-[var(--primary)]" : ""} default-fade-transition`
+                                        `text-center block rounded-lg px-3 py-2 text-base font-semibold text-[var(--text)] hover:bg-[var(--card-bg)]/50 ${isActive ? "text-[var(--primary)]" : ""} transition-all`
                                     }
                                     onClick={() => setMobileMenuOpen(false)} // Close menu on click
                                 >

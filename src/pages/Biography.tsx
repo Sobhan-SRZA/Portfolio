@@ -3,9 +3,6 @@
 // Import useTranslation hook from react-i18next for internationalization support.
 import { useTranslation } from "react-i18next";
 
-// Import NavLink for client-side routing.
-import { NavLink } from "react-router-dom";
-
 // Import Helmet for managing document head (meta tags, title) for SEO purposes.
 import { Helmet } from "react-helmet";
 
@@ -137,26 +134,6 @@ const Biography: React.FC = () => {
                 <p className="text-[var(--text)] font-iransans">{t("projects_list.padio_description")}</p>
               </div>
             </div>
-          </div>
-
-          {/* Navigation Links */}
-          <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in delay-400">
-            {/* Link to projects page */}
-            <NavLink
-              to="/projects"
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2 focus:ring-offset-[var(--card-bg)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)] font-iransans"
-              aria-label={t("view_projects")} // Accessible label for screen readers
-            >
-              {t("view_projects")} {/* Translated view projects button */}
-            </NavLink>
-            {/* Link to contact page */}
-            <NavLink
-              to="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)] font-iransans"
-              aria-label={t("contact_me")} // Accessible label for screen readers
-            >
-              {t("contact_me")} {/* Translated contact button */}
-            </NavLink>
           </div>
         </div>
       </section>

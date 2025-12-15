@@ -44,10 +44,10 @@ const Home: React.FC = () => {
     // Component to render a loading placeholder for the profile image.
     const LoadingIcon = () => (
         <div
-            className="default-fade-transition relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg bg-[var(--sec-bg)] animate-pulse mb-6"
+            className="transition-all relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg bg-[var(--sec-bg)] animate-pulse mb-6"
         >
             <ImageIcon
-                className="p-2 w-full h-full text-[var(--primary)] default-fade-transition hover:filter-grayscale hover:brightness-125"
+                className="p-2 w-full h-full text-[var(--primary)] transition-all hover:filter-grayscale hover:brightness-125"
             /> {/* Placeholder icon with animation and hover effects */}
         </div>
     );
@@ -70,9 +70,10 @@ const Home: React.FC = () => {
             </Helmet>
 
             {/* Hero Section: Displays profile image, title, tagline, and call-to-action buttons */}
-            <section className="min-h-min py-16 bg-[var(--sec-bg)] rounded-t-3xl backdrop-blur-md flex items-center justify-center default-fade-transition">
+            <section className="min-h-min py-16 flex items-center justify-center transition-all">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <div className="text-center">
+
                         {/* Profile image or loading placeholder */}
                         <div className="relative">
                             {loading ? (
@@ -88,32 +89,23 @@ const Home: React.FC = () => {
                                 />
                             )}
                         </div>
+
                         {/* Main title with responsive font sizing */}
                         <h1 className="max-[480px]:text-3xl max-[411px]:text-[26px] max-[365px]:text-[22px] text-4xl sm:text-5xl font-bold mb-4 text-[var(--primary)] animate-fade-in">
                             Mr. Sinre | Sobhan-SRZA
                         </h1>
+
                         {/* Tagline with translated text */}
                         <p className="text-xl text-[var(--text)] mb-8 animate-fade-in delay-200">
                             {t("hero.tagline")} {/* Translated tagline */}
                         </p>
+                        
                         {/* Call-to-action buttons for projects, contact, and resume download */}
                         <div className="flex max-[560px]:flex-col justify-center gap-4 animate-fade-in delay-400">
-                            <NavLink
-                                to="/projects"
-                                className="px-6 py-3 text-[16px] font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] default-fade-transition"
-                            >
-                                {t("view_projects")} {/* Translated view projects button */}
-                            </NavLink>
-                            <NavLink
-                                to="/contact"
-                                className="px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 default-fade-transition"
-                            >
-                                {t("contact_me")} {/* Translated contact button */}
-                            </NavLink>
                             <a
                                 href={`/resume-${i18n.language}.pdf`} // Language-specific resume file
                                 download="Sobhan-SRZA-Resume.pdf" // Download filename
-                                className="flex justify-center items-center px-6 py-3 text-[16px] font-semibold text-white bg-[var(--accent)] rounded-md shadow-sm hover:bg-[var(--accent-hover)] default-fade-transition"
+                                className="flex gap-2 justify-center items-center px-6 py-3 text-[16px] font-semibold text-black backdrop-blur-2xl border-4 border-[var(--accent)] bg-[var(--accent-hover)]/30 rounded-md shadow-sm hover:bg-[var(--accent)] hover:scale-105 transition-all"
                                 aria-label={t("download_resume")} // Accessible label for screen readers
                             >
                                 <Download className="w-5 h-5 mr-2" /> {/* Download icon */}
@@ -125,7 +117,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* About Section: Displays a brief introduction */}
-            <section className="py-16 bg-[var(--card-bg)]/50">
+            <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
                         {t("about")} {/* Translated about section title */}
@@ -137,7 +129,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Skills Section: Displays a list of skills with animated progress bars */}
-            <section className="py-16 bg-[var(--sec-bg)] backdrop-blur-md">
+            <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
                         {t("skills")} {/* Translated skills section title */}
@@ -174,7 +166,7 @@ const Home: React.FC = () => {
                             return (
                                 <div
                                     key={index} // Unique key for each skill (consider using skill.name for better uniqueness)
-                                    className="min-[1280px]:min-w-[300px] max-[1280px]:w-[325px] max-[768px]:min-w-full text-[20px] bg-[var(--card-bg)] p-4 rounded-lg shadow-lg default-fade-transition border border-[var(--border)] hover:border-[var(--primary)]"
+                                    className="min-[1280px]:min-w-[300px] max-[1280px]:w-[325px] max-[768px]:min-w-full text-[20px] bg-[var(--card-bg)] p-4 rounded-lg shadow-lg transition-all border border-[var(--border)] hover:border-[var(--primary)] cursor-pointer"
                                 >
                                     {/* Skill name and progress percentage */}
                                     <div className="flex justify-between mb-2">
@@ -196,7 +188,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Projects Teaser: Encourages users to visit the projects page */}
-            <section className="py-16 bg-[var(--card-bg)]/50">
+            <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
                         {t("projects")} {/* Translated projects section title */}
@@ -207,7 +199,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/projects"
-                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-white bg-[var(--primary)] rounded-md shadow-sm hover:bg-[var(--primary-hover)] default-fade-transition"
+                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-[var(--nav-text-hover)] bg-[var(--primary)] rounded-md shadow-sm transition-all border hover:backdrop-blur-2xl hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:text-[var(--primary)]"
                         >
                             {t("view_projects")} {/* Translated view projects button */}
                         </NavLink>
@@ -216,7 +208,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Contact Teaser: Encourages users to visit the contact page */}
-            <section className="py-16 bg-[var(--sec-bg)] backdrop-blur-md rounded-b-3xl">
+            <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
                         {t("contact")} {/* Translated contact section title */}
@@ -227,7 +219,7 @@ const Home: React.FC = () => {
                     <div className="text-center">
                         <NavLink
                             to="/contact"
-                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary)]/10 default-fade-transition"
+                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary-hover)] hover:text-[var(--nav-text-hover)] transition-all"
                         >
                             {t("contact_me")} {/* Translated contact button */}
                         </NavLink>

@@ -24,10 +24,10 @@ const Footer: React.FC = () => {
 
     // Array of social media links with icons and URLs.
     const socialLinks = [
-        { name: "GitHub", icon: <Github className="default-fade-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.github }, // GitHub link
-        { name: "LinkedIn", icon: <Linkedin className="default-fade-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.linkedin }, // LinkedIn link
-        { name: "Telegram", icon: <Send className="default-fade-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.telegram }, // Telegram link
-        { name: "Instagram", icon: <Instagram className="default-fade-transition w-5 h-5 text-[var(--text)] hover:text-[var(--hover)]" />, url: social.instagram } // Instagram link
+        { name: "GitHub", icon: <Github />, url: social.github }, // GitHub link
+        { name: "LinkedIn", icon: <Linkedin />, url: social.linkedin }, // LinkedIn link
+        { name: "Telegram", icon: <Send />, url: social.telegram }, // Telegram link
+        { name: "Instagram", icon: <Instagram />, url: social.instagram } // Instagram link
     ];
 
     // Array of useful navigation links with translated names and URLs.
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
 
     // Render the footer with logo, links, social media, and copyright notice.
     return (
-        <footer className="relative bg-[var(--sec-bg)] backdrop-blur-md text-[var(--text)] py-12 animate-fade-in default-fade-transition">
+        <footer className="relative bg-[var(--sec-bg)] backdrop-blur-md text-[var(--text)] py-12 animate-fade-in transition-all">
             {/* Gradient overlay for visual effect */}
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)]/20 to-transparent z-[-1]"></div>
             <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                     <div className="flex flex-col items-center min-[768px]:items-start">
                         <NavLink
                             to="/" // Link to homepage
-                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-[var(--primary)] hover:text-[var(--primary-hover)] default-fade-transition"
+                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-[var(--primary)] hover:text-[var(--primary-hover)] transition-all"
                             aria-label="Mr. Sinre | Sobhan-SRZA" // Accessible label for screen readers
                         >
                             Mr. Sinre | Sobhan-SRZA
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
                                 <li key={index}> {/* Unique key for each link (consider using link.url for better uniqueness) */}
                                     <NavLink
                                         to={link.url} // Navigation route
-                                        className="text-[var(--text)]/70 hover:text-[var(--hover)] text-sm default-fade-transition"
+                                        className="text-[var(--text)]/70 hover:text-[var(--hover)] text-sm transition-all"
                                         aria-label={link.name} // Accessible label for screen readers
                                     >
                                         {link.name} {/* Translated link name */}
@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
                         <h3 className="text-lg font-semibold text-[var(--primary)] mb-4">
                             {t("footer.social")} {/* Translated social media title */}
                         </h3>
-                        <div className="flex gap-4">
+                        <div className="flex gap-6">
                             {socialLinks.map((link, index) => (
                                 <a
                                     key={index} // Unique key for each social link (consider using link.name for better uniqueness)
@@ -92,6 +92,7 @@ const Footer: React.FC = () => {
                                     target="_blank" // Open in new tab
                                     rel="noopener noreferrer" // Security attributes for external links
                                     aria-label={link.name} // Accessible label for screen readers
+                                    className="transition-all w-5 h-5 text-[var(--text)] hover:text-[var(--hover)] hover:scale-120"
                                 >
                                     {link.icon} {/* Social media icon */}
                                 </a>
@@ -103,7 +104,7 @@ const Footer: React.FC = () => {
                 {/* Copyright Notice */}
                 <div className="mt-8 pt-8 border-t border-[var(--border)] text-center">
                     <p className="text-[var(--text)]/70 text-sm">
-                        &copy; {`${i18n.language === "fa" ? "1404-1397" : "2018-2025"} Mr.Sinre | Sobhan - SRZA. ${t("footer.copyright")}`}
+                        &copy; {`${i18n.language === "fa" ? "1404-1399" : "2020-2025"} Mr.Sinre | Sobhan - SRZA. ${t("footer.copyright")}`}
                         {/* Dynamic copyright years based on language and translated copyright text */}
                     </p>
                 </div>
