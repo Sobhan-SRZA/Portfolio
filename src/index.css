@@ -48,8 +48,9 @@
   
   /* Hover color for interactive elements in dark theme */
   --hover: #3b82f6;
-  --nav-hover: #293055;
-  
+  --nav-hover: #bacfff;
+  --nav-text-hover: #000000;
+
   /* Text color for the dark theme */
   --text: #f8fafc;
   
@@ -57,7 +58,7 @@
   --primary: #60a5fa;
   
   /* Hover state for primary color in dark theme */
-  --primary-hover: #3b82f6;
+  --primary-hover: #a8c9ff;
   
   /* Background color for cards or panels in dark theme */
   --card-bg: #1e293b;
@@ -69,13 +70,13 @@
   --lgs-bg: #1e293b;
   
   /* Secondary background with slight transparency in dark theme */
-  --sec-bg: #1e293bf1;
+  --sec-bg: #182233f1;
   
   /* Accent color for highlights in dark theme */
-  --accent: #fb923c;
+  --accent: #3c9ffb;
 
   /* Hover state for accent color in dark theme */
-  --accent-hover: #fdba74;
+  --accent-hover: #74bbfd;
 }
 
 /* Set smooth scrolling behavior for the entire HTML document. */

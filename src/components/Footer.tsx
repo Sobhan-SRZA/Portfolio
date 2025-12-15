@@ -66,10 +66,12 @@ const Footer: React.FC = () => {
                         </h3>
                         <ul className="space-y-2 text-center">
                             {usefulLinks.map((link, index) => (
-                                <li key={index}> {/* Unique key for each link (consider using link.url for better uniqueness) */}
+                                <li
+                                    key={index}
+                                    className="text-[var(--text)]/80 hover:text-[var(--hover)] text-sm transition-all hover:scale-120"
+                                > {/* Unique key for each link (consider using link.url for better uniqueness) */}
                                     <NavLink
                                         to={link.url} // Navigation route
-                                        className="text-[var(--text)]/70 hover:text-[var(--hover)] text-sm transition-all"
                                         aria-label={link.name} // Accessible label for screen readers
                                     >
                                         {link.name} {/* Translated link name */}

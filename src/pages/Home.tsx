@@ -105,7 +105,7 @@ const Home: React.FC = () => {
                             <a
                                 href={`/resume-${i18n.language}.pdf`} // Language-specific resume file
                                 download="Sobhan-SRZA-Resume.pdf" // Download filename
-                                className="flex gap-2 justify-center items-center px-6 py-3 text-[16px] font-semibold text-black backdrop-blur-2xl border-4 border-[var(--accent)] bg-[var(--accent-hover)]/30 rounded-md shadow-sm hover:bg-[var(--accent)] hover:scale-105 transition-all"
+                                className="flex gap-2 justify-center items-center px-6 py-3 text-[16px] font-semibold text-black dark:hover:text-black dark:text-white backdrop-blur-2xl border-4 border-[var(--accent)] bg-[var(--accent-hover)]/30 rounded-md shadow-sm hover:bg-[var(--accent)] hover:scale-105 transition-all"
                                 aria-label={t("download_resume")} // Accessible label for screen readers
                             >
                                 <Download className="w-5 h-5 mr-2" /> {/* Download icon */}
