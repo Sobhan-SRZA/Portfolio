@@ -10,6 +10,7 @@ import {
   Lock,
   Star,
   GitFork,
+  LoaderCircle,
 } from "lucide-react";
 
 // Import React hooks for managing state and side effects, along with JSX type for TypeScript.
@@ -88,25 +89,31 @@ const Projects: React.FC = () => {
           projects_link,
           { mode: "cors" }
         );
+        
         if (!response.ok) {
           throw new Error(t("error_fetch")); // Throw translated error message on failure
         }
 
         // Parse the JSON response into an array of Project objects.
         const data: Project[] = await response.json();
+
         // Ensure stars and forks have default values of 0 if undefined.
         const initialProjects = data.map((project) => ({
           ...project,
           stars: project.stars ?? 0,
           forks: project.forks ?? 0
         }));
+
         setProjects(initialProjects);
         setLoading(false);
-      } catch (err) {
+      } 
+      
+      catch (err) {
         // Handle errors by setting an error message and clearing projects.
         setError(t("error_fetch"));
         setProjects([]);
         setLoading(false);
+        console.error(err)
       }
     };
 
@@ -122,7 +129,7 @@ const Projects: React.FC = () => {
 
   // Component to render a loading skeleton for projects while data is being fetched.
   const LoadingSkeleton = () => (
-    <div className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 animate-pulse">
+    <div className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 animate-pulse transition-all cursor-pointer">
       {/* Placeholder for project name */}
       <div className="text-center h-5 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
       {/* Placeholder for description lines */}
@@ -183,8 +190,11 @@ const Projects: React.FC = () => {
           {/* Loading state: Display skeleton placeholders while fetching data */}
           {loading && (
             <>
-              <div className="text-center text-[var(--text)] animate-pulse mb-5">
-                {t("loading")} {/* Translated loading message */}
+              <div className="text-[var(--text)] animate-pulse mb-5 flex gap-2 justify-center">
+                <LoaderCircle className="text-[var(--hover)] animate-spin" />
+                <p>
+                  {t("loading")} {/* Translated loading message */}
+                </p>
               </div>
               <div className="flex flex-wrap justify-center gap-5 animate-fade-in delay-400">
                 {Array(4).fill(0).map((_, index) => (
