@@ -8,4 +8,4 @@ Allow: /projects
 Allow: /resume-en.pdf
 Allow: /resume-fa.pdf
 
-Sitemap: https://srza.ir/sitemap.xml
+Sitemap: /sitemap.xml
