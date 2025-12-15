@@ -51,7 +51,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
             {/* Popover button displaying the current language */}
             <PopoverButton
                 ref={buttonRef}
-                className="cursor-pointer inline-flex items-center gap-x-1 px-3 py-1.5 text-sm font-medium text-[var(--text)] bg-transparent border border-gray-600 rounded-md default-fade-transition hover:bg-gray-600 hover:text-white focus:outline-none"
+                className="cursor-pointer inline-flex items-center gap-x-1 px-3 py-1.5 text-sm font-medium text-[var(--text)] bg-transparent border border-gray-600 rounded-md default-fade-transition hover:bg-[var(--nav-btn-hover)] hover:text-white focus:outline-none"
                 aria-label="Select language" // Accessible label for screen readers
             >
                 {currentLanguage.name} {/* Display name of the current language */}

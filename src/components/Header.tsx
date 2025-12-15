@@ -126,7 +126,7 @@ const Header: React.FC = () => {
                                 if (isActive)
                                     setActiveItem(item.href)
 
-                                return `relative text-[17px] font-semibold px-3 py-2 rounded-md transition-colors duration-300 ${isActive ? "text-[var(--hover)] cursor-not-allowed" : "text-[var(--text)] hover:text-[var(--hover)] hover:bg-[var(--nav-hover)]"
+                                return `relative text-[17px] font-semibold px-3 py-2 rounded-md transition-colors duration-300 ${isActive ? "text-[var(--hover)] cursor-not-allowed" : "text-[var(--text)] hover:text-[var(--nav-text-hover)] hover:bg-[var(--nav-btn-hover)]"
                                     }`
                             }
                             }

@@ -5,7 +5,9 @@
 
 /* Light Theme: Define CSS custom properties (variables) for the light theme, used for consistent styling across the app. */
 :root {
-  --nav-hover: #ffffff;
+  --nav-btn-hover: #383838;
+  --nav-text-hover: #ffffff;
+  --nav-hover: #383838;
   /* Background color for the light theme */
   --background: #f9fafb;
   /* Text color for the light theme */
@@ -15,7 +17,7 @@
   /* Hover state for primary color */
   --primary-hover: #1e40af;
   /* General hover color for interactive elements */
-  --hover: #1449D7;
+  --hover: #B7C8FA;
   /* Background color for cards or panels */
   --card-bg: #ffffff;
   /* Border color for elements */
@@ -32,6 +34,7 @@
 
 /* Dark Theme: Define CSS custom properties for the dark theme, applied when [data-theme="dark"] is set on an element. */
 [data-theme="dark"] {
+  --nav-btn-hover: #383838;
   --nav-hover: #293055;
   /* Background color for the dark theme */
   --background: #0f172a;
