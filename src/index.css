@@ -5,57 +5,75 @@
 
 /* Light Theme: Define CSS custom properties (variables) for the light theme, used for consistent styling across the app. */
 :root {
-  --nav-btn-hover: #383838;
-  --nav-text-hover: #ffffff;
-  --nav-hover: #383838;
   /* Background color for the light theme */
   --background: #f9fafb;
+  
   /* Text color for the light theme */
   --text: #111827;
+  
   /* Primary color for buttons, links, etc. */
   --primary: #1d4ed8;
+  
   /* Hover state for primary color */
   --primary-hover: #1e40af;
+  
   /* General hover color for interactive elements */
-  --hover: #B7C8FA;
+  --hover: #2563eb;
+  --nav-hover: #1A4CCB;
+  --nav-text-hover: #ffffff;
+  
   /* Background color for cards or panels */
   --card-bg: #ffffff;
+
   /* Border color for elements */
   --border: #cbd5e1;
+
   /* Background for specific UI components (e.g., light gray sections) */
   --lgs-bg: #e5e7eb;
+
   /* Secondary background color for subtle contrasts */
   --sec-bg: #f3f4f6;
+
   /* Accent color for highlights or emphasis */
   --accent: #c2410c;
+  
   /* Hover state for accent color */
   --accent-hover: #9a3412;
 }
 
 /* Dark Theme: Define CSS custom properties for the dark theme, applied when [data-theme="dark"] is set on an element. */
 [data-theme="dark"] {
-  --nav-btn-hover: #383838;
-  --nav-hover: #293055;
   /* Background color for the dark theme */
   --background: #0f172a;
+  
   /* Hover color for interactive elements in dark theme */
   --hover: #3b82f6;
+  --nav-hover: #293055;
+  
   /* Text color for the dark theme */
   --text: #f8fafc;
+  
   /* Primary color for buttons, links, etc. in dark theme */
   --primary: #60a5fa;
+  
   /* Hover state for primary color in dark theme */
   --primary-hover: #3b82f6;
+  
   /* Background color for cards or panels in dark theme */
   --card-bg: #1e293b;
+  
   /* Border color for elements in dark theme */
   --border: #334155;
+  
   /* Background for specific UI components in dark theme */
   --lgs-bg: #1e293b;
+  
   /* Secondary background with slight transparency in dark theme */
   --sec-bg: #1e293bf1;
+  
   /* Accent color for highlights in dark theme */
   --accent: #fb923c;
+
   /* Hover state for accent color in dark theme */
   --accent-hover: #fdba74;
 }
