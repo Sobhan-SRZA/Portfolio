@@ -105,7 +105,7 @@ const Home: React.FC = () => {
                             <a
                                 href={`/resume-${i18n.language}.pdf`} // Language-specific resume file
                                 download="Sobhan-SRZA-Resume.pdf" // Download filename
-                                className="flex gap-2 justify-center items-center px-6 py-3 text-[16px] font-semibold text-black dark:hover:text-black dark:text-white backdrop-blur-2xl border-4 border-[var(--accent)] bg-[var(--accent-hover)]/30 rounded-md shadow-sm hover:bg-[var(--accent)] hover:scale-105 transition-all"
+                                className="flex gap-2 justify-center items-center px-6 py-3 text-[16px] font-semibold text-black hover:text-white dark:hover:text-black dark:text-white backdrop-blur-2xl border-4 border-[var(--accent)] bg-[var(--accent-hover)]/30 rounded-md shadow-sm hover:bg-[var(--accent)] hover:scale-105 transition-all"
                                 aria-label={t("download_resume")} // Accessible label for screen readers
                             >
                                 <Download className="w-5 h-5 mr-2" /> {/* Download icon */}
@@ -188,7 +188,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Projects Teaser: Encourages users to visit the projects page */}
-            <section className="py-16">
+            <section className="bg-[var(--sec-bg)] rounded-3xl p-16 w-max justify-self-center ">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
                         {t("projects")} {/* Translated projects section title */}
