@@ -3,6 +3,9 @@
 /* Import Tailwind CSS to leverage its utility classes for styling the application. */
 @import "tailwindcss";
 
+/* set dark mode in class */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 /* Light Theme: Define CSS custom properties (variables) for the light theme, used for consistent styling across the app. */
 :root {
   /* Background color for the light theme */
