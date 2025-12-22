@@ -119,7 +119,7 @@ const Home: React.FC = () => {
             {/* About Section: Displays a brief introduction */}
             <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
-                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
+                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("about")} {/* Translated about section title */}
                     </h2>
                     <p className="text-lg text-(--text) leading-relaxed animate-fade-in delay-200">
@@ -131,7 +131,7 @@ const Home: React.FC = () => {
             {/* Skills Section: Displays a list of skills with animated progress bars */}
             <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
-                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
+                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("skills")} {/* Translated skills section title */}
                     </h2>
 
@@ -190,7 +190,7 @@ const Home: React.FC = () => {
             {/* Projects Teaser: Encourages users to visit the projects page */}
             <section className="transition-colors bg-(--sec-bg) rounded-3xl p-16 w-max justify-self-center">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
-                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
+                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("projects")} {/* Translated projects section title */}
                     </h2>
                     <p className="text-center text-(--text) mb-8 animate-fade-in delay-200">
@@ -210,7 +210,7 @@ const Home: React.FC = () => {
             {/* Contact Teaser: Encourages users to visit the contact page */}
             <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
-                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
+                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("contact")} {/* Translated contact section title */}
                     </h2>
                     <p className="text-center text-(--text) mb-8 animate-fade-in delay-200">
