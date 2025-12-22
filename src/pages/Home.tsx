@@ -44,10 +44,10 @@ const Home: React.FC = () => {
     // Component to render a loading placeholder for the profile image.
     const LoadingIcon = () => (
         <div
-            className="transition-all relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg bg-[var(--sec-bg)] animate-pulse mb-6"
+            className="transition-all relative mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-(--primary)/50 shadow-lg bg-(--sec-bg) animate-pulse mb-6"
         >
             <ImageIcon
-                className="p-2 w-full h-full text-[var(--primary)] transition-all hover:filter-grayscale hover:brightness-125"
+                className="p-2 w-full h-full text-(--primary) transition-all hover:filter-grayscale hover:brightness-125"
             /> {/* Placeholder icon with animation and hover effects */}
         </div>
     );
@@ -82,7 +82,7 @@ const Home: React.FC = () => {
                                 <img
                                     src="/images/profile.jpg"
                                     alt="Mr. Sinre | Sobhan-SRZA" // Accessible alt text
-                                    className="mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-[var(--primary)]/50 shadow-lg object-cover mb-6 animate-scale-in"
+                                    className="mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-(--primary)/50 shadow-lg object-cover mb-6 animate-scale-in"
                                     loading="lazy" // Lazy load the image for performance
                                     onLoad={() => setLoading(false)} // Update loading state on load
                                     onError={() => setLoading(false)} // Update loading state on error
@@ -91,12 +91,12 @@ const Home: React.FC = () => {
                         </div>
 
                         {/* Main title with responsive font sizing */}
-                        <h1 className="max-[480px]:text-3xl max-[411px]:text-[26px] max-[365px]:text-[22px] text-4xl sm:text-5xl font-bold mb-4 text-[var(--primary)] animate-fade-in">
+                        <h1 className="max-[480px]:text-3xl max-[411px]:text-[26px] max-[365px]:text-[22px] text-4xl sm:text-5xl font-bold mb-4 text-(--primary) animate-fade-in">
                             Mr. Sinre | Sobhan-SRZA
                         </h1>
 
                         {/* Tagline with translated text */}
-                        <p className="text-xl text-[var(--text)] mb-8 animate-fade-in delay-200">
+                        <p className="text-xl text-(--text) mb-8 animate-fade-in delay-200">
                             {t("hero.tagline")} {/* Translated tagline */}
                         </p>
                         
@@ -105,7 +105,7 @@ const Home: React.FC = () => {
                             <a
                                 href={`/resume-${i18n.language}.pdf`} // Language-specific resume file
                                 download="Sobhan-SRZA-Resume.pdf" // Download filename
-                                className="flex gap-2 justify-center items-center px-6 py-3 text-[16px] font-semibold text-black hover:text-white dark:hover:text-black dark:text-white backdrop-blur-2xl border-4 border-[var(--accent)] bg-[var(--accent-hover)]/30 rounded-md shadow-sm hover:bg-[var(--accent)] hover:scale-105 transition-all"
+                                className="flex gap-2 justify-center items-center px-6 py-3 text-[16px] font-semibold text-black hover:text-white dark:hover:text-black dark:text-white backdrop-blur-2xl border-4 border-(--accent) bg-(--accent-hover)/30 rounded-md shadow-sm hover:bg-(--accent) hover:scale-105 transition-all"
                                 aria-label={t("download_resume")} // Accessible label for screen readers
                             >
                                 <Download className="w-5 h-5 mr-2" /> {/* Download icon */}
@@ -119,10 +119,10 @@ const Home: React.FC = () => {
             {/* About Section: Displays a brief introduction */}
             <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
-                    <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
+                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
                         {t("about")} {/* Translated about section title */}
                     </h2>
-                    <p className="text-lg text-[var(--text)] leading-relaxed animate-fade-in delay-200">
+                    <p className="text-lg text-(--text) leading-relaxed animate-fade-in delay-200">
                         {t("about_content")} {/* Translated about section content */}
                     </p>
                 </div>
@@ -131,7 +131,7 @@ const Home: React.FC = () => {
             {/* Skills Section: Displays a list of skills with animated progress bars */}
             <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
-                    <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
+                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
                         {t("skills")} {/* Translated skills section title */}
                     </h2>
 
@@ -166,17 +166,17 @@ const Home: React.FC = () => {
                             return (
                                 <div
                                     key={index} // Unique key for each skill (consider using skill.name for better uniqueness)
-                                    className="min-[1280px]:min-w-[300px] max-[1280px]:w-[325px] max-[768px]:min-w-full text-[20px] bg-[var(--card-bg)] p-4 rounded-lg shadow-lg transition-all border border-[var(--border)] hover:border-[var(--primary)] cursor-pointer"
+                                    className="min-[1280px]:min-w-75 max-[1280px]:w-81.25 max-[768px]:min-w-full text-[20px] bg-(--card-bg) p-4 rounded-lg shadow-lg transition-all border border-(--border) hover:border-(--primary) cursor-pointer"
                                 >
                                     {/* Skill name and progress percentage */}
                                     <div className="flex justify-between mb-2">
-                                        <span className="text-[var(--text)]">{skill.name}</span>
-                                        <span className="text-[var(--primary)] font-bold">{count}%</span>
+                                        <span className="text-(--text) transition-colors">{skill.name}</span>
+                                        <span className="text-(--primary) font-bold transition-colors">{count}%</span>
                                     </div>
                                     {/* Progress bar */}
-                                    <div className="h-2 bg-[var(--border)] rounded-full">
+                                    <div className="h-2 bg-(--border) rounded-full transition-colors">
                                         <div
-                                            className="h-full bg-[var(--primary)] rounded-full transition-all duration-1000 ease-out"
+                                            className="h-full bg-(--primary) rounded-full transition-all duration-1000 ease-out"
                                             style={{ width: `${count}%` }} // Dynamically set width based on progress
                                         ></div>
                                     </div>
@@ -188,18 +188,18 @@ const Home: React.FC = () => {
             </section>
 
             {/* Projects Teaser: Encourages users to visit the projects page */}
-            <section className="bg-[var(--sec-bg)] rounded-3xl p-16 w-max justify-self-center ">
+            <section className="transition-colors bg-(--sec-bg) rounded-3xl p-16 w-max justify-self-center">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
-                    <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
+                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
                         {t("projects")} {/* Translated projects section title */}
                     </h2>
-                    <p className="text-center text-[var(--text)] mb-8 animate-fade-in delay-200">
+                    <p className="text-center text-(--text) mb-8 animate-fade-in delay-200">
                         {t("projects_teaser")} {/* Translated projects teaser content */}
                     </p>
                     <div className="text-center">
                         <NavLink
                             to="/projects"
-                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-[var(--nav-text-hover)] bg-[var(--primary)] rounded-md shadow-sm transition-all border hover:backdrop-blur-2xl hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:text-[var(--primary)]"
+                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-(--nav-text-hover) bg-(--primary) rounded-md shadow-sm transition-colors border hover:backdrop-blur-2xl hover:border-(--primary) hover:bg-(--card-bg) hover:text-(--primary)"
                         >
                             {t("view_projects")} {/* Translated view projects button */}
                         </NavLink>
@@ -210,16 +210,16 @@ const Home: React.FC = () => {
             {/* Contact Teaser: Encourages users to visit the contact page */}
             <section className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
-                    <h2 className="text-3xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
+                    <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
                         {t("contact")} {/* Translated contact section title */}
                     </h2>
-                    <p className="text-center text-[var(--text)] mb-8 animate-fade-in delay-200">
+                    <p className="text-center text-(--text) mb-8 animate-fade-in delay-200">
                         {t("contact_content")} {/* Translated contact teaser content */}
                     </p>
                     <div className="text-center">
                         <NavLink
                             to="/contact"
-                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-[var(--primary)] border border-[var(--primary)] rounded-md hover:bg-[var(--primary-hover)] hover:text-[var(--nav-text-hover)] transition-all"
+                            className="inline-flex items-center px-6 py-3 text-[16px] font-semibold text-(--primary) border border-(--primary) rounded-md hover:bg-(--primary-hover) hover:text-(--nav-text-hover) transition-all"
                         >
                             {t("contact_me")} {/* Translated contact button */}
                         </NavLink>
