@@ -49,19 +49,19 @@ const Footer: React.FC = () => {
                     <div className="flex flex-col items-center min-[768px]:items-start">
                         <NavLink
                             to="/" // Link to homepage
-                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-(--primary) hover:text-(--primary-hover) transition-all"
+                            className="text-2xl min-[768px]:text-[18px] min-[944px]:text-2xl font-bold text-(--primary) hover:text-(--primary-hover) transition-colors"
                             aria-label="Mr. Sinre | Sobhan-SRZA" // Accessible label for screen readers
                         >
                             Mr. Sinre | Sobhan-SRZA
                         </NavLink>
-                        <p className="text-(--text)/70 text-sm mt-2 text-center md:text-start">
+                        <p className="text-(--text)/70 text-sm mt-2 text-center md:text-start transition-colors">
                             {t("footer.tagline")} {/* Translated tagline */}
                         </p>
                     </div>
 
                     {/* Useful Links Section */}
                     <div className="flex flex-col items-center justify-self-center">
-                        <h3 className="text-lg font-semibold text-(--primary) mb-4">
+                        <h3 className="text-lg font-semibold text-(--primary) mb-4 transition-colors">
                             {t("footer.links")} {/* Translated useful links title */}
                         </h3>
                         <ul className="space-y-2 text-center">
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
 
                     {/* Social Media Links Section */}
                     <div className="flex flex-col items-center justify-self-center">
-                        <h3 className="text-lg font-semibold text-(--primary) mb-4">
+                        <h3 className="text-lg font-semibold text-(--primary) mb-4 transition-colors">
                             {t("footer.social")} {/* Translated social media title */}
                         </h3>
                         <div className="flex gap-6">
@@ -104,8 +104,8 @@ const Footer: React.FC = () => {
                 </div>
 
                 {/* Copyright Notice */}
-                <div className="mt-8 pt-8 border-t border-(--border) text-center">
-                    <p className="text-(--text)/70 text-sm">
+                <div className="mt-8 pt-8 border-t border-(--border) text-center transition-colors">
+                    <p className="text-(--text)/70 text-sm transition-colors">
                         &copy; {`${i18n.language === "fa" ? "1404-1399" : "2020-2025"} Mr.Sinre | Sobhan - SRZA. ${t("footer.copyright")}`}
                         {/* Dynamic copyright years based on language and translated copyright text */}
                     </p>
