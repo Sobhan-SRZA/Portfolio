@@ -60,14 +60,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
                             aria-label="Select language" // Accessible label for screen readers
                         >
                             {currentLanguage.name} {/* Display name of the current language */}
-                            <ChevronDownIcon
-                                className={`h-4 w-4 ${open ? "rotate-180" : "rotate-0"}`}
-                                aria-hidden="true"
-                                style={{
-                                    transitionProperty: "transform, translate, scale, rotate",
-                                    transitionTimingFunction: "var(--tw-ease, var(--default-transition-timing-function))",
-                                    transitionDuration: "100ms"
-                                }} /> {/* Dropdown indicator icon */}
+                            <ChevronDownIcon className={`h-4 w-4 transition-transform duration-300 ${open ? "rotate-180" : "rotate-0"}`} aria-hidden="true" /> {/* Dropdown indicator icon */}
                         </PopoverButton>
                         {/* Popover panel containing language options */}
                         <PopoverPanel
