@@ -130,13 +130,16 @@ const Projects: React.FC = () => {
   // Component to render a loading skeleton for projects while data is being fetched.
   const LoadingSkeleton = () => (
     <div className="max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg] hover:-translate-y-1 animate-pulse transition-all cursor-pointer">
+
       {/* Placeholder for project name */}
       <div className="text-center h-5 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+
       {/* Placeholder for description lines */}
       <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-3/4"></div>
       <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-2/5"></div>
       <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-1/4"></div>
       <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-1/2"></div>
+
       {/* Placeholder for status, stars, forks, and access icons */}
       <div className="flex justify-between mt-2 gap-3">
         <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
@@ -146,11 +149,13 @@ const Projects: React.FC = () => {
         </div>
         <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
       </div>
+
       {/* Placeholder for language badges */}
       <div className="flex flex-wrap gap-2 justify-center mt-2">
         <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
         <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
       </div>
+      
       {/* Placeholder for technology badges */}
       <div className="flex flex-wrap gap-2 justify-center mt-2">
         <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
@@ -178,34 +183,35 @@ const Projects: React.FC = () => {
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
           {/* Page title with animation and theme-based styling */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-all">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
             {t("projects")} {/* Translated title for the projects section */}
           </h2>
 
           {/* Page description with animation and theme-based styling */}
-          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in delay-200 transition-all">
+          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in transition-colors">
             {t("projects_content")} {/* Translated description of the projects section */}
           </p>
 
           {/* Loading state: Display skeleton placeholders while fetching data */}
           {loading && (
             <>
-              <div className="text-(--text) animate-pulse mb-5 flex gap-2 justify-center">
-                <LoaderCircle className="text-(--hover) animate-spin" />
+              <div className="text-(--text) animate-pulse mb-5 flex gap-2 justify-center transition-colors">
+                <LoaderCircle className="text-(--hover) animate-spin transition-colors" />
                 <p>
                   {t("loading")} {/* Translated loading message */}
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-5 animate-fade-in delay-400">
+              <div className="flex flex-wrap justify-center gap-5 animate-fade-in delay-400 transition-all">
                 {Array(4).fill(0).map((_, index) => (
                   <LoadingSkeleton key={index} /> // Render 4 skeleton placeholders
                 ))}
               </div>
             </>
           )}
+
           {/* Error state: Display error message if fetch fails */}
           {error && (
-            <div className="text-center text-red-400 flex items-center justify-center gap-2">
+            <div className="text-center text-(--error-message) flex items-center justify-center gap-2 transition-colors">
               <AlertCircle className="w-6 h-6" /> {/* Error icon */}
               {error} {/* Translated error message */}
             </div>
@@ -221,7 +227,7 @@ const Projects: React.FC = () => {
                   href={project.url}
                   target="_blank" // Open project URL in a new tab
                   rel="noopener noreferrer" // Security attributes for external links
-                  className="max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border(--primary) hover:bg-(--card-bg)] hover:-translate-y-1 transition-all group"
+                  className="max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg)] hover:-translate-y-1 transition-all group"
                   aria-label={t(`project_${project.name.toLowerCase().replace(/\s+/g, "_")}`) || project.name} // Accessible label for screen readers
                 >
                   {/* Project name with hover effect */}
