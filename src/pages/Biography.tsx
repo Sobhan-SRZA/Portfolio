@@ -64,7 +64,7 @@ const Biography: React.FC = () => {
       {/* Main section for biography page with theme-based styling and animations */}
       <section
         id="biography"
-        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center default-fade-transition"
+        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-all"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
@@ -83,7 +83,7 @@ const Biography: React.FC = () => {
 
           {/* Timeline of biography events */}
           <div
-            className={`relative border-(--primary)/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"} default-fade-transition`}
+            className={`relative border-(--primary)/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"} transition-all`}
           >
             {timeline.map((item, index) => (
               // Individual timeline event with staggered animation

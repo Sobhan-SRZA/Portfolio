@@ -127,11 +127,6 @@ body {
     /* Left-to-right text direction for languages like English */
   }
 
-  .default-fade-transition {
-    transition: all var(--default-transition-duration) var(--default-transition-timing-function);
-    /* Utility for consistent fade transitions */
-  }
-
   .custom-container {
     width: 100%;
 

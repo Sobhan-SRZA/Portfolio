@@ -44,7 +44,7 @@ const NotFound: React.FC = () => {
             </Helmet>
             {/* Main section for the 404 page with theme-based styling and animations */}
             <main
-                className={`min-h-min bg-(--sec-bg) backdrop-blur-md grid rounded-3xl place-items-center px-6 py-24 sm:py-32 lg:px-8 animate-fade-in default-fade-transition ${i18n.language === "fa" ? "rtl" : "ltr"}`}
+                className={`min-h-min bg-(--sec-bg) backdrop-blur-md grid rounded-3xl place-items-center px-6 py-24 sm:py-32 lg:px-8 animate-fade-in transition-all ${i18n.language === "fa" ? "rtl" : "ltr"}`}
             >
                 {/* Centered content for the 404 message */}
                 <div className="text-center">
@@ -62,7 +62,7 @@ const NotFound: React.FC = () => {
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <NavLink
                             to="/" // Link to the homepage
-                            className="rounded-md bg-(--primary) px-3.5 py-2.5 text-sm font-semibold text-white font-iransans shadow-sm hover:bg-(--primary-hover) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--primary default-fade-transition"
+                            className="rounded-md bg-(--primary) px-3.5 py-2.5 text-sm font-semibold text-white font-iransans shadow-sm hover:bg-(--primary-hover) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--primary transition-all"
                             aria-label={t("back_to_home")} // Accessible label for screen readers
                         >
                             {t("back_to_home")} {/* Translated text for the back-to-home button */}

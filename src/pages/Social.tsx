@@ -145,7 +145,7 @@ const Social: React.FC = () => {
       {/* Main section for social links with theme-based styling and animations */}
       <section
         id="social"
-        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center default-fade-transition"
+        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-all"
       >
         {/* Container for responsive layout with language-based text direction */}
         <div

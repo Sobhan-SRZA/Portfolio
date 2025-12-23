@@ -180,24 +180,24 @@ const Contact: React.FC = () => {
       {/* Main section for contact page with theme-based styling and animations */}
       <section
         id="contact"
-        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors default-fade-transition"
+        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors transition-all"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
           {/* Page title with animation and theme-based styling */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
+          <h2 className="transition-colors text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
             {t("contact")} {/* Translated contact section title */}
           </h2>
-          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in">
+          <p className="transition-colors text-center text-(--text) mb-12 text-lg animate-fade-in">
             {t("contact_content")} {/* Translated contact section description */}
           </p>
 
           {/* Grid layout for contact information and form */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information Section */}
-            <div className="bg-(--card-bg)/60 p-6 rounded-lg shadow-lg border border-(--border) animate-fade-in">
-              <h3 className="text-xl font-semibold text-(--primary) mb-6 font-iransans">
+            <div className="transition-colors  bg-(--card-bg)/60 p-6 rounded-lg shadow-lg border border-(--border) animate-fade-in">
+              <h3 className="transition-colors text-xl font-semibold text-(--primary) mb-6">
                 {t("contact_info")} {/* Translated contact info title */}
               </h3>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -208,19 +208,19 @@ const Contact: React.FC = () => {
                     href={contact.url}
                     target="_blank" // Open link in a new tab
                     rel="noopener noreferrer" // Security attributes for external links
-                    className="flex items-center gap-3 p-4 bg-(--card-bg)/50 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg) default-fade-transition"
+                    className="flex items-center gap-3 p-4 bg-(--card-bg)/50 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg) transition-all"
                     aria-label={t(`contact_links.${contact.key}`)} // Accessible label for screen readers
                   >
-                    {contact.icon("w-6 h-6 text-(--primary)")} {/* Render contact icon */}
-                    <span className="text-(--text) font-iransans">{t(`contact_links.${contact.key}`)}</span> {/* Translated contact name */}
+                    {contact.icon("transition-colors w-6 h-6 text-(--primary)")} {/* Render contact icon */}
+                    <span className="transition-colors text-(--text)">{t(`contact_links.${contact.key}`)}</span> {/* Translated contact name */}
                   </a>
                 ))}
               </div>
             </div>
 
             {/* Contact Form Section */}
-            <div className="bg-(--card-bg)/60 p-6 rounded-lg shadow-lg border border-(--border) animate-fade-in">
-              <h3 className="text-xl font-semibold text-(--primary) mb-6 font-iransans">
+            <div className="transition-colors bg-(--card-bg)/60 p-6 rounded-lg shadow-lg border border-(--border) animate-fade-in">
+              <h3 className="transition-colors text-xl font-semibold text-(--primary) mb-6">
                 {t("send_message")} {/* Translated send message title */}
               </h3>
               {/* Form for submitting messages to Google Apps Script */}
@@ -237,7 +237,7 @@ const Contact: React.FC = () => {
                     name="name"
                     placeholder={t("your_name")} // Translated placeholder
                     required
-                    className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 default-fade-transition"
+                    className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) placeholder:text-(--text)/50 placeholder:transition-colors focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 transition-all"
                   />
                 </div>
                 {/* Email input field */}
@@ -247,7 +247,7 @@ const Contact: React.FC = () => {
                     name="email"
                     placeholder={t("your_email")} // Translated placeholder
                     required
-                    className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 default-fade-transition"
+                    className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) placeholder:text-(--text)/50 placeholder:transition-colors focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 transition-all"
                   />
                 </div>
                 {/* Message textarea */}
@@ -257,14 +257,14 @@ const Contact: React.FC = () => {
                     placeholder={t("your_message")} // Translated placeholder
                     rows={5}
                     required
-                    className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 default-fade-transition"
+                    className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) placeholder:text-(--text)/50 placeholder:transition-colors text-(--text) focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 transition-all"
                   />
                 </div>
                 {/* Submit button with loading state */}
                 <button
                   type="submit"
                   disabled={loading} // Disable button during submission
-                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-(--primary) text-white font-semibold hover:bg-(--primary-hover) default-fade-transition disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-(--primary) text-white font-semibold hover:bg-(--primary-hover) transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5" /> {/* Send icon */}
                   {loading ? t("sending") : t("send")} {/* Translated button text based on loading state */}
@@ -282,11 +282,11 @@ const Contact: React.FC = () => {
         >
           {/* Overlay for the dialog */}
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity default-fade-transition"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity transition-all"
           />
           <div className="fixed inset-0 flex items-center justify-center p-4">
             <DialogPanel
-              className={`w-full max-w-md rounded-lg bg-(--card-bg)/90 backdrop-blur-md p-6 text-center transform default-fade-transition ${alert.show ? "scale-100 opacity-100" : "scale-95 opacity-0"} ${i18n.language === "fa" ? "rtl" : "font-sans ltr"}`}
+              className={`w-full max-w-md rounded-lg bg-(--card-bg)/90 backdrop-blur-md p-6 text-center transform transition-all ${alert.show ? "scale-100 opacity-100" : "scale-95 opacity-0"} ${i18n.language === "fa" ? "rtl" : "font-sans ltr"}`}
             >
               {/* Alert icon based on type (success, error, loading) */}
               <div className="flex justify-center mb-4">
@@ -341,7 +341,7 @@ const Contact: React.FC = () => {
               {/* Close button */}
               <button
                 onClick={() => setAlert({ ...alert, show: false })}
-                className="cursor-pointer px-6 py-2 bg-(--primary) text-white rounded-md font-semibold hover:bg-(--primary-hover) default-fade-transition"
+                className="cursor-pointer px-6 py-2 bg-(--primary) text-white rounded-md font-semibold hover:bg-(--primary-hover) transition-all"
                 aria-label={t("close")} // Accessible label for screen readers
               >
                 {t("close")} {/* Translated close button text */}

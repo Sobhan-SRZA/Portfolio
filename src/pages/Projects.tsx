@@ -46,9 +46,9 @@ interface Project {
 
 // Mapping of project statuses to corresponding icons for visual representation.
 const statusIcons: { [key: string]: JSX.Element } = {
-  "✅ Done": <CheckCircle className="default-fade-transition w-5 h-5 text-green-600 group-hover:text-green-400" />, // Icon for completed projects
-  "⚒ Working...": <Clock className="default-fade-transition w-5 h-5 text-yellow-600 group-hover:text-yellow-400" />, // Icon for in-progress projects
-  "⏸ Paused": <PauseCircle className="default-fade-transition w-5 h-5 text-gray-600 group-hover:text-gray-400" /> // Icon for paused projects
+  "✅ Done": <CheckCircle className="transition-all w-5 h-5 text-green-600 group-hover:text-green-400" />, // Icon for completed projects
+  "⚒ Working...": <Clock className="transition-all w-5 h-5 text-yellow-600 group-hover:text-yellow-400" />, // Icon for in-progress projects
+  "⏸ Paused": <PauseCircle className="transition-all w-5 h-5 text-gray-600 group-hover:text-gray-400" /> // Icon for paused projects
 };
 
 // Projects component, defined as a functional component using TypeScript.
@@ -171,19 +171,19 @@ const Projects: React.FC = () => {
       {/* Main section for projects with theme-based styling and animations */}
       <section
         id="projects"
-        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center default-fade-transition"
+        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-all"
       >
         {/* Container for responsive layout with language-based text direction */}
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
           {/* Page title with animation and theme-based styling */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in default-fade-transition">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-all">
             {t("projects")} {/* Translated title for the projects section */}
           </h2>
 
           {/* Page description with animation and theme-based styling */}
-          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in delay-200 default-fade-transition">
+          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in delay-200 transition-all">
             {t("projects_content")} {/* Translated description of the projects section */}
           </p>
 
@@ -221,23 +221,23 @@ const Projects: React.FC = () => {
                   href={project.url}
                   target="_blank" // Open project URL in a new tab
                   rel="noopener noreferrer" // Security attributes for external links
-                  className="max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border(--primary) hover:bg-(--card-bg)] hover:-translate-y-1 default-fade-transition group"
+                  className="max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border(--primary) hover:bg-(--card-bg)] hover:-translate-y-1 transition-all group"
                   aria-label={t(`project_${project.name.toLowerCase().replace(/\s+/g, "_")}`) || project.name} // Accessible label for screen readers
                 >
                   {/* Project name with hover effect */}
-                  <h3 className="default-fade-transition text-center text-xl font-semibold text-(--primary) group-hover:text-(--primary-hover) font-sans">
+                  <h3 className="transition-all text-center text-xl font-semibold text-(--primary) group-hover:text-(--primary-hover) font-sans">
                     {project.name}
                   </h3>
 
                   {/* Project description with hover effect */}
-                  <p className="default-fade-transition text-(--text) text-sm">
+                  <p className="transition-all text-(--text) text-sm">
                     {getDescription(project) || t("no_description")} {/* Language-specific or fallback description */}
                   </p>
 
                   {/* Project status and access indicators */}
                   <div className="flex justify-between text-sm text-(--text) ltr">
                     {/* Project status icon */}
-                    <span className="default-fade-transition flex items-center gap-2">
+                    <span className="transition-all flex items-center gap-2">
                       {statusIcons[project.status] || project.status} {/* Render status icon or fallback to status text */}
                     </span>
 
@@ -245,14 +245,14 @@ const Projects: React.FC = () => {
                     {!project.private && (
                       <div className="flex justify-center gap-4">
                         <div className="flex items-center gap-2">
-                          <Star className="default-fade-transition w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Star icon */}
-                          <span className="default-fade-transition text-sm text-(--text) group-hover:text-(--hover)">
+                          <Star className="transition-all w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Star icon */}
+                          <span className="transition-all text-sm text-(--text) group-hover:text-(--hover)">
                             {project.stars} {/* Number of stars */}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <GitFork className="default-fade-transition w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Fork icon */}
-                          <span className="default-fade-transition text-sm text-(--text) group-hover:text-(--hover)">
+                          <GitFork className="transition-all w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Fork icon */}
+                          <span className="transition-all text-sm text-(--text) group-hover:text-(--hover)">
                             {project.forks} {/* Number of forks */}
                           </span>
                         </div>
@@ -262,9 +262,9 @@ const Projects: React.FC = () => {
                     {/* Public/private indicator */}
                     <span className="flex items-center gap-2">
                       {project.private ? (
-                        <Lock className="default-fade-transition w-5 h-5 text-(--text) group-hover:text-(--hover)" /> // Private project icon
+                        <Lock className="transition-all w-5 h-5 text-(--text) group-hover:text-(--hover)" /> // Private project icon
                       ) : (
-                        <Globe className="default-fade-transition w-5 h-5 text-(--primary) group-hover:text-(--primary-over)]" /> // Public project icon
+                        <Globe className="transition-all w-5 h-5 text-(--primary) group-hover:text-(--primary-over)]" /> // Public project icon
                       )}
                     </span>
                   </div>
@@ -275,7 +275,7 @@ const Projects: React.FC = () => {
                       project.languages.map((lang, idx) => (
                         <span
                           key={idx}
-                          className={`default-fade-transition px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default} group-hover:scale-105`} // Language badge with color and hover scaling
+                          className={`transition-all px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default} group-hover:scale-105`} // Language badge with color and hover scaling
                         >
                           {lang}
                         </span>
@@ -291,7 +291,7 @@ const Projects: React.FC = () => {
                       project.technologies.map((tech, idx) => (
                         <span
                           key={idx}
-                          className={`default-fade-transition px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default} group-hover:scale-105 transition-transform duration-(--default-transition-duration)] ease-(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
+                          className={`transition-all px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default} group-hover:scale-105 transition-transform duration-(--default-transition-duration)] ease-(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
                         >
                           {tech}
                         </span>
