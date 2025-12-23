@@ -188,7 +188,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Projects Teaser: Encourages users to visit the projects page */}
-            <section className="transition-colors bg-(--sec-bg) rounded-3xl p-16 w-max justify-self-center">
+            <section className="transition-colors bg-(--sec-bg) rounded-3xl py-16 max-w-max justify-self-center">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("projects")} {/* Translated projects section title */}
