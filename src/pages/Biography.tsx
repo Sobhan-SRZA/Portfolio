@@ -74,14 +74,14 @@ const Biography: React.FC = () => {
 
           {/* Biography introduction */}
           <div className="mb-12 text-center">
-            <p className={`${i18n.language === "fa" ? "rtl text-right" : "ltr text-left"} text-lg sm:text-xl font-iransans text-[var(--text)] leading-relaxed animate-fade-in delay-200`}>
+            <p className={`${i18n.language === "fa" ? "font-iransans rtl text-right" : "font-sans ltr text-left"} text-lg sm:text-xl text-(--text) leading-relaxed animate-fade-in delay-200`}>
               {t("biography_intro")} {/* Translated biography introduction */}
             </p>
           </div>
 
           {/* Timeline of biography events */}
           <div
-            className={`relative border-[var(--primary)]/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"} default-fade-transition`}
+            className={`relative border-(--primary)/50 ${i18n.language === "fa" ? "pr-12 border-r-4 mr-6 sm:mr-12" : "border-l-4 ml-6 sm:ml-12"} default-fade-transition`}
           >
             {timeline.map((item, index) => (
               // Individual timeline event with staggered animation
@@ -92,51 +92,51 @@ const Biography: React.FC = () => {
               >
                 {/* Timeline marker (dot) */}
                 <div
-                  className={`absolute ${i18n.language === "fa" ? "-right-3" : "-left-3"} h-5 w-5 bg-[var(--primary)] rounded-full default-fade-transition`}
+                  className={`absolute ${i18n.language === "fa" ? "-right-3" : "-left-3"} h-5 w-5 bg-(--primary) rounded-full default-fade-transition`}
                 />
 
                 {/* Event title with year */}
-                <h3 className="text-xl font-semibold text-[var(--primary)] font-iransans mb-2">
+                <h3 className={`text-xl font-semibold text-(--primary) ${i18n.language === " fa" ? "font-iransans" : "font-sans"} mb-2`}>
                   {item.year}: {item.title}
                 </h3>
 
                 {/* Event description */}
-                <p className="text-[var(--text)] font-iransans leading-relaxed">{item.description}</p>
+                < p className={`text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"} leading-relaxed`}> {item.description}</p>
               </div>
             ))}
           </div>
 
           {/* Active Projects Section */}
           <div className="mt-12">
-            <h3 className="text-2xl font-semibold text-[var(--primary)] font-iransans mb-6 text-center animate-fade-in delay-200">
+            <h3 className={`text-2xl font-semibold text-(--primary) ${i18n.language === " fa" ? "font-iransans" : "font-sans"} mb-6 text-center animate-fade-in delay-200`}>
               {t("active_projects")} {/* Translated active projects title */}
             </h3>
             {/* Grid of active projects */}
             <div className="grid sm:grid-cols-2 gap-6 animate-fade-in delay-300">
               {/* Project: Hycom */}
-              <div className="p-6 bg-[var(--card-bg)]/60 rounded-lg shadow-lg border border-[var(--border)] hover:border-[var(--primary)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
-                <h4 className="text-lg font-semibold text-[var(--text)] font-iransans mb-2">{t("projects_list.hycom")}</h4>
-                <p className="text-[var(--text)] font-iransans">{t("projects_list.hycom_description")}</p>
-              </div>
+              <div className={`p-6 bg-(--card-bg)/60 rounded-lg shadow-lg border border-(--border) hover:border-(--primary) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)`}>
+                <h4 className={`text-lg font-semibold text-(--text) ${i18n.language === " fa" ? "font-iransans" : "font-sans"} mb-2`}>{t("projects_list.hycom")}</h4>
+                <p className={`text-(--text) ${i18n.language === " fa" ? "font-iransans" : "font-sans"}`}>{t("projects_list.hycom_description")}</p>
+              </div >
               {/* Project: Ticker Boy */}
-              <div className="p-6 bg-[var(--card-bg)]/60 rounded-lg shadow-lg border border-[var(--border)] hover:border-[var(--primary)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
-                <h4 className="text-lg font-semibold text-[var(--text)] font-iransans mb-2">{t("projects_list.ticker_boy")}</h4>
-                <p className="text-[var(--text)] font-iransans">{t("projects_list.ticker_boy_description")}</p>
-              </div>
+              < div className="p-6 bg-(--card-bg)/60 rounded-lg shadow-lg border border-(--border) hover:border-(--primary) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)" >
+                <h4 className={`text-lg font-semibold text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"} mb-2`} > {t("projects_list.ticker_boy")}</h4 >
+                <p className={`text-(--text)] ${i18n.language === " fa" ? "font - iransans" : "font - sans"}`} > {t("projects_list.ticker_boy_description")}</p >
+              </div >
               {/* Project: DJ Boy */}
-              <div className="p-6 bg-[var(--card-bg)]/60 rounded-lg shadow-lg border border-[var(--border)] hover:border-[var(--primary)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
-                <h4 className="text-lg font-semibold text-[var(--text)] font-iransans mb-2">{t("projects_list.dj_boy")}</h4>
-                <p className="text-[var(--text)] font-iransans">{t("projects_list.dj_boy_description")}</p>
-              </div>
+              < div className="p-6 bg-(--card-bg)/60 rounded-lg shadow-lg border border-(--border) hover:border-(--primary) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)" >
+                <h4 className={`text-lg font-semibold text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"} mb-2`}> {t("projects_list.dj_boy")}</h4 >
+                <p className={`text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"}`} > {t("projects_list.dj_boy_description")}</p >
+              </div >
               {/* Project: Padio */}
-              <div className="p-6 bg-[var(--card-bg)]/60 rounded-lg shadow-lg border border-[var(--border)] hover:border-[var(--primary)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]">
-                <h4 className="text-lg font-semibold text-[var(--text)] font-iransans mb-2">{t("projects_list.padio")}</h4>
-                <p className="text-[var(--text)] font-iransans">{t("projects_list.padio_description")}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              < div className="p-6 bg-(--card-bg)/60 rounded-lg shadow-lg border border-(--border) hover:border-(--primary) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)" >
+                <h4 className={`text-lg font-semibold text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"} mb-2`} > {t("projects_list.padio")}</h4 >
+                <p className={`text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"}`} > {t("projects_list.padio_description")}</p >
+              </div >
+            </div >
+          </div >
+        </div >
+      </section >
     </>
   );
 };
