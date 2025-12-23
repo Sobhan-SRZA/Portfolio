@@ -26,7 +26,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet";
 
 // Import social links from storage for rendering contact methods.
-import { social } from "../storage";
+import { google_script_link, social } from "../storage";
 
 // Contact component, defined as a functional component using TypeScript.
 const Contact: React.FC = () => {
@@ -107,27 +107,27 @@ const Contact: React.FC = () => {
         form.reset();
         return;
       }
-      
+
       else {
         // Handle specific error cases (e.g., timeout).
         if (result.error.includes("30")) {
           setAlert({ show: true, type: "error", message: t("contact_error.message_timeout") });
           return;
         }
-        
-         else {
+
+        else {
           setAlert({ show: true, type: "error", message: result.error || t("contact_error.message_error") });
           return;
         }
       }
     }
-    
-     catch (err) {
+
+    catch (err) {
       // Handle network or unexpected errors.
       setAlert({ show: true, type: "error", message: t("contact_error.message_error") });
       return;
-    } 
-    
+    }
+
     finally {
       setLoading(false); // Reset loading state after submission.
       return;
@@ -139,32 +139,32 @@ const Contact: React.FC = () => {
     {
       key: "email",
       url: `mailto:${social.email}`,
-      icon: <Mail className="w-6 h-6 text-[var(--primary)]" /> // Email contact icon
+      icon: (className?: string) => <Mail className={className} /> // Email contact icon
     },
     {
       key: "telegram",
       url: social.telegram,
-      icon: <Send className="w-6 h-6 text-[var(--primary)]" /> // Telegram contact icon
+      icon: (className?: string) => <Send className={className} /> // Telegram contact icon
     },
     {
       key: "discord",
       url: social.discord_account,
-      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" /> // Discord contact icon
+      icon: (className?: string) => <MessageCircle className={className} /> // Discord contact icon
     },
     {
       key: "instagram",
       url: social.instagram,
-      icon: <Instagram className="w-6 h-6 text-[var(--primary)]" /> // Instagram contact icon
+      icon: (className?: string) => <Instagram className={className} /> // Instagram contact icon
     },
     {
       key: "linkedin",
       url: social.linkedin,
-      icon: <Linkedin className="w-6 h-6 text-[var(--primary)]" /> // LinkedIn contact icon
+      icon: (className?: string) => <Linkedin className={className} /> // LinkedIn contact icon
     },
     {
       key: "github",
       url: social.github,
-      icon: <Github className="w-6 h-6 text-[var(--primary)]" /> // GitHub contact icon
+      icon: (className?: string) => <Github className={className} /> // GitHub contact icon
     }
   ];
 
@@ -180,24 +180,24 @@ const Contact: React.FC = () => {
       {/* Main section for contact page with theme-based styling and animations */}
       <section
         id="contact"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors default-fade-transition"
+        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors default-fade-transition"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
           {/* Page title with animation and theme-based styling */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
             {t("contact")} {/* Translated contact section title */}
           </h2>
-          <p className="text-center text-[var(--text)] mb-12 text-lg animate-fade-in">
+          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in">
             {t("contact_content")} {/* Translated contact section description */}
           </p>
 
           {/* Grid layout for contact information and form */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information Section */}
-            <div className="bg-[var(--card-bg)]/60 p-6 rounded-lg shadow-lg border border-[var(--border)] animate-fade-in">
-              <h3 className="text-xl font-semibold text-[var(--primary)] mb-6 font-iransans">
+            <div className="bg-(--card-bg)/60 p-6 rounded-lg shadow-lg border border-(--border) animate-fade-in">
+              <h3 className="text-xl font-semibold text-(--primary) mb-6 font-iransans">
                 {t("contact_info")} {/* Translated contact info title */}
               </h3>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -208,25 +208,25 @@ const Contact: React.FC = () => {
                     href={contact.url}
                     target="_blank" // Open link in a new tab
                     rel="noopener noreferrer" // Security attributes for external links
-                    className="flex items-center gap-3 p-4 bg-[var(--card-bg)]/50 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] default-fade-transition"
+                    className="flex items-center gap-3 p-4 bg-(--card-bg)/50 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg) default-fade-transition"
                     aria-label={t(`contact_links.${contact.key}`)} // Accessible label for screen readers
                   >
-                    {contact.icon} {/* Render contact icon */}
-                    <span className="text-[var(--text)] font-iransans">{t(`contact_links.${contact.key}`)}</span> {/* Translated contact name */}
+                    {contact.icon("w-6 h-6 text-(--primary)")} {/* Render contact icon */}
+                    <span className="text-(--text) font-iransans">{t(`contact_links.${contact.key}`)}</span> {/* Translated contact name */}
                   </a>
                 ))}
               </div>
             </div>
 
             {/* Contact Form Section */}
-            <div className="bg-[var(--card-bg)]/60 p-6 rounded-lg shadow-lg border border-[var(--border)] animate-fade-in">
-              <h3 className="text-xl font-semibold text-[var(--primary)] mb-6 font-iransans">
+            <div className="bg-(--card-bg)/60 p-6 rounded-lg shadow-lg border border-(--border) animate-fade-in">
+              <h3 className="text-xl font-semibold text-(--primary) mb-6 font-iransans">
                 {t("send_message")} {/* Translated send message title */}
               </h3>
               {/* Form for submitting messages to Google Apps Script */}
               <form
                 onSubmit={handleSubmit}
-                action="https://script.google.com/macros/s/AKfycbwwg1gH7aXeFxFBgbK66Vt3hjoVUHOxX2DnBsyxWhalKUBSPYRPRj-hIAfOnSsq7UnNcw/exec"
+                action={google_script_link}
                 method="POST"
                 className="space-y-6"
               >
@@ -237,7 +237,7 @@ const Contact: React.FC = () => {
                     name="name"
                     placeholder={t("your_name")} // Translated placeholder
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 default-fade-transition"
+                    className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 default-fade-transition"
                   />
                 </div>
                 {/* Email input field */}
@@ -247,7 +247,7 @@ const Contact: React.FC = () => {
                     name="email"
                     placeholder={t("your_email")} // Translated placeholder
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 default-fade-transition"
+                    className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 default-fade-transition"
                   />
                 </div>
                 {/* Message textarea */}
@@ -257,14 +257,14 @@ const Contact: React.FC = () => {
                     placeholder={t("your_message")} // Translated placeholder
                     rows={5}
                     required
-                    className="w-full p-3 rounded-md bg-[var(--card-bg)] border border-[var(--border)] text-[var(--text)] focus:border-[var(--primary)] outline-0 focus:ring-2 focus:ring-[var(--primary)]/50 default-fade-transition"
+                    className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 default-fade-transition"
                   />
                 </div>
                 {/* Submit button with loading state */}
                 <button
                   type="submit"
                   disabled={loading} // Disable button during submission
-                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-[var(--primary)] text-white font-semibold hover:bg-[var(--primary-hover)] default-fade-transition disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-(--primary) text-white font-semibold hover:bg-(--primary-hover) default-fade-transition disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5" /> {/* Send icon */}
                   {loading ? t("sending") : t("send")} {/* Translated button text based on loading state */}
@@ -286,7 +286,7 @@ const Contact: React.FC = () => {
           />
           <div className="fixed inset-0 flex items-center justify-center p-4">
             <DialogPanel
-              className={`w-full max-w-md rounded-lg bg-[var(--card-bg)]/90 backdrop-blur-md p-6 text-center transform default-fade-transition ${alert.show ? "scale-100 opacity-100" : "scale-95 opacity-0"} ${i18n.language === "fa" ? "rtl" : "font-sans ltr"}`}
+              className={`w-full max-w-md rounded-lg bg-(--card-bg)/90 backdrop-blur-md p-6 text-center transform default-fade-transition ${alert.show ? "scale-100 opacity-100" : "scale-95 opacity-0"} ${i18n.language === "fa" ? "rtl" : "font-sans ltr"}`}
             >
               {/* Alert icon based on type (success, error, loading) */}
               <div className="flex justify-center mb-4">
@@ -322,7 +322,7 @@ const Contact: React.FC = () => {
                 )}
                 {alert.type === "loading" && (
                   <svg
-                    className="w-12 h-12 text-[var(--primary)] animate-spin"
+                    className="w-12 h-12 text-(--primary) animate-spin"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -337,11 +337,11 @@ const Contact: React.FC = () => {
                 )}
               </div>
               {/* Alert message */}
-              <p className="text-lg text-[var(--text)] mb-6">{alert.message}</p>
+              <p className="text-lg text-(--text) mb-6">{alert.message}</p>
               {/* Close button */}
               <button
                 onClick={() => setAlert({ ...alert, show: false })}
-                className="cursor-pointer px-6 py-2 bg-[var(--primary)] text-white rounded-md font-semibold hover:bg-[var(--primary-hover)] default-fade-transition"
+                className="cursor-pointer px-6 py-2 bg-(--primary) text-white rounded-md font-semibold hover:bg-(--primary-hover) default-fade-transition"
                 aria-label={t("close")} // Accessible label for screen readers
               >
                 {t("close")} {/* Translated close button text */}
