@@ -180,7 +180,7 @@ const Contact: React.FC = () => {
       {/* Main section for contact page with theme-based styling and animations */}
       <section
         id="contact"
-        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-colors transition-all"
+        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-all"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
@@ -230,6 +230,7 @@ const Contact: React.FC = () => {
                 method="POST"
                 className="space-y-6"
               >
+
                 {/* Name input field */}
                 <div>
                   <input
@@ -240,6 +241,7 @@ const Contact: React.FC = () => {
                     className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) placeholder:text-(--text)/50 placeholder:transition-colors focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 transition-all"
                   />
                 </div>
+
                 {/* Email input field */}
                 <div>
                   <input
@@ -250,6 +252,7 @@ const Contact: React.FC = () => {
                     className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) text-(--text) placeholder:text-(--text)/50 placeholder:transition-colors focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 transition-all"
                   />
                 </div>
+
                 {/* Message textarea */}
                 <div>
                   <textarea
@@ -260,17 +263,21 @@ const Contact: React.FC = () => {
                     className="w-full p-3 rounded-md bg-(--card-bg) border border-(--border) placeholder:text-(--text)/50 placeholder:transition-colors text-(--text) focus:border-(--primary) outline-0 focus:ring-2 focus:ring-(--primary)/50 transition-all"
                   />
                 </div>
+
                 {/* Submit button with loading state */}
                 <button
                   type="submit"
                   disabled={loading} // Disable button during submission
-                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 rounded-md bg-(--primary) text-white font-semibold hover:bg-(--primary-hover) transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="cursor-pointer flex items-center justify-center gap-2 w-full py-3 font-semibold text-black hover:text-white dark:hover:text-black dark:text-white backdrop-blur-2xl border-4 border-(--accent) bg-(--accent-hover)/30 rounded-md shadow-sm hover:bg-(--accent) transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5" /> {/* Send icon */}
                   {loading ? t("sending") : t("send")} {/* Translated button text based on loading state */}
                 </button>
+
               </form>
+
             </div>
+
           </div>
         </div>
 
@@ -282,7 +289,7 @@ const Contact: React.FC = () => {
         >
           {/* Overlay for the dialog */}
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity transition-all"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
           />
           <div className="fixed inset-0 flex items-center justify-center p-4">
             <DialogPanel
@@ -336,12 +343,14 @@ const Contact: React.FC = () => {
                   </svg>
                 )}
               </div>
+
               {/* Alert message */}
               <p className="text-lg text-(--text) mb-6">{alert.message}</p>
+
               {/* Close button */}
               <button
                 onClick={() => setAlert({ ...alert, show: false })}
-                className="cursor-pointer px-6 py-2 bg-(--primary) text-white rounded-md font-semibold hover:bg-(--primary-hover) transition-all"
+                className="cursor-pointer px-6 py-2 font-semibold text-black hover:text-white dark:hover:text-black dark:text-white backdrop-blur-2xl border-4 border-(--accent) bg-(--accent-hover)/30 rounded-md shadow-sm hover:bg-(--accent) transition-all"
                 aria-label={t("close")} // Accessible label for screen readers
               >
                 {t("close")} {/* Translated close button text */}

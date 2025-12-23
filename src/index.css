@@ -47,10 +47,10 @@
   --sec-bg: #f3f4f6;
 
   /* Accent color for highlights or emphasis */
-  --accent: #EA7752;
+  --accent: #5291ea;
 
   /* Hover state for accent color */
-  --accent-hover: #9C330C;
+  --accent-hover: #0c489c;
 }
 
 /* Dark Theme: Define CSS custom properties for the dark theme, applied when [data-theme="dark"] is set on an element. */
