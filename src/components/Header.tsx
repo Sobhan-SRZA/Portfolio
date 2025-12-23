@@ -143,10 +143,12 @@ const Header: React.FC = () => {
 
             {/* Mobile Menu */}
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="min-[1032px]:hidden rtl">
+
                 {/* Overlay for mobile menu */}
                 <div className="fixed inset-0 z-50 bg-black/30" aria-hidden="true" />
+                
                 <DialogPanel
-                    className={`fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto bg-(--sec-bg) backdrop-blur-md p-6 transition-transform duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+                    className={`transition-all fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto bg-(--sec-bg) backdrop-blur-md p-6 duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
                 >
                     {/* Mobile menu header with logo and close button */}
                     <div className="ltr flex items-center justify-between">
@@ -155,10 +157,11 @@ const Header: React.FC = () => {
                             onClick={() => setMobileMenuOpen(false)} // Close menu on click
                             className="flex items-center space-x-2 space-x-reverse"
                         >
-                            <span className="text-xl font-bold tracking-tight text-(--text)">
+                            <span className="transition-colors text-xl font-bold tracking-tight text-(--text)">
                                 Sobhan-SRZA / Mr. Sinre
                             </span> {/* Mobile menu logo */}
                         </NavLink>
+
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)} // Close mobile menu
@@ -168,6 +171,7 @@ const Header: React.FC = () => {
                             <XMarkIcon aria-hidden="true" className="h-8 w-8" /> {/* Close icon */}
                         </button>
                     </div>
+
                     {/* Mobile navigation items */}
                     <div className="mt-6 flow-root">
                         <div className="space-y-2 py-6">
@@ -183,14 +187,18 @@ const Header: React.FC = () => {
                                     {item.name} {/* Translated navigation item name */}
                                 </NavLink>
                             ))}
+
                             {/* Language switcher and theme toggle for mobile */}
                             <div className="flex flex-row justify-between px-3 py-2">
                                 <LanguageSwitcher /> {/* Language switcher component */}
                                 <ThemeToggle /> {/* Theme toggle component */}
                             </div>
+
                         </div>
+
                     </div>
                 </DialogPanel>
+
             </Dialog>
         </header>
     );
