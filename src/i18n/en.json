@@ -47,16 +47,24 @@
     "error_fetch": "Error loading projects. Please try again later.",
     "no_description": "No description available",
     "active_projects": "Active Projects",
-    "projects_list": {
-        "hycom": "HyCom",
-        "hycom_description": "A website for learning and entertainment, performing well thanks to Arya’s contributions.",
-        "ticker_boy": "Ticker Boy",
-        "ticker_boy_description": "A Discord bot that hasn’t met expectations yet, but I’m determined to make it a top-tier bot.",
-        "dj_boy": "DJ BOY",
-        "dj_boy_description": "A nostalgic music bot I keep for sentimental reasons, despite its earlier failure.",
-        "padio": "Padio",
-        "padio_description": "A free multilingual radio bot for Discord, launched in 2024 with features similar to premium bots."
-    },
+    "projects_list": [
+        {
+            "name": "HyCom",
+            "description": "A website for learning and entertainment, performing well thanks to Arya’s contributions."
+        },
+        {
+            "name": "Ticker Boy",
+            "description": "A Discord bot that hasn’t met expectations yet, but I’m determined to make it a top-tier bot."
+        },
+        {
+            "name": "DJ BOY",
+            "description": "A nostalgic music bot I keep for sentimental reasons, despite its earlier failure."
+        },
+        {
+            "name": "Padio",
+            "description": "A free multilingual radio bot for Discord, launched in 2024 with features similar to premium bots."
+        }
+    ],
     "social_content": "Connect with me on my social profiles to follow my latest projects, coding adventures, and content creation journey.",
     "social_links": {
         "upwork": "Upwork",

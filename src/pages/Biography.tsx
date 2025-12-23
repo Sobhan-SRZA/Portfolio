@@ -51,6 +51,8 @@ const Biography: React.FC = () => {
     }
   ];
 
+  const active_projects = t("projects_list", { returnObjects: true }) as { name: string, description: string }[];
+
   // Render the biography page with a timeline, active projects, and navigation links.
   return (
     <>
@@ -68,13 +70,13 @@ const Biography: React.FC = () => {
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
           {/* Page title with animation and theme-based styling */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
+          <h2 className="transition-colors text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
             {t("biography")} {/* Translated biography section title */}
           </h2>
 
           {/* Biography introduction */}
           <div className="mb-12 text-center">
-            <p className={`${i18n.language === "fa" ? "font-iransans rtl text-right" : "font-sans ltr text-left"} text-lg sm:text-xl text-(--text) leading-relaxed animate-fade-in delay-200`}>
+            <p className={`transition-colors ${i18n.language === "fa" ? "rtl text-right" : "ltr text-left"} text-lg sm:text-xl text-(--text) leading-relaxed animate-fade-in`}>
               {t("biography_intro")} {/* Translated biography introduction */}
             </p>
           </div>
@@ -92,47 +94,37 @@ const Biography: React.FC = () => {
               >
                 {/* Timeline marker (dot) */}
                 <div
-                  className={`absolute ${i18n.language === "fa" ? "-right-3" : "-left-3"} h-5 w-5 bg-(--primary) rounded-full default-fade-transition`}
+                  className={`absolute ${i18n.language === "fa" ? "-right-3" : "-left-3"} h-5 w-5 bg-(--primary) rounded-full transition-all`}
                 />
 
                 {/* Event title with year */}
-                <h3 className={`text-xl font-semibold text-(--primary) ${i18n.language === " fa" ? "font-iransans" : "font-sans"} mb-2`}>
+                <h3 className={`transition-colors text-xl font-semibold text-(--primary) mb-2`}>
                   {item.year}: {item.title}
                 </h3>
 
                 {/* Event description */}
-                < p className={`text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"} leading-relaxed`}> {item.description}</p>
+                < p className={`transition-colors text-(--text) leading-relaxed`}> {item.description}</p>
               </div>
             ))}
           </div>
 
           {/* Active Projects Section */}
           <div className="mt-12">
-            <h3 className={`text-2xl font-semibold text-(--primary) ${i18n.language === " fa" ? "font-iransans" : "font-sans"} mb-6 text-center animate-fade-in delay-200`}>
+            <h3 className={`text-2xl font-semibold text-(--primary) mb-6 text-center animate-fade-in delay-200`}>
               {t("active_projects")} {/* Translated active projects title */}
             </h3>
             {/* Grid of active projects */}
-            <div className="grid sm:grid-cols-2 gap-6 animate-fade-in delay-300">
-              {/* Project: Hycom */}
-              <div className={`p-6 bg-(--card-bg)/60 rounded-lg shadow-lg border border-(--border) hover:border-(--primary) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)`}>
-                <h4 className={`text-lg font-semibold text-(--text) ${i18n.language === " fa" ? "font-iransans" : "font-sans"} mb-2`}>{t("projects_list.hycom")}</h4>
-                <p className={`text-(--text) ${i18n.language === " fa" ? "font-iransans" : "font-sans"}`}>{t("projects_list.hycom_description")}</p>
-              </div >
-              {/* Project: Ticker Boy */}
-              < div className="p-6 bg-(--card-bg)/60 rounded-lg shadow-lg border border-(--border) hover:border-(--primary) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)" >
-                <h4 className={`text-lg font-semibold text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"} mb-2`} > {t("projects_list.ticker_boy")}</h4 >
-                <p className={`text-(--text)] ${i18n.language === " fa" ? "font - iransans" : "font - sans"}`} > {t("projects_list.ticker_boy_description")}</p >
-              </div >
-              {/* Project: DJ Boy */}
-              < div className="p-6 bg-(--card-bg)/60 rounded-lg shadow-lg border border-(--border) hover:border-(--primary) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)" >
-                <h4 className={`text-lg font-semibold text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"} mb-2`}> {t("projects_list.dj_boy")}</h4 >
-                <p className={`text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"}`} > {t("projects_list.dj_boy_description")}</p >
-              </div >
-              {/* Project: Padio */}
-              < div className="p-6 bg-(--card-bg)/60 rounded-lg shadow-lg border border-(--border) hover:border-(--primary) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)" >
-                <h4 className={`text-lg font-semibold text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"} mb-2`} > {t("projects_list.padio")}</h4 >
-                <p className={`text-(--text) ${i18n.language === " fa" ? "font - iransans" : "font - sans"}`} > {t("projects_list.padio_description")}</p >
-              </div >
+            <div className="grid sm:grid-cols-2 gap-6 animate-fade-in">
+              {
+                active_projects
+                  .map(({ name, description }) => (
+                    <div className={`p-6 bg-(--card-bg)/60 rounded-lg shadow-lg border border-(--border) hover:border-(--primary) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)`}>
+                      <h4 className={`transition-colors text-lg font-semibold text-(--text) mb-2`}>{name}</h4>
+                      <p className={`transition-colors text-(--text)`}>{description}</p>
+                    </div >
+                  ))
+              }
+
             </div >
           </div >
         </div >
