@@ -91,15 +91,15 @@ const Home: React.FC = () => {
                         </div>
 
                         {/* Main title with responsive font sizing */}
-                        <h1 className="max-[480px]:text-3xl max-[411px]:text-[26px] max-[365px]:text-[22px] text-4xl sm:text-5xl font-bold mb-4 text-(--primary) animate-fade-in">
+                        <h1 className="max-[480px]:text-3xl max-[411px]:text-[26px] max-[365px]:text-[22px] text-4xl sm:text-5xl font-bold mb-4 text-(--primary) animate-fade-in transition-colors">
                             Mr. Sinre | Sobhan-SRZA
                         </h1>
 
                         {/* Tagline with translated text */}
-                        <p className="text-xl text-(--text) mb-8 animate-fade-in delay-200">
+                        <p className="text-xl text-(--text) mb-8 animate-fade-in transition-colors">
                             {t("hero.tagline")} {/* Translated tagline */}
                         </p>
-                        
+
                         {/* Call-to-action buttons for projects, contact, and resume download */}
                         <div className="flex max-[560px]:flex-col justify-center gap-4 animate-fade-in delay-400">
                             <a
@@ -122,7 +122,7 @@ const Home: React.FC = () => {
                     <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("about")} {/* Translated about section title */}
                     </h2>
-                    <p className="text-lg text-(--text) leading-relaxed animate-fade-in delay-200">
+                    <p className="text-lg text-(--text) leading-relaxed animate-fade-in transition-colors">
                         {t("about_content")} {/* Translated about section content */}
                     </p>
                 </div>
@@ -193,7 +193,7 @@ const Home: React.FC = () => {
                     <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("projects")} {/* Translated projects section title */}
                     </h2>
-                    <p className="text-center text-(--text) mb-8 animate-fade-in delay-200">
+                    <p className="text-center text-(--text) mb-8 animate-fade-in transition-colors">
                         {t("projects_teaser")} {/* Translated projects teaser content */}
                     </p>
                     <div className="text-center">
