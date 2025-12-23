@@ -34,7 +34,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ onChange }) => {
     return (
         <button
             onClick={toggleTheme}
-            className="justify-self-center cursor-pointer p-2 w-max h-max rounded-full bg-transparent text-[var(--text)] hover:bg-[var(--nav-hover)] hover:text-[var(--nav-text-hover)] transition-all relative"
+            className="justify-self-center cursor-pointer p-2 w-max h-max rounded-full bg-transparent text-(--text) hover:bg-(--nav-hover) hover:text-(--nav-text-hover) transition-all relative"
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
         >
             <div className="relative w-6 h-6">
@@ -53,7 +53,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ onChange }) => {
 
             {/* Animation circle effect */}
             {isAnimating && (
-                <span className="absolute inset-0 rounded-full bg-[var(--primary)] opacity-20 animate-ping"></span>
+                <span className="absolute inset-0 rounded-full bg-(--primary) opacity-20 animate-ping"></span>
             )}
         </button>
     );
