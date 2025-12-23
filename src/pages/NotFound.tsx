@@ -44,25 +44,25 @@ const NotFound: React.FC = () => {
             </Helmet>
             {/* Main section for the 404 page with theme-based styling and animations */}
             <main
-                className={`min-h-min bg-[var(--sec-bg)] backdrop-blur-md grid rounded-3xl place-items-center px-6 py-24 sm:py-32 lg:px-8 animate-fade-in default-fade-transition ${i18n.language === "fa" ? "rtl" : "ltr"}`}
+                className={`min-h-min bg-(--sec-bg) backdrop-blur-md grid rounded-3xl place-items-center px-6 py-24 sm:py-32 lg:px-8 animate-fade-in default-fade-transition ${i18n.language === "fa" ? "rtl" : "ltr"}`}
             >
                 {/* Centered content for the 404 message */}
                 <div className="text-center">
                     {/* Large 404 text with theme-based primary color */}
-                    <p className="text-7xl font-semibold text-[var(--primary)] font-iransans">404</p>
+                    <p className="text-7xl font-semibold text-(--primary) font-iransans">404</p>
                     {/* Page title with translated text and responsive font sizing */}
-                    <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-tight text-[var(--text)] font-iransans">
+                    <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-tight text-(--text) font-iransans">
                         {t("not_found_title")} {/* Translated title for the 404 page */}
                     </h1>
                     {/* Description text with translated content and subtle opacity */}
-                    <p className="mt-6 text-lg font-medium text-[var(--text)]/70 font-iransans sm:text-xl">
+                    <p className="mt-6 text-lg font-medium text-(--text)/70 font-iransans sm:text-xl">
                         {t("not_found_description")} {/* Translated description for the 404 page */}
                     </p>
                     {/* Navigation link back to the homepage */}
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <NavLink
                             to="/" // Link to the homepage
-                            className="rounded-md bg-[var(--primary)] px-3.5 py-2.5 text-sm font-semibold text-white font-iransans shadow-sm hover:bg-[var(--primary-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] default-fade-transition"
+                            className="rounded-md bg-(--primary) px-3.5 py-2.5 text-sm font-semibold text-white font-iransans shadow-sm hover:bg-(--primary-hover) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--primary default-fade-transition"
                             aria-label={t("back_to_home")} // Accessible label for screen readers
                         >
                             {t("back_to_home")} {/* Translated text for the back-to-home button */}
