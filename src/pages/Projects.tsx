@@ -89,7 +89,7 @@ const Projects: React.FC = () => {
           projects_link,
           { mode: "cors" }
         );
-        
+
         if (!response.ok) {
           throw new Error(t("error_fetch")); // Throw translated error message on failure
         }
@@ -106,8 +106,8 @@ const Projects: React.FC = () => {
 
         setProjects(initialProjects);
         setLoading(false);
-      } 
-      
+      }
+
       catch (err) {
         // Handle errors by setting an error message and clearing projects.
         setError(t("error_fetch"));
@@ -129,33 +129,33 @@ const Projects: React.FC = () => {
 
   // Component to render a loading skeleton for projects while data is being fetched.
   const LoadingSkeleton = () => (
-    <div className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 animate-pulse transition-all cursor-pointer">
+    <div className="max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg] hover:-translate-y-1 animate-pulse transition-all cursor-pointer">
       {/* Placeholder for project name */}
-      <div className="text-center h-5 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+      <div className="text-center h-5 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
       {/* Placeholder for description lines */}
-      <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full w-3/4"></div>
-      <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full w-2/5"></div>
-      <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full w-1/4"></div>
-      <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full w-1/2"></div>
+      <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-3/4"></div>
+      <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-2/5"></div>
+      <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-1/4"></div>
+      <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-1/2"></div>
       {/* Placeholder for status, stars, forks, and access icons */}
       <div className="flex justify-between mt-2 gap-3">
-        <div className="h-8 w-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
         <div className="flex gap-5">
-          <div className="h-8 w-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
-          <div className="h-8 w-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+          <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+          <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
         </div>
-        <div className="h-8 w-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
       </div>
       {/* Placeholder for language badges */}
       <div className="flex flex-wrap gap-2 justify-center mt-2">
-        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
-        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
       </div>
       {/* Placeholder for technology badges */}
       <div className="flex flex-wrap gap-2 justify-center mt-2">
-        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
-        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
-        <div className="h-6 w-16 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
       </div>
     </div>
   );
@@ -171,27 +171,27 @@ const Projects: React.FC = () => {
       {/* Main section for projects with theme-based styling and animations */}
       <section
         id="projects"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center default-fade-transition"
+        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center default-fade-transition"
       >
         {/* Container for responsive layout with language-based text direction */}
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
           {/* Page title with animation and theme-based styling */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in default-fade-transition">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in default-fade-transition">
             {t("projects")} {/* Translated title for the projects section */}
           </h2>
 
           {/* Page description with animation and theme-based styling */}
-          <p className="text-center text-[var(--text)] mb-12 text-lg animate-fade-in delay-200 default-fade-transition">
+          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in delay-200 default-fade-transition">
             {t("projects_content")} {/* Translated description of the projects section */}
           </p>
 
           {/* Loading state: Display skeleton placeholders while fetching data */}
           {loading && (
             <>
-              <div className="text-[var(--text)] animate-pulse mb-5 flex gap-2 justify-center">
-                <LoaderCircle className="text-[var(--hover)] animate-spin" />
+              <div className="text-(--text) animate-pulse mb-5 flex gap-2 justify-center">
+                <LoaderCircle className="text-(--hover) animate-spin" />
                 <p>
                   {t("loading")} {/* Translated loading message */}
                 </p>
@@ -221,21 +221,21 @@ const Projects: React.FC = () => {
                   href={project.url}
                   target="_blank" // Open project URL in a new tab
                   rel="noopener noreferrer" // Security attributes for external links
-                  className="max-w-[225px] max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] hover:-translate-y-1 default-fade-transition group"
+                  className="max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border(--primary) hover:bg-(--card-bg)] hover:-translate-y-1 default-fade-transition group"
                   aria-label={t(`project_${project.name.toLowerCase().replace(/\s+/g, "_")}`) || project.name} // Accessible label for screen readers
                 >
                   {/* Project name with hover effect */}
-                  <h3 className="default-fade-transition text-center text-xl font-semibold text-[var(--primary)] group-hover:text-[var(--primary-hover)] font-sans">
+                  <h3 className="default-fade-transition text-center text-xl font-semibold text-(--primary) group-hover:text-(--primary-hover) font-sans">
                     {project.name}
                   </h3>
 
                   {/* Project description with hover effect */}
-                  <p className="default-fade-transition text-[var(--text)] text-sm">
+                  <p className="default-fade-transition text-(--text) text-sm">
                     {getDescription(project) || t("no_description")} {/* Language-specific or fallback description */}
                   </p>
 
                   {/* Project status and access indicators */}
-                  <div className="flex justify-between text-sm text-[var(--text)] ltr">
+                  <div className="flex justify-between text-sm text-(--text) ltr">
                     {/* Project status icon */}
                     <span className="default-fade-transition flex items-center gap-2">
                       {statusIcons[project.status] || project.status} {/* Render status icon or fallback to status text */}
@@ -245,14 +245,14 @@ const Projects: React.FC = () => {
                     {!project.private && (
                       <div className="flex justify-center gap-4">
                         <div className="flex items-center gap-2">
-                          <Star className="default-fade-transition w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" /> {/* Star icon */}
-                          <span className="default-fade-transition text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
+                          <Star className="default-fade-transition w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Star icon */}
+                          <span className="default-fade-transition text-sm text-(--text) group-hover:text-(--hover)">
                             {project.stars} {/* Number of stars */}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <GitFork className="default-fade-transition w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" /> {/* Fork icon */}
-                          <span className="default-fade-transition text-sm text-[var(--text)] group-hover:text-[var(--hover)]">
+                          <GitFork className="default-fade-transition w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Fork icon */}
+                          <span className="default-fade-transition text-sm text-(--text) group-hover:text-(--hover)">
                             {project.forks} {/* Number of forks */}
                           </span>
                         </div>
@@ -262,9 +262,9 @@ const Projects: React.FC = () => {
                     {/* Public/private indicator */}
                     <span className="flex items-center gap-2">
                       {project.private ? (
-                        <Lock className="default-fade-transition w-5 h-5 text-[var(--text)] group-hover:text-[var(--hover)]" /> // Private project icon
+                        <Lock className="default-fade-transition w-5 h-5 text-(--text) group-hover:text-(--hover)" /> // Private project icon
                       ) : (
-                        <Globe className="default-fade-transition w-5 h-5 text-[var(--primary)] group-hover:text-[var(--primary-hover)]" /> // Public project icon
+                        <Globe className="default-fade-transition w-5 h-5 text-(--primary) group-hover:text-(--primary-over)]" /> // Public project icon
                       )}
                     </span>
                   </div>
@@ -291,7 +291,7 @@ const Projects: React.FC = () => {
                       project.technologies.map((tech, idx) => (
                         <span
                           key={idx}
-                          className={`default-fade-transition px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default} group-hover:scale-105 transition-transform duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
+                          className={`default-fade-transition px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default} group-hover:scale-105 transition-transform duration-(--default-transition-duration)] ease-(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
                         >
                           {tech}
                         </span>
