@@ -28,6 +28,8 @@ export const social = {
 } as const; // Use 'as const' to make the object immutable and enable strict typing
 
 export const projects_link = "https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/projects.json" as const;
+
+export const google_script_link = "https://script.google.com/macros/s/AKfycbwwg1gH7aXeFxFBgbK66Vt3hjoVUHOxX2DnBsyxWhalKUBSPYRPRj-hIAfOnSsq7UnNcw/exec" as const;
 /**
  * @copyright
  * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
