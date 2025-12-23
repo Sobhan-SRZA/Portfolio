@@ -35,102 +35,102 @@ const Social: React.FC = () => {
     {
       key: "upwork",
       url: social.upwork,
-      icon: <BriefcaseBusiness className="w-6 h-6 text-[var(--primary)]" /> // Icon for Upwork profile
+      icon: (className?: string) => <BriefcaseBusiness className={className} /> // Icon for Upwork profile
     },
     {
       key: "gitlab",
       url: social.gitlab,
-      icon: <Gitlab className="w-6 h-6 text-[var(--primary)]" /> // Icon for GitLab profile
+      icon: (className?: string) => <Gitlab className={className} /> // Icon for GitLab profile
     },
     {
       key: "npm",
       url: social.npm,
-      icon: <NotepadText className="w-6 h-6 text-[var(--primary)]" /> // Icon for npm profile
+      icon: (className?: string) => <NotepadText className={className} /> // Icon for npm profile
     },
     {
       key: "github_main",
       url: social.github,
-      icon: <Github className="w-6 h-6 text-[var(--primary)]" /> // Icon for main GitHub profile
+      icon: (className?: string) => <Github className={className} /> // Icon for main GitHub profile
     },
     {
       key: "github_persian_caesar",
       url: social.github_pc,
-      icon: <Github className="w-6 h-6 text-[var(--primary)]" /> // Icon for Persian Caesar GitHub
+      icon: (className?: string) => <Github className={className} /> // Icon for Persian Caesar GitHub
     },
     {
       key: "github_aparatjs",
       url: social.github_aparat,
-      icon: <Github className="w-6 h-6 text-[var(--primary)]" /> // Icon for AparatJS GitHub
+      icon: (className?: string) => <Github className={className} /> // Icon for AparatJS GitHub
     },
     {
       key: "orcid",
       url: social.orcid,
-      icon: <University className="w-6 h-6 text-[var(--primary)]" /> // Icon for ORCID profile
+      icon: (className?: string) => <University className={className} /> // Icon for ORCID profile
     },
     {
       key: "karlancer",
       url: social.karlancer,
-      icon: <Briefcase className="w-6 h-6 text-[var(--primary)]" /> // Icon for Karlancer profile
+      icon: (className?: string) => <Briefcase className={className} /> // Icon for Karlancer profile
     },
     {
       key: "linkedin",
       url: social.linkedin,
-      icon: <Linkedin className="w-6 h-6 text-[var(--primary)]" /> // Icon for LinkedIn profile
+      icon: (className?: string) => <Linkedin className={className} /> // Icon for LinkedIn profile
     },
     {
       key: "youtube",
       url: social.youtube,
-      icon: <Youtube className="w-6 h-6 text-[var(--primary)]" /> // Icon for YouTube channel
+      icon: (className?: string) => <Youtube className={className} /> // Icon for YouTube channel
     },
     {
       key: "twitch",
       url: social.twitch,
-      icon: <Twitch className="w-6 h-6 text-[var(--primary)]" /> // Icon for Twitch channel
+      icon: (className?: string) => <Twitch className={className} /> // Icon for Twitch channel
     },
     {
       key: "instagram_main",
       url: social.instagram,
-      icon: <Instagram className="w-6 h-6 text-[var(--primary)]" /> // Icon for main Instagram account
+      icon: (className?: string) => <Instagram className={className} /> // Icon for main Instagram account
     },
     {
       key: "instagram_private",
       url: social.instagram_private,
-      icon: <Instagram className="w-6 h-6 text-[var(--primary)]" /> // Icon for private Instagram account
+      icon: (className?: string) => <Instagram className={className} /> // Icon for private Instagram account
     },
     {
       key: "telegram_main",
       url: social.telegram,
-      icon: <Send className="w-6 h-6 text-[var(--primary)]" /> // Icon for main Telegram account
+      icon: (className?: string) => <Send className={className} /> // Icon for main Telegram account
     },
     {
       key: "telegram_second",
       url: social.telegram_second,
-      icon: <Send className="w-6 h-6 text-[var(--primary)]" /> // Icon for secondary Telegram account
+      icon: (className?: string) => <Send className={className} /> // Icon for secondary Telegram account
     },
     {
       key: "telegram_channel",
       url: social.telegram_channel,
-      icon: <Send className="w-6 h-6 text-[var(--primary)]" /> // Icon for Telegram channel
+      icon: (className?: string) => <Send className={className} /> // Icon for Telegram channel
     },
     {
       key: "discord_main",
       url: social.discord_account,
-      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" /> // Icon for main Discord account
+      icon: (className?: string) => <MessageCircle className={className} /> // Icon for main Discord account
     },
     {
       key: "discord_persian_caesar",
       url: social.discord_account_pc,
-      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" /> // Icon for Persian Caesar Discord
+      icon: (className?: string) => <MessageCircle className={className} /> // Icon for Persian Caesar Discord
     },
     {
       key: "discord_pc_development",
       url: social.discord_server_pc_development,
-      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" /> // Icon for Persian Caesar development server
+      icon: (className?: string) => <MessageCircle className={className} /> // Icon for Persian Caesar development server
     },
     {
       key: "discord_pc_club",
       url: social.discord_server_pc_club,
-      icon: <MessageCircle className="w-6 h-6 text-[var(--primary)]" /> // Icon for Persian Caesar club server
+      icon: (className?: string) => <MessageCircle className={className} /> // Icon for Persian Caesar club server
     }
   ];
 
@@ -145,19 +145,19 @@ const Social: React.FC = () => {
       {/* Main section for social links with theme-based styling and animations */}
       <section
         id="social"
-        className="min-h-min py-16 bg-[var(--sec-bg)] rounded-3xl backdrop-blur-md flex items-center justify-center default-fade-transition"
+        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center default-fade-transition"
       >
         {/* Container for responsive layout with language-based text direction */}
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
           {/* Page title with animation and theme-based styling */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[var(--primary)] text-center animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
             {t("social")} {/* Translated title for the social section */}
           </h2>
 
           {/* Page description with animation and theme-based styling */}
-          <p className="text-center text-[var(--text)] mb-12 text-lg animate-fade-in delay-200">
+          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in delay-200">
             {t("social_content")} {/* Translated description of the social section */}
           </p>
 
@@ -170,11 +170,11 @@ const Social: React.FC = () => {
                 href={link.url}
                 target="_blank" // Open link in a new tab
                 rel="noopener noreferrer" // Security attributes for external links
-                className="flex-1 h-max min-w-[300px] flex items-center gap-4 p-6 bg-[var(--card-bg)]/60 rounded-lg border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--card-bg)] transition-all duration-[var(--default-transition-duration)] ease-[var(--default-transition-timing-function)]"
+                className="flex-1 h-max min-w-75 flex items-center gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)"
                 aria-label={t(`social_links.${link.key}`)} // Accessible label for screen readers
               >
-                {link.icon} {/* Render the corresponding icon for the link */}
-                <span className="text-[var(--text)]">{t(`social_links.${link.key}`)}</span> {/* Translated link name */}
+                {link.icon("w-6 h-6 text-[var(--primary)]")} {/* Render the corresponding icon for the link */}
+                <span className="text-(--text)">{t(`social_links.${link.key}`)}</span> {/* Translated link name */}
               </a>
             ))}
           </div>
