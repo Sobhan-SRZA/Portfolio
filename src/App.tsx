@@ -78,6 +78,7 @@ const App: React.FC = () => {
   return (
     // Wrap the app in BrowserRouter for client-side routing.
     <Router>
+      
       {/* Helmet manages document head for SEO and metadata */}
       <Helmet>
         <meta charSet="UTF-8" /> {/* Set character encoding for the document */}
@@ -144,12 +145,16 @@ const App: React.FC = () => {
 
       {/* Main layout with dynamic font and text direction based on language */}
       <div className={`min-h-screen flex flex-col ${i18n.language === "fa" ? "font-iransans rtl" : "font-sans ltr"}`}>
+        
         {/* Header component for navigation */}
         <Header />
+
         {/* Main content area with responsive container and padding */}
         <main className="grow custom-container mx-auto px-4 py-8">
+
           {/* SEO section for additional on-page SEO elements */}
           <SeoSection />
+
           {/* Define routes for different pages of the application */}
           <Routes>
             <Route path="/" element={<Home />} /> {/* Home page route */}
@@ -161,9 +166,12 @@ const App: React.FC = () => {
             <Route path="*" element={<NotFound />} /> {/* Catch-all route for undefined paths */}
           </Routes>
         </main>
+
         {/* Footer component for bottom navigation and information */}
         <Footer />
+
       </div>
+
     </Router>
   );
 };

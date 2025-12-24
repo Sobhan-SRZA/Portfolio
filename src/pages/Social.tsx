@@ -142,10 +142,11 @@ const Social: React.FC = () => {
         <title>{t("social")} | Mr. Sinre | Sobhan-SRZA</title> {/* Page title with translated social label */}
         <meta name="description" content={t("social_content").substring(0, 160)} /> {/* Truncated description for SEO */}
       </Helmet>
+
       {/* Main section for social links with theme-based styling and animations */}
       <section
         id="social"
-        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-all"
+        className="min-h-min py-16 flex items-center justify-center transition-all"
       >
         {/* Container for responsive layout with language-based text direction */}
         <div

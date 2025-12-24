@@ -44,7 +44,7 @@ const NotFound: React.FC = () => {
             </Helmet>
             {/* Main section for the 404 page with theme-based styling and animations */}
             <main
-                className={`min-h-min bg-(--sec-bg) backdrop-blur-md grid rounded-3xl place-items-center px-6 py-24 sm:py-32 lg:px-8 animate-fade-in transition-all ${i18n.language === "fa" ? "rtl" : "ltr"}`}
+                className={`min-h-min grid rounded-3xl place-items-center px-6 py-24 sm:py-32 lg:px-8 animate-fade-in transition-all ${i18n.language === "fa" ? "rtl" : "ltr"}`}
             >
                 {/* Centered content for the 404 message */}
                 <div className="text-center">

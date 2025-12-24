@@ -173,10 +173,11 @@ const Projects: React.FC = () => {
         <title>{t("projects")} | Mr. Sinre | Sobhan-SRZA</title> {/* Page title with translated projects label */}
         <meta name="description" content={t("projects_content").substring(0, 160)} /> {/* Truncated description for SEO */}
       </Helmet>
+
       {/* Main section for projects with theme-based styling and animations */}
       <section
         id="projects"
-        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-all"
+        className="min-h-min py-16 flex items-center justify-center transition-all"
       >
         {/* Container for responsive layout with language-based text direction */}
         <div

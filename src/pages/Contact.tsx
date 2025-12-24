@@ -180,7 +180,7 @@ const Contact: React.FC = () => {
       {/* Main section for contact page with theme-based styling and animations */}
       <section
         id="contact"
-        className="min-h-min py-16 bg-(--sec-bg) rounded-3xl backdrop-blur-md flex items-center justify-center transition-all"
+        className="min-h-min py-16 flex items-center justify-center transition-all"
       >
         <div
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
