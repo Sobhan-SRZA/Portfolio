@@ -38,7 +38,7 @@
   --card-bg: #ffffff;
 
   /* Border color for elements */
-  --border: #cbd5e1;
+  --border: #5a5f65;
 
   /* Background for specific UI components (e.g., light gray sections) */
   --lgs-bg: #e5e7eb;
@@ -79,7 +79,7 @@
   --card-bg: #1e293b;
 
   /* Border color for elements in dark theme */
-  --border: #334155;
+  --border: #515d6d;
 
   /* Background for specific UI components in dark theme */
   --lgs-bg: #1e293b;

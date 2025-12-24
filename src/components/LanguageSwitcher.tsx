@@ -66,7 +66,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
                         {/* Popover panel containing language options */}
                         <PopoverPanel
                             ref={panelRef}
-                            className="absolute z-50 top-9 w-32 rounded-md border border-gray-600 bg-(--lgs-bg) shadow-sm transition-all duration-150  right-0 opacity-0 scale-90 invisible data-open:opacity-100 data-open:scale-100 data-open:top-13.75 data-open:visible"
+                            className="absolute z-50 top-9 w-32 rounded-md border border-(--border) bg-(--lgs-bg) shadow-sm transition-all duration-150  right-0 opacity-0 scale-90 invisible data-open:opacity-100 data-open:scale-100 data-open:top-13.75 data-open:visible"
                             static
                         >
                             <div className="p-2">
