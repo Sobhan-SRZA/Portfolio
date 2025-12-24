@@ -153,12 +153,12 @@ const Social: React.FC = () => {
           className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
           {/* Page title with animation and theme-based styling */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
             {t("social")} {/* Translated title for the social section */}
           </h2>
 
           {/* Page description with animation and theme-based styling */}
-          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in delay-200">
+          <p className="text-center text-(--text) mb-12 text-lg animate-fade-in transition-colors">
             {t("social_content")} {/* Translated description of the social section */}
           </p>
 
@@ -174,8 +174,8 @@ const Social: React.FC = () => {
                 className="flex-1 h-max min-w-75 flex items-center gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg) transition-all duration-(--default-transition-duration) ease-(--default-transition-timing-function)"
                 aria-label={t(`social_links.${link.key}`)} // Accessible label for screen readers
               >
-                {link.icon("w-6 h-6 text-[var(--primary)]")} {/* Render the corresponding icon for the link */}
-                <span className="text-(--text)">{t(`social_links.${link.key}`)}</span> {/* Translated link name */}
+                {link.icon("w-6 h-6 text-[var(--primary)] transition-colors")} {/* Render the corresponding icon for the link */}
+                <span className="text-(--text) transition-colors">{t(`social_links.${link.key}`)}</span> {/* Translated link name */}
               </a>
             ))}
           </div>
