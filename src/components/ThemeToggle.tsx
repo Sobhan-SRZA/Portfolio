@@ -1,13 +1,36 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type Dispatch, type SetStateAction } from "react";
 import { Sun, Moon } from "lucide-react";
 
 interface ThemeToggleProps {
     onChange?: () => void;
+    states?: {
+        isAnimating: boolean;
+        setIsAnimating: Dispatch<SetStateAction<boolean>>;
+
+        isDark: boolean;
+        setIsDark: Dispatch<SetStateAction<boolean>>;
+    };
 }
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ onChange }) => {
-    const [isDark, setIsDark] = useState(false);
-    const [isAnimating, setIsAnimating] = useState(false);
+type States = NonNullable<ThemeToggleProps["states"]>;
+
+const ThemeToggle: React.FC<ThemeToggleProps> = ({ onChange, states }) => {
+    let isAnimating: States["isAnimating"], setIsAnimating: States["setIsAnimating"];
+    let isDark: States["isDark"], setIsDark: States["setIsDark"];
+
+
+    if (!states) {
+        const [use_isAnimating, use_setIsAnimating] = useState(false);
+        const [use_isDark, use_setIsDark] = useState(false);
+        isAnimating = use_isAnimating, setIsAnimating = use_setIsAnimating;
+        isDark = use_isDark, setIsDark = use_setIsDark;
+    }
+
+    else {
+        isAnimating = states.isAnimating, setIsAnimating = states.setIsAnimating;
+        isDark = states.isDark, setIsDark = states.setIsDark;
+    }
+
 
     useEffect(() => {
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
