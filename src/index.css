@@ -52,9 +52,12 @@
   /* Hover state for accent color */
   --accent-hover: #0c489c;
 
+  /* Home page skills free space color */
+  --bar: #cbd5e1;
+
   /* Error message from projects */
   --error-message: #A80000;
-  
+
   /* Skeleton items from projects */
   --loding-item: #94a9c1;
 }
@@ -95,6 +98,9 @@
 
   /* Hover state for accent color in dark theme */
   --accent-hover: #74bbfd;
+
+  /* Home page skills free space color */
+  --bar: #485a74;
 
   /* Error message from projects */
   --error-message: #FF8A8A;

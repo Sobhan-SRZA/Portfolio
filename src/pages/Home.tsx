@@ -166,7 +166,7 @@ const Home: React.FC = () => {
                             return (
                                 <div
                                     key={index} // Unique key for each skill (consider using skill.name for better uniqueness)
-                                    className="min-[1280px]:min-w-75 max-[1280px]:w-81.25 max-[768px]:min-w-full text-[20px] bg-(--card-bg) p-4 rounded-lg shadow-lg transition-all border border-(--border) hover:border-(--primary) cursor-pointer"
+                                    className="min-[1280px]:min-w-75 max-[1280px]:w-81.25 max-[768px]:min-w-full text-[20px] bg-(--card-bg) p-4 rounded-lg hover:shadow-lg transition-all border border-(--border)/50  hover:border-(--primary) cursor-pointer"
                                 >
                                     {/* Skill name and progress percentage */}
                                     <div className="flex justify-between mb-2">
@@ -174,7 +174,7 @@ const Home: React.FC = () => {
                                         <span className="text-(--primary) font-bold transition-colors">{count}%</span>
                                     </div>
                                     {/* Progress bar */}
-                                    <div className="h-2 bg-(--border) rounded-full transition-colors">
+                                    <div className="h-2 bg-(--bar) rounded-full transition-colors">
                                         <div
                                             className="h-full bg-(--primary) rounded-full transition-all duration-1000 ease-out"
                                             style={{ width: `${count}%` }} // Dynamically set width based on progress
