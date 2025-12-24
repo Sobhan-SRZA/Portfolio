@@ -54,6 +54,9 @@
 
   /* Error message from projects */
   --error-message: #A80000;
+  
+  /* Skeleton items from projects */
+  --loding-item: #94a9c1;
 }
 
 /* Dark Theme: Define CSS custom properties for the dark theme, applied when [data-theme="dark"] is set on an element. */
@@ -95,6 +98,9 @@
 
   /* Error message from projects */
   --error-message: #FF8A8A;
+
+  /* Skeleton items from projects */
+  --loding-item: #6c8fb7;
 }
 
 /* Set smooth scrolling behavior for the entire HTML document. */

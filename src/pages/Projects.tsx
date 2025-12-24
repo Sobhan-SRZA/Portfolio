@@ -132,35 +132,39 @@ const Projects: React.FC = () => {
     <div className="max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg] hover:-translate-y-1 animate-pulse transition-all cursor-pointer">
 
       {/* Placeholder for project name */}
-      <div className="text-center h-5 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+      <div className="self-center w-30 h-5 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full"></div>
 
       {/* Placeholder for description lines */}
-      <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-3/4"></div>
-      <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-2/5"></div>
-      <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-1/4"></div>
-      <div className="h-2 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full w-1/2"></div>
+      <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-3/4"></div>
+      <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-2/5"></div>
+      <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-1/4"></div>
+      <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-1/2"></div>
+      <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-2/5"></div>
 
       {/* Placeholder for status, stars, forks, and access icons */}
       <div className="flex justify-between mt-2 gap-3">
-        <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
-        <div className="flex gap-5">
-          <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
-          <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
-        </div>
-        <div className="h-8 w-8 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+        {Array(2).fill(0).map(() => (
+          <span className="flex gap-2">
+            {Array(2).fill(0).map(() => (
+              <div className="h-7 w-7 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+            ))}
+          </span>
+        ))}
+
       </div>
 
       {/* Placeholder for language badges */}
       <div className="flex flex-wrap gap-2 justify-center mt-2">
-        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
-        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+        {Array(2).fill(0).map(() => (
+          <div className="h-5 w-12 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+        ))}
       </div>
-      
+
       {/* Placeholder for technology badges */}
       <div className="flex flex-wrap gap-2 justify-center mt-2">
-        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
-        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
-        <div className="h-6 w-16 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+        {Array(3).fill(0).map(() => (
+          <div className="h-5 w-14 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full"></div>
+        ))}
       </div>
     </div>
   );
