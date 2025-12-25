@@ -47,6 +47,20 @@
     "error_fetch": "Error loading projects. Please try again later.",
     "no_description": "No description available",
     "active_projects": "Active Projects",
+    "projects_org": {
+        "aparatjs": {
+            "name": "Aparat.js",
+            "describe": "A modular and powerful Node.js wrapper for the Aparat platform, designed to provide easy and efficient access to user profiles, videos, channels, and live stream status. Ideal for bots, automation tools, and backend services."
+        },
+        "personal": {
+            "name": "Personal Projects",
+            "describe": "A collection of personal GitHub repositories created for hands-on learning, experimentation, and continuous improvement across various technologies. These projects represent my growth path and practical experience as a developer."
+        },
+        "persian-caesar": {
+            "name": "Persian Caesar",
+            "describe": "Persian Caesar is a Persian-speaking developer team and community focused on supporting programmers, sharing knowledge, building useful tools, and fostering collaborative technical growth."
+        }
+    },
     "projects_list": [
         {
             "name": "HyCom",

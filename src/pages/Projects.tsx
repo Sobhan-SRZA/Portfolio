@@ -169,6 +169,22 @@ const Projects: React.FC = () => {
     </div>
   );
 
+  const groupedByOrg = projects.reduce<Record<string, Project[]>>(
+    (acc, project) => {
+      const org = project.organization ?? "Personal";
+
+      if (!acc[org]) {
+        acc[org] = [];
+      }
+
+      acc[org].push(project);
+      return acc;
+    },
+    {}
+  );
+
+  const sortedOrganizations = Object.keys(groupedByOrg).sort().reverse();
+
   // Render the projects page with SEO metadata and responsive layout.
   return (
     <>
@@ -224,94 +240,129 @@ const Projects: React.FC = () => {
 
           {/* Projects list: Render projects when data is loaded and no error occurs */}
           {!loading && !error && (
-            <div className="flex flex-wrap justify-center gap-5 justify-items-center animate-fade-in delay-400">
-              {projects.map((project, index) => (
-                // Individual project card with accessibility attributes and hover effects
-                <a
-                  key={index} // Unique key for each project (consider using project.name for better uniqueness)
-                  href={project.url}
-                  target="_blank" // Open project URL in a new tab
-                  rel="noopener noreferrer" // Security attributes for external links
-                  className="max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 bg-(--card-bg)/60 rounded-lg border border-(--border) hover:border-(--primary) hover:bg-(--card-bg)] hover:-translate-y-1 transition-all group"
-                  aria-label={t(`project_${project.name.toLowerCase().replace(/\s+/g, "_")}`) || project.name} // Accessible label for screen readers
-                >
-                  {/* Project name with hover effect */}
-                  <h3 className="transition-all text-center text-xl font-semibold text-(--primary) group-hover:text-(--primary-hover) font-sans">
-                    {project.name}
-                  </h3>
+            <div className="flex flex-col justify-center gap-25 justify-items-center animate-fade-in delay-400">
+              {sortedOrganizations.map((org) => (
+                <section key={org} className="max-w-max even:-mx-5 even:px-5 py-16 transition-all even:bg-(--sec-bg) even:rounded-3xl even:backdrop-blur-md">
 
-                  {/* Project description with hover effect */}
-                  <p className="transition-all text-(--text) text-sm">
-                    {getDescription(project) || t("no_description")} {/* Language-specific or fallback description */}
-                  </p>
+                  <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
+                    {t(`projects_org.${org.toLowerCase()}.name`)}
+                  </h2>
 
-                  {/* Project status and access indicators */}
-                  <div className="flex justify-between text-sm text-(--text) ltr">
-                    {/* Project status icon */}
-                    <span className="transition-all flex items-center gap-2">
-                      {statusIcons[project.status] || project.status} {/* Render status icon or fallback to status text */}
-                    </span>
-
-                    {/* Stars and forks for public projects */}
-                    {!project.private && (
-                      <div className="flex justify-center gap-4">
-                        <div className="flex items-center gap-2">
-                          <Star className="transition-all w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Star icon */}
-                          <span className="transition-all text-sm text-(--text) group-hover:text-(--hover)">
-                            {project.stars} {/* Number of stars */}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <GitFork className="transition-all w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Fork icon */}
-                          <span className="transition-all text-sm text-(--text) group-hover:text-(--hover)">
-                            {project.forks} {/* Number of forks */}
-                          </span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Public/private indicator */}
-                    <span className="flex items-center gap-2">
-                      {project.private ? (
-                        <Lock className="transition-all w-5 h-5 text-(--text) group-hover:text-(--hover)" /> // Private project icon
-                      ) : (
-                        <Globe className="transition-all w-5 h-5 text-(--primary) group-hover:text-(--primary-over)]" /> // Public project icon
-                      )}
-                    </span>
+                  <div
+                    className={`transition-colors rounded-md bg-(--accent-hover)/10 py-5 mb-12 w-fit place-self-center ${i18n.language === "fa"
+                      ? " pr-5 border-r-4 border-r-(--accent)"
+                      : " pl-5 border-l-4 border-l-(--accent)"}`}
+                  >
+                    <p
+                      className={`text-(--text) mx-5 text-lg animate-fade-in transition-colors ${i18n.language === "fa"
+                        ? "text-right"
+                        : "text-left"
+                        }`}
+                    >
+                      {t(`projects_org.${org.toLowerCase()}.describe`)}
+                    </p>
                   </div>
 
-                  {/* Programming languages used in the project */}
-                  <div className="flex flex-wrap gap-2 justify-center ltr">
-                    {project.languages && project.languages.length > 0 ? (
-                      project.languages.map((lang, idx) => (
-                        <span
-                          key={idx}
-                          className={`transition-all px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default} group-hover:scale-105`} // Language badge with color and hover scaling
+                  <ul className="flex flex-wrap justify-center gap-5 justify-items-center animate-fade-in delay-400">
+                    {groupedByOrg[org].map((project, index) => {
+                      const Wrapper = project.private ? "div" : "a";
+
+                      return (
+
+                        // Individual project card with accessibility attributes and hover effects
+                        <Wrapper
+                          {...(!project.private && {
+                            href: project.url,
+                            target: "_blank",
+                            rel: "noopener noreferrer" // Security attributes for external links
+                          })}
+                          key={index} // Unique key for each project (consider using project.name for better uniqueness)
+                          className={"max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 rounded-lg border border-(--border) transition-all group "+`${project.private?"border-dashed bg-(--card-bg)/30 opacity-80 cursor-not-allowed":"bg-(--card-bg)/60 hover:border-(--primary) hover:bg-(--card-bg)] hover:-translate-y-1"}`}
+                          aria-label={t(`project_${project.name.toLowerCase().replace(/\s+/g, "_")}`) || project.name} // Accessible label for screen readers
                         >
-                          {lang}
-                        </span>
-                      ))
-                    ) : (
-                      <></> // Render nothing if no languages are specified
-                    )}
-                  </div>
+                          {/* Project name with hover effect */}
+                          <h3 className="transition-all text-center text-xl font-semibold text-(--primary) group-hover:text-(--primary-hover) font-sans">
+                            {project.name}
+                          </h3>
 
-                  {/* Technologies used in the project */}
-                  <div className="flex flex-wrap gap-2 justify-center ltr">
-                    {project.technologies && project.technologies.length > 0 ? (
-                      project.technologies.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className={`transition-all px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default} group-hover:scale-105 transition-transform duration-(--default-transition-duration)] ease-(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
-                        >
-                          {tech}
-                        </span>
-                      ))
-                    ) : (
-                      <></> // Render nothing if no technologies are specified
-                    )}
-                  </div>
-                </a>
+                          {/* Project description with hover effect */}
+                          <p className="transition-all text-(--text) text-sm">
+                            {getDescription(project) || t("no_description")} {/* Language-specific or fallback description */}
+                          </p>
+
+                          {/* Project status and access indicators */}
+                          <div className="flex justify-between text-sm text-(--text) ltr">
+                            
+                            {/* Project status icon */}
+                            <span className="transition-all flex items-center gap-2">
+                              {statusIcons[project.status] || project.status} {/* Render status icon or fallback to status text */}
+                            </span>
+
+                            {/* Stars and forks for public projects */}
+                            {!project.private && (
+                              <div className="flex justify-center gap-4">
+                                <div className="flex items-center gap-2">
+                                  <Star className="transition-all w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Star icon */}
+                                  <span className="transition-all text-sm text-(--text) group-hover:text-(--hover)">
+                                    {project.stars} {/* Number of stars */}
+                                  </span>
+                                </div>
+
+                                <div className="flex items-center gap-2">
+                                  <GitFork className="transition-all w-5 h-5 text-(--text) group-hover:text-(--hover)" /> {/* Fork icon */}
+                                  <span className="transition-all text-sm text-(--text) group-hover:text-(--hover)">
+                                    {project.forks} {/* Number of forks */}
+                                  </span>
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Public/private indicator */}
+                            <span className="flex items-center gap-2">
+                              {project.private ? (
+                                <Lock className="transition-all w-5 h-5 text-(--text) group-hover:text-(--hover)" /> // Private project icon
+                              ) : (
+                                <Globe className="transition-all w-5 h-5 text-(--primary) group-hover:text-(--primary-over)]" /> // Public project icon
+                              )}
+                            </span>
+                          </div>
+
+                          {/* Programming languages used in the project */}
+                          <div className="flex flex-wrap gap-2 justify-center ltr">
+                            {project.languages && project.languages.length > 0 ? (
+                              project.languages.map((lang, idx) => (
+                                <span
+                                  key={idx}
+                                  className={`transition-all px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default} group-hover:scale-105`} // Language badge with color and hover scaling
+                                >
+                                  {lang}
+                                </span>
+                              ))
+                            ) : (
+                              <></> // Render nothing if no languages are specified
+                            )}
+                          </div>
+
+                          {/* Technologies used in the project */}
+                          <div className="flex flex-wrap gap-2 justify-center ltr">
+                            {project.technologies && project.technologies.length > 0 ? (
+                              project.technologies.map((tech, idx) => (
+                                <span
+                                  key={idx}
+                                  className={`transition-all px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default} group-hover:scale-105 transition-transform duration-(--default-transition-duration)] ease-(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
+                                >
+                                  {tech}
+                                </span>
+                              ))
+                            ) : (
+                              <></> // Render nothing if no technologies are specified
+                            )}
+                          </div>
+                        </Wrapper>
+                      )
+                    })}
+                  </ul>
+                </section>
               ))}
             </div>
           )}
