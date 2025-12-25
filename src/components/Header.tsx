@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 
 // Import NavLink for client-side routing.
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 // Import custom components for language switching and theme toggling.
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -40,39 +40,79 @@ const Header: React.FC = () => {
         { name: t("social"), href: "/social" } // Social navigation link
     ];
 
-    const [activeItem, setActiveItem] = useState<string>(window.location.pathname);
+    const location = useLocation();
+    const [activeItem, setActiveItem] = useState<string>(location.pathname);
+
+    useEffect(() => {
+        setActiveItem(location.pathname);
+    }, [location.pathname]);
+
 
     const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
     const highlightRef = useRef<HTMLDivElement>(null);
 
     // Update highlight position and width
-    useEffect(() => {
+    const updateHighlight = () => {
         const activeIndex = navItems.findIndex((item) => item.href === activeItem);
         const activeElement = navRefs.current[activeIndex];
+
         if (activeElement && highlightRef.current) {
             const { offsetLeft, offsetWidth, offsetHeight } = activeElement;
             highlightRef.current.style.left = `${offsetLeft}px`;
             highlightRef.current.style.width = `${offsetWidth}px`;
             highlightRef.current.style.height = `${offsetHeight}px`;
         }
+    };
+
+    useEffect(() => {
+        updateHighlight()
     }, [activeItem, i18n.language]);
 
     // Handle window resize for responsive highlight
     useEffect(() => {
-        const handleResize = () => {
-            const activeIndex = navItems.findIndex((item) => item.href === activeItem);
-            const activeElement = navRefs.current[activeIndex];
-            if (activeElement && highlightRef.current) {
-                const { offsetLeft, offsetWidth, offsetHeight } = activeElement;
-                highlightRef.current.style.left = `${offsetLeft}px`;
-                highlightRef.current.style.width = `${offsetWidth}px`;
-                highlightRef.current.style.height = `${offsetHeight}px`;
+        window.addEventListener("resize", updateHighlight);
+        return () => window.removeEventListener("resize", updateHighlight);
+    }, [activeItem]);
+
+    // Disable the overflow for site when menu is oppend.
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (!mobileMenuOpen)
+                return;
+
+            if (e.key === "Escape") {
+                setMobileMenuOpen(prev => !prev)
             }
         };
 
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, [activeItem]);
+        if (mobileMenuOpen) {
+            document.documentElement.style.overflow = "hidden";
+
+            if (window.innerWidth > 1149)
+                setMobileMenuOpen(false)
+
+            window.addEventListener("keydown", handleKeyDown);
+        }
+
+        else
+            document.documentElement.style.overflow = "auto";
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [mobileMenuOpen]);
+
+    // Close the hamburger menu in desktop size
+    const closeMenu = () => {
+        if (mobileMenuOpen && window.innerWidth > 1149)
+            setMobileMenuOpen(false)
+
+        return;
+    }
+    useEffect(() => {
+        window.addEventListener("resize", closeMenu)
+        return () => window.removeEventListener("resize", closeMenu);
+    }, [window.innerWidth])
 
     // Render the header with desktop and mobile navigation.
     return (
@@ -88,19 +128,24 @@ const Header: React.FC = () => {
                             to="/" // Link to homepage
                             className="text-2xl flex items-center space-x-2 space-x-reverse text-(--text) hover:text-(--nav-hover)"
                         >
+                            {/* Primary part of the logo */}
                             <span className="font-bold tracking-tight transition-colors">
                                 Sobhan-SRZA
-                            </span> {/* Primary part of the logo */}
-                            <span className="text-(--primary) transition-colors">/</span> {/* Separator */}
+                            </span>
+
+                            {/* Separator */}
+                            <span className="text-(--primary) transition-colors">/</span>
+
+                            {/* Secondary part of the logo */}
                             <span className="ml-1 mr-1.5 font-bold tracking-tight transition-colors">
                                 Mr. Sinre
-                            </span> {/* Secondary part of the logo */}
+                            </span>
                         </NavLink>
                     </div>
 
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden min-[1097px]:flex lg:gap-x-8">
+                    <nav className="hidden min-[1149px]:flex lg:gap-x-8">
                         <div
                             ref={highlightRef}
                             className="absolute bg-(--nav-hover) rounded-md transition-all duration-300 ease-in-out"
@@ -111,13 +156,11 @@ const Header: React.FC = () => {
                                 key={item.name}
                                 to={item.href}
                                 className={({ isActive }) => {
-                                    if (isActive)
-                                        setActiveItem(item.href)
-
-                                    return `relative text-[17px] font-semibold px-3 py-2 rounded-md transition-colors duration-300 ${isActive ? "text-(--nav-text-hover) cursor-not-allowed" : "text-(--text) hover:text-(--nav-text-hover) hover:bg-(--nav-hover)"
+                                    return `relative text-[17px] font-semibold px-3 py-2 rounded-md transition-colors duration-300 ${isActive
+                                        ? "text-(--nav-text-hover) cursor-not-allowed"
+                                        : "text-(--text) hover:text-(--nav-text-hover) hover:bg-(--nav-hover)"
                                         }`
-                                }
-                                }
+                                }}
                                 onClick={() => setActiveItem(item.href)}
                                 ref={(el) => { navRefs.current[index] = el }}
                             >
@@ -139,11 +182,11 @@ const Header: React.FC = () => {
             </header>
 
             {/* Hamburger button for mobile menu toggle */}
-            <div className="z-60 flex min-[1097px]:hidden fixed top-[2%] right-[3%]">
+            <div className="z-60 flex min-[1149px]:hidden fixed top-[2%] right-[3%]">
                 <button
                     type="button"
                     onClick={() => {
-                        setMobileMenuOpen(!mobileMenuOpen)
+                        setMobileMenuOpen(prev => !prev)
                         setIsAnimating(true);
 
                         setTimeout(() => setIsAnimating(false), 300);
@@ -173,63 +216,57 @@ const Header: React.FC = () => {
 
             {/* Overlay for mobile menu */}
             <div
-                className={`fixed inset-0 bg-black/80 -z-10 transition-opacity ${mobileMenuOpen ? "opacity-100 z-50" : "opacity-0"}`} aria-hidden="true"
+                className={`fixed inset-0 bg-black/50 z-50 backdrop-blur-[9px] ${mobileMenuOpen
+                    ? "pointer-events-auto animate-fadein visible"
+                    : "animate-fadeout pointer-events-none"}`}
+                aria-hidden="true"
                 onClick={() => setMobileMenuOpen(false)} // Close menu on click
             />
 
             {/* Mobile Menu */}
-            <div className={`transition-all fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto bg-(--sec-bg) backdrop-blur-xs p-6 duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
-
-                <nav
-                    className={`flex flex-col justify-between  transition-all fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm overflow-y-auto p-6 duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+            <nav className={`transition-all fixed overflow-x-hidden overflow-y-hidden right-0 z-50 w-full h-full sm:max-w-sm bg-(--sec-bg) backdrop-blur-xs p-6 duration-300 transform ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"} flex flex-col justify-between`}
+            >
+                {/* Mobile menu header with logo and close button */}
+                <NavLink
+                    to="/" // Link to homepage
+                    onClick={() => setMobileMenuOpen(false)} // Close menu on click
+                    className="flex justify-end"
                 >
-                    {/* Mobile menu header with logo and close button */}
-                    <div className="ltr flex items-center justify-between">
+                    <span className="transition-colors text-xl font-bold text-(--text)">
+                        Sobhan-SRZA / Mr. Sinre
+                    </span> {/* Mobile menu logo */}
+                </NavLink>
+
+                {/* Mobile navigation items */}
+                <div className="space-y-2 py-6 justify-items-center">
+                    {navItems.map((item) => (
                         <NavLink
-                            to="/" // Link to homepage
+                            key={item.name} // Unique key for each navigation item
+                            to={item.href} // Navigation route
+                            className={({ isActive }) =>
+                                `text-center block rounded-lg px-3 py-2 w-max text-base font-semibold hover:bg-(--nav-hover) hover:text-(--nav-text-hover) ${isActive ? "bg-(--nav-hover) text-(--nav-text-hover)" : "text-(--text)"} transition-all`
+                            }
                             onClick={() => setMobileMenuOpen(false)} // Close menu on click
-                            className="flex items-center space-x-2 space-x-reverse"
                         >
-                            <span className="transition-colors text-xl font-bold tracking-tight text-(--text)">
-                                Sobhan-SRZA / Mr. Sinre
-                            </span> {/* Mobile menu logo */}
+                            {item.name} {/* Translated navigation item name */}
                         </NavLink>
-                    </div>
+                    ))}
 
-                    {/* Mobile navigation items */}
-                    <div className="mx-8">
-                        <div className="space-y-2 py-6 justify-items-center">
-                            {navItems.map((item) => (
-                                <NavLink
-                                    key={item.name} // Unique key for each navigation item
-                                    to={item.href} // Navigation route
-                                    className={({ isActive }) =>
-                                        `text-center block rounded-lg px-3 py-2 w-max text-base font-semibold hover:bg-(--nav-hover) hover:text-(--nav-text-hover) ${isActive ? "bg-(--nav-hover) text-(--nav-text-hover)" : "text-(--text)"} transition-all`
-                                    }
-                                    onClick={() => setMobileMenuOpen(false)} // Close menu on click
-                                >
-                                    {item.name} {/* Translated navigation item name */}
-                                </NavLink>
-                            ))}
+                </div>
 
-                        </div>
+                {/* Language switcher and theme toggle for mobile */}
+                <div className="flex flex-row justify-between">
+                    <LanguageSwitcher /> {/* Language switcher component */}
+                    <ThemeToggle
+                        states={{
+                            isAnimating: themeIsAnimating, setIsAnimating: themeSetIsAnimating,
+                            isDark: themeIsDark,
+                            setIsDark: themeSetIsDark
+                        }}
+                    /> {/* Theme toggle component */}
+                </div>
 
-                    </div>
-
-                    {/* Language switcher and theme toggle for mobile */}
-                    <div className="flex flex-row justify-between px-3 py-2">
-                        <LanguageSwitcher /> {/* Language switcher component */}
-                        <ThemeToggle
-                            states={{
-                                isAnimating: themeIsAnimating, setIsAnimating: themeSetIsAnimating,
-                                isDark: themeIsDark,
-                                setIsDark: themeSetIsDark
-                            }}
-                        /> {/* Theme toggle component */}
-                    </div>
-                </nav>
-
-            </div>
+            </nav>
         </>
     );
 };

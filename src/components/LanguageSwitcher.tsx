@@ -76,9 +76,9 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onChange }) => {
                                         key={lang.code} // Unique key for each language (using language code)
                                         onClick={() => handleLanguageChange(lang.code)} // Trigger language change on click
                                         className={
-                                            `mt-1 mb-1 block w-full px-3 py-2 text-sm font-medium text-left rounded-md hover:bg-(--nav-hover) hover:text-(--nav-text-hover) transition-all ${currentLanguage.code === lang.code
-                                                ? 'bg-(--nav-hover) text-(--nav-text-hover) cursor-not-allowed'
-                                                : 'cursor-pointer text-(--text)'
+                                            `mt-1 mb-1 block w-full px-3 py-2 text-sm font-medium text-left rounded-md transition-all ${currentLanguage.code === lang.code
+                                                ? 'backdrop-blur-2xl border-3 border-(--accent) bg-(--accent-hover)/30 cursor-not-allowed'
+                                                : 'cursor-pointer hover:bg-(--nav-hover) hover:text-(--nav-text-hover) text-(--text)'
                                             }`
                                         }
                                         role="menuitem" // ARIA role for accessibility
