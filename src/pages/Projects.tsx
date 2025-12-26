@@ -67,17 +67,20 @@ const Projects: React.FC = () => {
 
   // Mapping of technologies/languages to background colors for badges, with hover effects.
   const techColors: { [key: string]: string } = {
-    Python: "bg-blue-500 group-hover:scale-110",
-    JavaScript: "bg-yellow-500 group-hover:scale-110",
-    TypeScript: "bg-blue-700 group-hover:scale-110",
-    React: "bg-cyan-500 group-hover:scale-110",
-    Django: "bg-green-600 group-hover:scale-110",
-    HTML: "bg-orange-500 group-hover:scale-110",
-    CSS: "bg-blue-400 group-hover:scale-110",
-    "C++": "bg-pink-700 group-hover:scale-110",
-    "Node.js": "bg-green-700 group-hover:scale-110",
-    NPM: "bg-red-500 group-hover:scale-110",
-    default: "bg-gray-600 group-hover:scale-110" // Fallback color for unknown technologies
+    Python: "text-white bg-[#0000FF] group-hover:scale-105",
+    JavaScript: "text-black bg-[#FAE500] group-hover:scale-105",
+    TypeScript: "text-white bg-[#004ECC] group-hover:scale-105",
+    "React.js": "text-black bg-[#00A9CC] group-hover:scale-105",
+    "Nest.js": "text-black bg-[#F16A86] group-hover:scale-105",
+    "Discord.js": "text-black bg-[#91A0AB] group-hover:scale-105",
+    "Telegraf.js": "text-black bg-[#FF6161] group-hover:scale-105",
+    Django: "text-white bg-[#3A5F40] group-hover:scale-105",
+    HTML: "text-black bg-[#FFA500] group-hover:scale-105",
+    CSS: "text-white bg-[#7D1CD4] group-hover:scale-105",
+    "C++": "text-black bg-[#FF6176] group-hover:scale-105",
+    "Node.js": "text-white bg-[#006600] group-hover:scale-105",
+    NPM: "text-white bg-[#B30000] group-hover:scale-105",
+    default: "text-white bg-gray-600 group-hover:scale-105" // Fallback color for unknown technologies
   };
 
   // Effect to fetch projects from a remote JSON file.
@@ -201,7 +204,7 @@ const Projects: React.FC = () => {
       >
         {/* Container for responsive layout with language-based text direction */}
         <div
-          className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}
+          className={`container mx-auto ${i18n.language === "fa" ? "rtl" : "ltr"}`}
         >
           {/* Page title with animation and theme-based styling */}
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
@@ -242,14 +245,14 @@ const Projects: React.FC = () => {
           {!loading && !error && (
             <div className="flex flex-col justify-center gap-25 justify-items-center animate-fade-in delay-400">
               {sortedOrganizations.map((org) => (
-                <section key={org} className="max-w-max even:-mx-5 even:px-5 py-16 transition-all even:bg-(--sec-bg) even:rounded-3xl even:backdrop-blur-md">
+                <section key={org} className="max-w-max even:px-5 py-16 transition-all even:bg-(--sec-bg) even:rounded-3xl even:backdrop-blur-md even:mx-auto">
 
                   <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                     {t(`projects_org.${org.toLowerCase()}.name`)}
                   </h2>
 
                   <div
-                    className={`transition-colors rounded-md bg-(--accent-hover)/10 py-5 mb-12 w-fit place-self-center ${i18n.language === "fa"
+                    className={`transition-colors rounded-md bg-(--accent-hover)/10 mx-9 sm:mx-11 lg:mx-43 py-5 mb-12 w-fit place-self-center ${i18n.language === "fa"
                       ? " pr-5 border-r-4 border-r-(--accent)"
                       : " pl-5 border-l-4 border-l-(--accent)"}`}
                   >
@@ -263,7 +266,7 @@ const Projects: React.FC = () => {
                     </p>
                   </div>
 
-                  <ul className="flex flex-wrap justify-center gap-5 justify-items-center animate-fade-in delay-400">
+                  <ul className="px-4 sm:px-6 lg:px-8 max-w-5xl justify-self-center flex flex-wrap justify-center gap-5 justify-items-center animate-fade-in delay-400">
                     {groupedByOrg[org].map((project, index) => {
                       const Wrapper = project.private ? "div" : "a";
 
@@ -333,7 +336,7 @@ const Projects: React.FC = () => {
                               project.languages.map((lang, idx) => (
                                 <span
                                   key={idx}
-                                  className={`transition-all px-2 py-1 text-xs rounded-full text-white ${techColors[lang] || techColors.default} group-hover:scale-105`} // Language badge with color and hover scaling
+                                  className={`transition-all px-2 py-1 text-[13px] font-bold rounded-full ${techColors[lang] || techColors.default} group-hover:scale-105`} // Language badge with color and hover scaling
                                 >
                                   {lang}
                                 </span>
@@ -349,7 +352,7 @@ const Projects: React.FC = () => {
                               project.technologies.map((tech, idx) => (
                                 <span
                                   key={idx}
-                                  className={`transition-all px-2 py-1 text-xs rounded-full text-white ${techColors[tech] || techColors.default} group-hover:scale-105 transition-transform duration-(--default-transition-duration)] ease-(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
+                                  className={`transition-all px-2 py-1 text-[13px] font-bold rounded-full ${techColors[tech] || techColors.default} group-hover:scale-105 transition-transform duration-(--default-transition-duration)] ease-(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
                                 >
                                   {tech}
                                 </span>
