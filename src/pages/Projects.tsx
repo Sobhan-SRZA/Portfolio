@@ -280,7 +280,7 @@ const Projects: React.FC = () => {
                             rel: "noopener noreferrer" // Security attributes for external links
                           })}
                           key={index} // Unique key for each project (consider using project.name for better uniqueness)
-                          className={"max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 rounded-lg border border-(--border) transition-all group "+`${project.private?"border-dashed bg-(--card-bg)/30 opacity-80 cursor-not-allowed":"bg-(--card-bg)/60 hover:border-(--primary) hover:bg-(--card-bg)] hover:-translate-y-1"}`}
+                          className={"max-w-56.25 max-[534px]:min-w-full flex flex-col justify-between gap-4 p-6 rounded-lg border border-(--border) transition-all group " + `${project.private ? "border-dashed bg-(--card-bg)/30 opacity-80 cursor-not-allowed" : "bg-(--card-bg)/60 hover:border-(--primary) hover:bg-(--card-bg)] hover:-translate-y-1"}`}
                           aria-label={t(`project_${project.name.toLowerCase().replace(/\s+/g, "_")}`) || project.name} // Accessible label for screen readers
                         >
                           {/* Project name with hover effect */}
@@ -295,7 +295,7 @@ const Projects: React.FC = () => {
 
                           {/* Project status and access indicators */}
                           <div className="flex justify-between text-sm text-(--text) ltr">
-                            
+
                             {/* Project status icon */}
                             <span className="transition-all flex items-center gap-2">
                               {statusIcons[project.status] || project.status} {/* Render status icon or fallback to status text */}
