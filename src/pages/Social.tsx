@@ -2,19 +2,21 @@
 
 // Import icons from lucide-react for visual representation of social and professional links.
 import {
-  Briefcase,
   Github,
   Linkedin,
   Youtube,
   Twitch,
   Instagram,
   Send,
-  MessageCircle,
   Gitlab,
-  NotepadText,
-  BriefcaseBusiness,
-  University,
 } from "lucide-react";
+import {
+  DiscordIcon,
+  KarlancerIcon,
+  NpmIcon,
+  OrcidIcon,
+  UpWorkIcon
+} from "../tools/icons";
 
 // Import useTranslation hook from react-i18next for internationalization support.
 import { useTranslation } from "react-i18next";
@@ -35,7 +37,7 @@ const Social: React.FC = () => {
     {
       key: "upwork",
       url: social.upwork,
-      icon: (className?: string) => <BriefcaseBusiness className={className} /> // Icon for Upwork profile
+      icon: (className?: string) => <UpWorkIcon className={className} /> // Icon for Upwork profile
     },
     {
       key: "gitlab",
@@ -45,7 +47,7 @@ const Social: React.FC = () => {
     {
       key: "npm",
       url: social.npm,
-      icon: (className?: string) => <NotepadText className={className} /> // Icon for npm profile
+      icon: (className?: string) => <NpmIcon className={className} /> // Icon for npm profile
     },
     {
       key: "github_main",
@@ -65,12 +67,12 @@ const Social: React.FC = () => {
     {
       key: "orcid",
       url: social.orcid,
-      icon: (className?: string) => <University className={className} /> // Icon for ORCID profile
+      icon: (className?: string) => <OrcidIcon className={className} /> // Icon for ORCID profile
     },
     {
       key: "karlancer",
       url: social.karlancer,
-      icon: (className?: string) => <Briefcase className={className} /> // Icon for Karlancer profile
+      icon: (className?: string) => <KarlancerIcon className={className} /> // Icon for Karlancer profile
     },
     {
       key: "linkedin",
@@ -115,22 +117,22 @@ const Social: React.FC = () => {
     {
       key: "discord_main",
       url: social.discord_account,
-      icon: (className?: string) => <MessageCircle className={className} /> // Icon for main Discord account
+      icon: (className?: string) => <DiscordIcon className={className} /> // Icon for main Discord account
     },
     {
       key: "discord_persian_caesar",
       url: social.discord_account_pc,
-      icon: (className?: string) => <MessageCircle className={className} /> // Icon for Persian Caesar Discord
+      icon: (className?: string) => <DiscordIcon className={className} /> // Icon for Persian Caesar Discord
     },
     {
       key: "discord_pc_development",
       url: social.discord_server_pc_development,
-      icon: (className?: string) => <MessageCircle className={className} /> // Icon for Persian Caesar development server
+      icon: (className?: string) => <DiscordIcon className={className} /> // Icon for Persian Caesar development server
     },
     {
       key: "discord_pc_club",
       url: social.discord_server_pc_club,
-      icon: (className?: string) => <MessageCircle className={className} /> // Icon for Persian Caesar club server
+      icon: (className?: string) => <DiscordIcon className={className} /> // Icon for Persian Caesar club server
     }
   ];
 

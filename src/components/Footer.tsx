@@ -5,7 +5,7 @@ import {
     Github,
     Instagram,
     Linkedin,
-    Send,
+    Youtube,
 } from "lucide-react";
 
 // Import useTranslation hook from react-i18next for internationalization support.
@@ -25,8 +25,8 @@ const Footer: React.FC = () => {
     // Array of social media links with icons and URLs.
     const socialLinks = [
         { name: "GitHub", icon: <Github />, url: social.github }, // GitHub link
+        { name: "Youtube", icon: <Youtube />, url: social.youtube }, // Youtube link
         { name: "LinkedIn", icon: <Linkedin />, url: social.linkedin }, // LinkedIn link
-        { name: "Telegram", icon: <Send />, url: social.telegram }, // Telegram link
         { name: "Instagram", icon: <Instagram />, url: social.instagram } // Instagram link
     ];
 

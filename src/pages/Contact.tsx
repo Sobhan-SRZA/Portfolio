@@ -4,11 +4,11 @@
 import {
   Send,
   Mail,
-  MessageCircle,
   Instagram,
   Linkedin,
   Github,
 } from "lucide-react";
+import { DiscordIcon } from "../tools/icons";
 
 // Import Dialog components from Headless UI for displaying alerts (success, error, loading).
 import {
@@ -149,7 +149,7 @@ const Contact: React.FC = () => {
     {
       key: "discord",
       url: social.discord_account,
-      icon: (className?: string) => <MessageCircle className={className} /> // Discord contact icon
+      icon: (className?: string) => <DiscordIcon className={className} /> // Discord contact icon
     },
     {
       key: "instagram",
