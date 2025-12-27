@@ -30,6 +30,7 @@ import Home from "./pages/Home";
 
 // Import i18n configuration to initialize internationalization.
 import "./i18n";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Main App component, defined as a functional component using TypeScript.
 const App: React.FC = () => {
@@ -78,7 +79,8 @@ const App: React.FC = () => {
   return (
     // Wrap the app in BrowserRouter for client-side routing.
     <Router>
-      
+      <ScrollToTop />
+
       {/* Helmet manages document head for SEO and metadata */}
       <Helmet>
         <meta charSet="UTF-8" /> {/* Set character encoding for the document */}
@@ -145,7 +147,7 @@ const App: React.FC = () => {
 
       {/* Main layout with dynamic font and text direction based on language */}
       <div className={`min-h-screen flex flex-col ${i18n.language === "fa" ? "font-iransans rtl" : "font-sans ltr"}`}>
-        
+
         {/* Header component for navigation */}
         <Header />
 
