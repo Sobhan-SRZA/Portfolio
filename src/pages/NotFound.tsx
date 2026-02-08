@@ -7,9 +7,6 @@ import {
     useNavigate
 } from "react-router-dom";
 
-// Import useTranslation hook from react-i18next for internationalization support.
-import { useTranslation } from "react-i18next";
-
 // Import useEffect hook from React for handling side effects, such as redirecting to the /404 route.
 import { useEffect } from "react";
 
@@ -17,10 +14,7 @@ import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
 // NotFound component, defined as a functional component using TypeScript.
-const NotFound: React.FC = () => {
-    // Access translation function and i18n instance for language support.
-    const { t, i18n } = useTranslation();
-
+const NotFound: React.FC = () => {    
     // Access navigation function to programmatically redirect users.
     const navigate = useNavigate();
 
@@ -39,33 +33,34 @@ const NotFound: React.FC = () => {
         <>
             {/* Helmet for managing SEO metadata */}
             <Helmet>
-                <title>{t("not_found_title")} | Mr. Sinre | Sobhan-SRZA</title> {/* Page title with translated 404 label */}
-                <meta name="description" content={t("not_found_description").substring(0, 160)} /> {/* Truncated description for SEO */}
+                <title>{"صحفه یافت نشد"} | Mr. Sinre | Sobhan-SRZA</title> {/* Page title with translated 404 label */}
             </Helmet>
             {/* Main section for the 404 page with theme-based styling and animations */}
             <main
-                className={`min-h-min grid rounded-3xl place-items-center px-6 py-24 sm:py-32 lg:px-8 animate-fade-in transition-all ${i18n.language === "fa" ? "rtl" : "ltr"}`}
+                className={`min-h-min grid rounded-3xl place-items-center px-6 py-24 sm:py-32 lg:px-8 animate-fade-in transition-all`}
             >
                 {/* Centered content for the 404 message */}
                 <div className="text-center">
                     {/* Large 404 text with theme-based primary color */}
-                    <p className="text-7xl font-semibold text-(--primary) font-iransans">404</p>
+                    <p className="text-7xl font-semibold font-iransans">404</p>
+
                     {/* Page title with translated text and responsive font sizing */}
-                    <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-tight text-(--text) font-iransans">
-                        {t("not_found_title")} {/* Translated title for the 404 page */}
+                    <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-tight font-iransans">
+                        {"کسکش دنبال چیه"} {/* Translated title for the 404 page */}
                     </h1>
+
                     {/* Description text with translated content and subtle opacity */}
-                    <p className="mt-6 text-lg font-medium text-(--text)/70 font-iransans sm:text-xl">
-                        {t("not_found_description")} {/* Translated description for the 404 page */}
+                    <p className="mt-6 text-lg font-medium font-iransans sm:text-xl">
+                        {"کسخل"} {/* Translated description for the 404 page */}
                     </p>
                     {/* Navigation link back to the homepage */}
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <NavLink
                             to="/" // Link to the homepage
-                            className="rounded-md bg-(--primary) px-3.5 py-2.5 text-sm font-semibold text-white font-iransans shadow-sm hover:bg-(--primary-hover) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--primary transition-all"
-                            aria-label={t("back_to_home")} // Accessible label for screen readers
+                            className="rounded-md) px-3.5 py-2.5 text-sm font-semibold text-white font-iransans shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible transition-all"
+                            aria-label={"back_to_home"} // Accessible label for screen readers
                         >
-                            {t("back_to_home")} {/* Translated text for the back-to-home button */}
+                            {"back_to_home"} {/* Translated text for the back-to-home button */}
                         </NavLink>
                     </div>
                 </div>
