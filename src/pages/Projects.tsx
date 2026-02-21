@@ -67,19 +67,23 @@ const Projects: React.FC = () => {
 
   // Mapping of technologies/languages to background colors for badges, with hover effects.
   const techColors: { [key: string]: string } = {
-    Python: "text-white bg-[#0000FF] group-hover:scale-105",
-    JavaScript: "text-black bg-[#FAE500] group-hover:scale-105",
-    TypeScript: "text-white bg-[#004ECC] group-hover:scale-105",
-    "React.js": "text-black bg-[#00A9CC] group-hover:scale-105",
-    "Nest.js": "text-black bg-[#F16A86] group-hover:scale-105",
-    "Discord.js": "text-black bg-[#91A0AB] group-hover:scale-105",
-    "Telegraf.js": "text-black bg-[#FF6161] group-hover:scale-105",
-    Django: "text-white bg-[#3A5F40] group-hover:scale-105",
-    HTML: "text-black bg-[#FFA500] group-hover:scale-105",
-    CSS: "text-white bg-[#7D1CD4] group-hover:scale-105",
+    python: "text-white bg-[#0000FF] group-hover:scale-105",
+    javascript: "text-black bg-[#FAE500] group-hover:scale-105",
+    typescript: "text-white bg-[#004ECC] group-hover:scale-105",
+    "react.js": "text-black bg-[#00A9CC] group-hover:scale-105",
+    "react native": "text-black bg-[#00A9CC] group-hover:scale-105",
+    "nest.js": "text-black bg-[#F16A86] group-hover:scale-105",
+    "discord.js": "text-white bg-[#2600ff] group-hover:scale-105",
+    "telegraf.js": "text-black bg-[#FF6161] group-hover:scale-105",
+    django: "text-white bg-[#3A5F40] group-hover:scale-105",
+    html: "text-black bg-[#ff4800] group-hover:scale-105",
+    css: "text-white bg-[#7D1CD4] group-hover:scale-105",
     "C++": "text-black bg-[#FF6176] group-hover:scale-105",
-    "Node.js": "text-white bg-[#006600] group-hover:scale-105",
-    NPM: "text-white bg-[#B30000] group-hover:scale-105",
+    "node.js": "text-black bg-[#04c404] group-hover:scale-105",
+    npm: "text-white bg-[#B30000] group-hover:scale-105",
+    "next.js": "text-white bg-black group-hover:scale-105",
+    "tailwind css": "text-black bg-[#00aeff] group-hover:scale-105",
+    "express": "text-black bg-[#33ff69] group-hover:scale-105",
     default: "text-white bg-gray-600 group-hover:scale-105" // Fallback color for unknown technologies
   };
 
@@ -248,7 +252,7 @@ const Projects: React.FC = () => {
                 <section key={org} className="max-w-max even:px-5 py-16 transition-all even:bg-(--sec-bg) even:rounded-3xl even:backdrop-blur-md even:mx-auto">
 
                   <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
-                    {t(`projects_org.${org.toLowerCase()}.name`)}
+                    {t(`projects_org.${org.toLowerCase()}.name`)} ({groupedByOrg[org].length})
                   </h2>
 
                   <div
@@ -336,7 +340,7 @@ const Projects: React.FC = () => {
                               project.languages.map((lang, idx) => (
                                 <span
                                   key={idx}
-                                  className={`transition-all px-2 py-1 text-[13px] font-bold rounded-full ${techColors[lang] || techColors.default} group-hover:scale-105`} // Language badge with color and hover scaling
+                                  className={`transition-all px-2 py-1 text-[13px] font-bold rounded-full ${techColors[lang.toLowerCase()] || techColors.default} group-hover:scale-105`} // Language badge with color and hover scaling
                                 >
                                   {lang}
                                 </span>
@@ -352,7 +356,7 @@ const Projects: React.FC = () => {
                               project.technologies.map((tech, idx) => (
                                 <span
                                   key={idx}
-                                  className={`transition-all px-2 py-1 text-[13px] font-bold rounded-full ${techColors[tech] || techColors.default} group-hover:scale-105 transition-transform duration-(--default-transition-duration)] ease-(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
+                                  className={`transition-all px-2 py-1 text-[13px] font-bold rounded-full ${techColors[tech.toLowerCase()] || techColors.default} group-hover:scale-105 transition-transform duration-(--default-transition-duration)] ease-(--default-transition-timing-function)]`} // Technology badge with color and hover scaling
                                 >
                                   {tech}
                                 </span>
