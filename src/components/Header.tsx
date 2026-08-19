@@ -230,7 +230,7 @@ const Header: React.FC = () => {
                 <NavLink
                     to="/" // Link to homepage
                     onClick={() => setMobileMenuOpen(false)} // Close menu on click
-                    className="flex justify-end"
+                    className="flex justify-start"
                 >
                     <span className="transition-colors text-xl font-bold text-(--text)">
                         Sobhan-SRZA / Mr. Sinre
@@ -238,7 +238,7 @@ const Header: React.FC = () => {
                 </NavLink>
 
                 {/* Mobile navigation items */}
-                <div className="space-y-2 py-6 justify-items-center">
+                <div className="space-y-2 py-6 flex flex-col justify-items-center">
                     {navItems.map((item) => (
                         <NavLink
                             key={item.name} // Unique key for each navigation item
