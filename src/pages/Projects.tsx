@@ -28,6 +28,8 @@ import { projects_link } from "../storage";
 // Import Helmet for managing document head (meta tags, title) for SEO purposes.
 import { Helmet } from "react-helmet";
 
+import ProjectsFile from "../projects.json";
+
 // Interface defining the structure of a project object fetched from the JSON data.
 interface Project {
   name: string; // Project name
@@ -35,10 +37,12 @@ interface Project {
   description: string; // Default description
   description_en?: string; // English description (optional)
   description_fa?: string; // Persian description (optional)
+  webview?: boolean;
+  preview?: string | null;
   status: string; // Project status (e.g., Done, Working, Paused)
   private: boolean; // Whether the project is private or public
-  languages: string[]; // Programming languages used in the project
-  technologies: string[]; // Technologies used in the project
+  languages?: string[]; // Programming languages used in the project
+  technologies?: string[]; // Technologies used in the project
   organization?: string; // Optional organization the project belongs to
   stars: number; // Number of GitHub stars
   forks: number; // Number of GitHub forks
@@ -120,7 +124,13 @@ const Projects: React.FC = () => {
       catch (err) {
         // Handle errors by setting an error message and clearing projects.
         setError(t("error_fetch"));
-        setProjects([]);
+        const data: Project[] = ProjectsFile;
+        const initialProjects = data.map((project) => ({
+          ...project,
+          stars: project.stars ?? 0,
+          forks: project.forks ?? 0
+        }));
+        setProjects(initialProjects);
         setLoading(false);
         console.error(err)
       }
@@ -231,11 +241,34 @@ const Projects: React.FC = () => {
                   {t("loading")} {/* Translated loading message */}
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-5 animate-fade-in delay-400 transition-all">
-                {Array(4).fill(0).map((_, index) => (
-                  <LoadingSkeleton key={index} /> // Render 4 skeleton placeholders
-                ))}
-              </div>
+
+              <section className="max-w-max even:px-5 py-16 transition-all even:bg-(--sec-bg) even:rounded-3xl even:backdrop-blur-md even:mx-auto animate-pulse delay-400">
+                <h2 className="justify-self-center mb-6 transition-all">
+                  <div className="h-5 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-20"></div>
+                </h2>
+
+                <div
+                  className={`transition-colors rounded-md bg-(--accent-hover)/10 mx-9 sm:mx-11 lg:mx-43 py-5 mb-12 w-fit place-self-center ${i18n.language === "fa"
+                    ? " pr-5 border-r-4 border-r-(--accent)"
+                    : " pl-5 border-l-4 border-l-(--accent)"}`}
+                >
+                  <p
+                    className={`flex flex-col gap-5 text-(--text) mx-5 text-lg animate-fade-in transition-colors ${i18n.language === "fa"
+                      ? "text-right"
+                      : "text-left"
+                      }`}
+                  >
+                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-34"></div>
+                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-10"></div>
+                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-16"></div>
+                  </p>
+                </div>
+                <div className="flex flex-wrap justify-center gap-5 transition-all">
+                  {Array(4).fill(0).map((_, index) => (
+                    <LoadingSkeleton key={index} /> // Render 4 skeleton placeholders
+                  ))}
+                </div>
+              </section>
             </>
           )}
 
