@@ -70,7 +70,7 @@ const Home: React.FC = () => {
             </Helmet>
 
             {/* Hero Section: Displays profile image, title, tagline, and call-to-action buttons */}
-            <section className="min-h-min py-16 flex items-center justify-center transition-all">
+            <section id="hero" className="min-h-min py-16 flex items-center justify-center transition-all">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <div className="text-center">
 
@@ -117,7 +117,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* About Section: Displays a brief introduction */}
-            <section className="py-16">
+            <section id="about" className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("about")} {/* Translated about section title */}
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Skills Section: Displays a list of skills with animated progress bars */}
-            <section className="py-16">
+            <section id="skills" className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("skills")} {/* Translated skills section title */}
@@ -188,7 +188,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Projects Teaser: Encourages users to visit the projects page */}
-            <section className="transition-colors bg-(--sec-bg) rounded-3xl py-16 max-w-max justify-self-center">
+            <section id="projects" className="transition-colors bg-(--sec-bg) rounded-3xl py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("projects")} {/* Translated projects section title */}
@@ -208,7 +208,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Contact Teaser: Encourages users to visit the contact page */}
-            <section className="py-16">
+            <section id="contatc" className="py-16">
                 <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl ${i18n.language === "fa" ? "rtl" : "ltr"}`}>
                     <h2 className="text-3xl font-bold mb-6 text-(--primary) text-center animate-fade-in transition-colors">
                         {t("contact")} {/* Translated contact section title */}
