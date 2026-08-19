@@ -242,10 +242,8 @@ const Projects: React.FC = () => {
                 </p>
               </div>
 
-              <section className="max-w-max even:px-5 py-16 transition-all even:bg-(--sec-bg) even:rounded-3xl even:backdrop-blur-md even:mx-auto animate-pulse delay-400">
-                <h2 className="justify-self-center mb-6 transition-all">
-                  <div className="h-5 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-20"></div>
-                </h2>
+              <section className="max-w-max even:px-5 py-16 transition-all even:bg-(--sec-bg) even:rounded-3xl even:backdrop-blur-md even:mx-auto animate-pulse delay-400 flex flex-col items-center">
+                <div className="mb-6 transition-all h-5 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-20"></div>
 
                 <div
                   className={`transition-colors rounded-md bg-(--accent-hover)/10 mx-9 sm:mx-11 lg:mx-43 py-5 mb-12 w-fit place-self-center ${i18n.language === "fa"
