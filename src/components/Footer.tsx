@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
                 {/* Copyright Notice */}
                 <div className="mt-8 pt-8 border-t border-(--border) text-center transition-colors">
                     <p className="text-(--text)/70 text-sm transition-colors">
-                        &copy; {`${i18n.language === "fa" ? "1404-1399" : "2020-2025"} Mr.Sinre | Sobhan - SRZA. ${t("footer.copyright")}`}
+                        &copy; {`${i18n.language === "fa" ? "1404-1399" : "2020-2026"} Mr.Sinre | Sobhan - SRZA. ${t("footer.copyright")}`}
                         {/* Dynamic copyright years based on language and translated copyright text */}
                     </p>
                 </div>
