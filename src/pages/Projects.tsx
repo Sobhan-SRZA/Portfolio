@@ -197,6 +197,7 @@ const Projects: React.FC = () => {
       }
 
       acc[org].push(project);
+
       return acc;
     },
     {}
@@ -263,9 +264,15 @@ const Projects: React.FC = () => {
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-5 transition-all">
-                  {Array(4).fill(0).map((_, index) => (
-                    <LoadingSkeleton key={index} /> // Render 4 skeleton placeholders
-                  ))}
+                  {
+                    Array(4)
+                      .fill(0)
+                      .map(
+                        (_, index) => (
+                          <LoadingSkeleton key={index} /> // Render 4 skeleton placeholders
+                        )
+                      )
+                  }
                 </div>
               </section>
             </>
