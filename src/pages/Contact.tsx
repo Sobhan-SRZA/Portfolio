@@ -143,7 +143,7 @@ const Contact: React.FC = () => {
     },
     {
       key: "telegram",
-      url: social.telegram,
+      url: social.telegram_second,
       icon: (className?: string) => <Send className={className} /> // Telegram contact icon
     },
     {
