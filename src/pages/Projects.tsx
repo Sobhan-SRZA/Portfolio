@@ -256,9 +256,10 @@ const Projects: React.FC = () => {
                       : "text-left"
                       }`}
                   >
-                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-34"></div>
-                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-10"></div>
-                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-16"></div>
+                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-134"></div>
+                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-60"></div>
+                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-96"></div>
+                    <div className="h-1 bg-linear-to-r bg-(--loding-item) bg-size-[200%_100%] animate-shimmer rounded-full w-156"></div>
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-5 transition-all">
