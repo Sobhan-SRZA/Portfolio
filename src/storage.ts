@@ -29,7 +29,7 @@ export const social = {
 
 export const projects_link = "https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/projects.json" as const;
 
-export const google_script_link = "https://script.google.com/macros/s/AKfycbwwg1gH7aXeFxFBgbK66Vt3hjoVUHOxX2DnBsyxWhalKUBSPYRPRj-hIAfOnSsq7UnNcw/exec" as const;
+export const google_script_link = "https://script.google.com/macros/s/AKfycbyYVXg1OtmjWZW0wxka0fpWLoj_QeCLzFfEAnboBs0PE6KF5tVksmgBf_pVtXv-JqpneQ/exec" as const;
 /**
  * @copyright
  * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
